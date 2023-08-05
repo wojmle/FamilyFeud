@@ -1,0 +1,40 @@
+﻿<Window x:Class="FamilyFeud.MVVM.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FamilyFeud"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="10*"></RowDefinition>
+            <RowDefinition Height="3*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition ></ColumnDefinition>
+            <ColumnDefinition ></ColumnDefinition>
+            <ColumnDefinition ></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row ="0" Grid.Column ="0"  Content="First team name:"/>
+        <StackPanel Grid.Row ="1" Grid.Column ="0">
+            <TextBox x:Name ="firstTeam"  Height="30" VerticalAlignment="Top" Text ="{Binding FirstTeamName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <RadioButton HorizontalAlignment="Center" Content ="Answering now" GroupName="IsAnswering" IsChecked="{Binding IsFirstTeamAnswering}"></RadioButton>
+        </StackPanel>
+        <StackPanel Grid.Row ="1" Grid.Column ="2">
+            <TextBox Name="secondTeamName" Height="30" VerticalAlignment="Top" Text ="{Binding SecondTeamName}"/>
+            <RadioButton HorizontalAlignment="Center" Content ="Answering now" GroupName="IsAnswering" IsChecked="{Binding IsSecondTeamAnswering}"></RadioButton>
+        </StackPanel>
+
+        <Label Grid.Row ="0" Grid.Column ="1"  Content="Questions list"/>
+        <ListBox Grid.Row ="1" Grid.Column="1" Name = "Questions" ItemsSource="{Binding QuestionList}"></ListBox>
+        <Label Grid.Row ="0" Grid.Column ="2" Content="Second team name:"/>
+        <DockPanel Grid.Row ="2" Grid.Column ="1" HorizontalAlignment="Center">
+            <Button  VerticalAlignment="Center" Height ="30" Width="100" x:Name ="Start" Margin="10" Content="Start"></Button>
+            <Button  VerticalAlignment="Center" Height ="30" Width="100" x:Name ="Reset" Margin="10" Content="Reset"></Button>
+        </DockPanel>
+    </Grid>
+</Window>

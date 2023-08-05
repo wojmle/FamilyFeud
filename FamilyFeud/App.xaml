@@ -1,0 +1,10 @@
+﻿<Application x:Class="FamilyFeud.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:FamilyFeud"
+             xmlns:view="clr-namespace:FamilyFeud.MVVM.View"
+             xmlns:viewModel="clr-namespace:FamilyFeud.MVVM.ViewModel">
+    <Application.Resources>
+        <FontFamily x:Key="Familiada">pack://application:,,,/Fonts/#Familiada</FontFamily>
+    </Application.Resources>
+</Application>

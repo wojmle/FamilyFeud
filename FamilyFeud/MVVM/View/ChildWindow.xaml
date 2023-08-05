@@ -1,0 +1,88 @@
+﻿<Window x:Class="FamilyFeud.MVVM.View.ChildWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FamilyFeud"
+        mc:Ignorable="d"
+        Title="ChildWindow" Height="720" Width="1080" Background="Black" >
+    <Window.Resources>
+        <Style x:Key ="TeamName" TargetType ="TextBlock">
+            <Setter Property ="Background" Value ="Black"/>
+            <Setter Property ="Foreground" Value ="Yellow"/>
+            <Setter Property ="FontFamily" Value ="{StaticResource Familiada}"/>
+            <Setter Property="FontSize" Value ="30"></Setter>
+        </Style>
+        <Style TargetType ="Label">
+            <Setter Property ="Background" Value ="Black"/>
+            <Setter Property ="Foreground" Value ="Yellow"/>
+            <Setter Property ="FontFamily" Value ="{StaticResource Familiada}"/>
+            <Setter Property="FontSize" Value ="30"></Setter>
+        </Style>
+        <Style TargetType ="ListBox">
+            <Setter Property ="Background" Value ="Black"/>
+            <Setter Property ="Foreground" Value ="Yellow"/>
+            <Setter Property ="FontFamily" Value ="{StaticResource Familiada}"/>
+            <Setter Property="FontSize" Value ="24"></Setter>
+        </Style>
+        <Style TargetType ="TextBlock">
+            <Setter Property ="Background" Value ="Black"/>
+            <Setter Property ="Foreground" Value ="Yellow"/>
+            <Setter Property ="FontFamily" Value ="{StaticResource Familiada}"/>
+        </Style>
+
+
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="10*"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width ="10"></ColumnDefinition>
+            <ColumnDefinition Width ="4*"></ColumnDefinition>
+            <ColumnDefinition Width ="10"></ColumnDefinition>
+            <ColumnDefinition Width ="1*"></ColumnDefinition>
+            <ColumnDefinition Width ="10"></ColumnDefinition>
+            <ColumnDefinition Width ="9*"></ColumnDefinition>
+            <ColumnDefinition Width ="10"></ColumnDefinition>
+            <ColumnDefinition Width ="1*"></ColumnDefinition>
+            <ColumnDefinition Width ="10"></ColumnDefinition>
+            <ColumnDefinition Width ="4*"></ColumnDefinition>
+            <ColumnDefinition Width ="10"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Viewbox Grid.Column="1" Grid.Row="3" Margin="0" Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <TextBlock Text ="{Binding FirstTeamName}" FontSize="24"></TextBlock>
+        </Viewbox>
+        <Viewbox Grid.Column="9" Grid.Row="3" Margin="0" Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <TextBlock Text ="{Binding SecondTeamName}" FontSize="24"></TextBlock>
+        </Viewbox>
+        <Viewbox Grid.Column="1" Grid.Row="1" Margin="0" Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <TextBlock Text ="{Binding FirstTeamScore}" FontSize="24"></TextBlock>
+        </Viewbox>
+        <Viewbox Grid.Column="9" Grid.Row="1" Margin="0" Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <TextBlock Text ="{Binding SecondTeamScore}" FontSize="24"></TextBlock>
+        </Viewbox>
+        <Viewbox Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="1" Margin="0" Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+            <TextBlock Text ="{Binding PointsToWin}" FontSize="24"></TextBlock>
+        </Viewbox>
+        <ListBox Grid.Column="3" Grid.Row="5" Background="Black" BorderThickness="0" FontStretch="Condensed">
+            <ListBoxItem Content="1" Foreground="Yellow" FontSize="50" HorizontalAlignment="Right" VerticalAlignment="Center"></ListBoxItem>
+        </ListBox>
+        <ListBox Grid.Column="5" Grid.Row="5" Background="Black" BorderThickness="0" FontStretch="UltraCondensed">
+            <ListBoxItem Content=". . . . . . . . . . . . . . . . . . . " Foreground="Yellow" FontSize="50" HorizontalAlignment="Left" VerticalAlignment="Center"></ListBoxItem>
+        </ListBox>
+        <Viewbox Grid.Column="5" Grid.Row="7" Stretch="Uniform" HorizontalAlignment="Right" VerticalAlignment="Stretch">
+            <TextBlock Text ="{Binding PointsSum}" FontSize="24"></TextBlock>
+        </Viewbox>
+    </Grid>
+
+    
+</Window>
