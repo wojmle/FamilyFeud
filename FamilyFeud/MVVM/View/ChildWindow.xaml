@@ -72,11 +72,9 @@
         <Viewbox Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="1" Margin="0" Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
             <TextBlock Text ="{Binding PointsToWin}" FontSize="24"></TextBlock>
         </Viewbox>
-        <ListBox Grid.Column="3" Grid.Row="5" Background="Black" BorderThickness="0" FontStretch="Condensed">
-            <ListBoxItem Content="1" Foreground="#FFB8BD63" FontSize="50" HorizontalAlignment="Right" VerticalAlignment="Center"></ListBoxItem>
+        <ListBox Grid.Column="3" Grid.Row="5" Background="Black" BorderThickness="0" FontStretch="Condensed" Foreground="#FFB8BD63" FontSize="50" HorizontalAlignment="Right" VerticalAlignment="Center" ItemsSource="{Binding AnswersObjectCollection}" DisplayMemberPath="Points">
         </ListBox>
-        <ListBox Grid.Column="5" Grid.Row="5" Background="Black" BorderThickness="0" FontStretch="UltraCondensed">
-            <ListBoxItem Content=". . . . . . . . . . .  " Foreground="#FFB8BD63" FontSize="50" HorizontalAlignment="Left" VerticalAlignment="Center"></ListBoxItem>
+        <ListBox Grid.Column="5" Grid.Row="5" Background="Black" BorderThickness="0" FontStretch="UltraCondensed" Foreground="#FFB8BD63" FontSize="50" HorizontalAlignment="Left" VerticalAlignment="Center" ItemsSource="{Binding AnswersObjectCollection}" DisplayMemberPath="AnswerString">
         </ListBox>
         <Viewbox Grid.Column="5" Grid.Row="7" Stretch="Uniform" HorizontalAlignment="Right" VerticalAlignment="Stretch">
             <TextBlock Text ="{Binding PointsSum}" FontSize="24"></TextBlock>

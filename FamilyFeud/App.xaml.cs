@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using FamilyFeud.MVVM.Model;
 using FamilyFeud.MVVM.ViewModel;
 using FamilyFeud.MVVM.View;
 

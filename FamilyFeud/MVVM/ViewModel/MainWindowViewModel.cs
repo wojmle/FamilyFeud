@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,6 +8,7 @@ using System.Windows.Input;
 using FamilyFeud.MVVM.Model;
 using FamilyFeud.MVVM.View;
 using FamilyFeud.MVVM.ViewModel;
+using Microsoft.Office.Interop.Excel;
 
 namespace FamilyFeud.MVVM.ViewModel
 {
@@ -14,9 +16,38 @@ namespace FamilyFeud.MVVM.ViewModel
     {
         private readonly Game _game;
 
+
         public MainWindowViewModel(Game game)
         {
             _game = game;
+            SetList();
+        }
+
+        private void SetList()
+        {
+            _game.QuestionList[0].Answers.ForEach(setAnswerObjectCollection());
+        }
+
+        private Action<Answer> setAnswerObjectCollection()
+        {
+            this.AnswersObjectCollection = new ObservableCollection<Answer>();
+            return f => this.answersObjectCollection.Add(new Answer
+            {
+                AnswerString = f.AnswerString, Points = f.Points
+            });
+        }
+
+
+        private ObservableCollection<Answer> answersObjectCollection;
+        public ObservableCollection<Answer> AnswersObjectCollection
+        {
+            get { return answersObjectCollection; }
+            set
+            {
+                if (value != this.answersObjectCollection)
+                    answersObjectCollection = value;
+                OnPropertyChanged(nameof(AnswersObjectCollection));
+            }
         }
 
         private bool _isSymbolVisible1 { get; set; }

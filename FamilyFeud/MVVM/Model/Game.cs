@@ -13,16 +13,16 @@ namespace FamilyFeud.MVVM.Model
         public List<Question> QuestionList { get; }
         public int CurrentRound { get; set; }
         public int WrongAnswers { get; set; }
-
         public string TeamStartingRound { get; set; }
 
         public Game() { }
-        public Game(string firstTeam, string secondTeam, List<Question> questionList)
+        public Game(string firstTeam, string secondTeam)
         {
+            QuestionList = new List<Question>();
             FirstTeamName = firstTeam;
             SecondTeamName = secondTeam;
-            QuestionList = questionList;
-            CurrentRound = 0;
+            CurrentRound = 1;
+            SetQuestion();
         }
 
         public void NextRound()
@@ -49,5 +49,10 @@ namespace FamilyFeud.MVVM.Model
             WrongAnswers = 0;
         }
 
+
+        public void SetQuestion()
+        {
+            QuestionList.Add(new Question(CurrentRound));
+        }
     }
 }
