@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Resource Include="Fonts\familiada.ttf" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -67,6 +70,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Commands\WrongAnswerClick.cs" />
     <Compile Include="MVVM\View\ChildWindow.xaml.cs">
       <DependentUpon>ChildWindow.xaml</DependentUpon>
     </Compile>
@@ -81,7 +85,7 @@
     <Compile Include="MVVM\Model\Game.cs" />
     <Compile Include="MVVM\Model\Question.cs" />
     <Compile Include="MVVM\Service\GameService.cs" />
-    <Compile Include="MVVM\ViewModel\DelegateCommand.cs" />
+    <Compile Include="Commands\CommandBase.cs" />
     <Compile Include="MVVM\ViewModel\MainWindowViewModel.cs" />
     <Compile Include="MVVM\ViewModel\ViewModelBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -101,7 +105,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Resource Include="Fonts\familiada.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FamilyFeud.MVVM.Model
 {
-    internal class Answer
+    public class Answer
     {
         public int Points { get; set; }
         public string AnswerString { get; set; }

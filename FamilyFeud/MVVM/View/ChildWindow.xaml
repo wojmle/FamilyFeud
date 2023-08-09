@@ -9,29 +9,28 @@
     <Window.Resources>
         <Style x:Key ="TeamName" TargetType ="TextBlock">
             <Setter Property ="Background" Value ="Black"/>
-            <Setter Property ="Foreground" Value ="Yellow"/>
+            <Setter Property ="Foreground" Value ="#FFB8BD63"/>
             <Setter Property ="FontFamily" Value ="{StaticResource Familiada}"/>
             <Setter Property="FontSize" Value ="30"></Setter>
         </Style>
         <Style TargetType ="Label">
             <Setter Property ="Background" Value ="Black"/>
-            <Setter Property ="Foreground" Value ="Yellow"/>
+            <Setter Property ="Foreground" Value ="#FFB8BD63"/>
             <Setter Property ="FontFamily" Value ="{StaticResource Familiada}"/>
             <Setter Property="FontSize" Value ="30"></Setter>
         </Style>
         <Style TargetType ="ListBox">
             <Setter Property ="Background" Value ="Black"/>
-            <Setter Property ="Foreground" Value ="Yellow"/>
+            <Setter Property ="Foreground" Value ="#FFB8BD63"/>
             <Setter Property ="FontFamily" Value ="{StaticResource Familiada}"/>
-            <Setter Property="FontSize" Value ="24"></Setter>
+            <Setter Property="FontSize" Value ="18"></Setter>
         </Style>
         <Style TargetType ="TextBlock">
             <Setter Property ="Background" Value ="Black"/>
-            <Setter Property ="Foreground" Value ="Yellow"/>
+            <Setter Property ="Foreground" Value ="#FFB8BD63"/>
             <Setter Property ="FontFamily" Value ="{StaticResource Familiada}"/>
         </Style>
-
-
+        
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -59,7 +58,7 @@
             <ColumnDefinition Width ="10"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Viewbox Grid.Column="1" Grid.Row="3" Margin="0" Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <TextBlock Text ="{Binding FirstTeamName}" FontSize="24"></TextBlock>
+            <TextBlock Text ="{Binding FirstTeamName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="24"></TextBlock>
         </Viewbox>
         <Viewbox Grid.Column="9" Grid.Row="3" Margin="0" Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <TextBlock Text ="{Binding SecondTeamName}" FontSize="24"></TextBlock>
@@ -74,13 +73,37 @@
             <TextBlock Text ="{Binding PointsToWin}" FontSize="24"></TextBlock>
         </Viewbox>
         <ListBox Grid.Column="3" Grid.Row="5" Background="Black" BorderThickness="0" FontStretch="Condensed">
-            <ListBoxItem Content="1" Foreground="Yellow" FontSize="50" HorizontalAlignment="Right" VerticalAlignment="Center"></ListBoxItem>
+            <ListBoxItem Content="1" Foreground="#FFB8BD63" FontSize="50" HorizontalAlignment="Right" VerticalAlignment="Center"></ListBoxItem>
         </ListBox>
         <ListBox Grid.Column="5" Grid.Row="5" Background="Black" BorderThickness="0" FontStretch="UltraCondensed">
-            <ListBoxItem Content=". . . . . . . . . . . . . . . . . . . " Foreground="Yellow" FontSize="50" HorizontalAlignment="Left" VerticalAlignment="Center"></ListBoxItem>
+            <ListBoxItem Content=". . . . . . . . . . .  " Foreground="#FFB8BD63" FontSize="50" HorizontalAlignment="Left" VerticalAlignment="Center"></ListBoxItem>
         </ListBox>
         <Viewbox Grid.Column="5" Grid.Row="7" Stretch="Uniform" HorizontalAlignment="Right" VerticalAlignment="Stretch">
             <TextBlock Text ="{Binding PointsSum}" FontSize="24"></TextBlock>
+        </Viewbox>
+        <Viewbox Grid.Column="1" Grid.Row="5" Grid.RowSpan="3" Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <StackPanel>
+                <Image x:Name="FirstTeamFalse1" Source="FamilyFeud;component/Images/FalseSymbol.png" Margin="0 100 0 100" Visibility="{Binding IsSymbolVisible11}"/>
+                <Image x:Name="FirstTeamFalse2" Source="FamilyFeud;component/Images/FalseSymbol.png" Margin="0 100 0 100" Visibility="{Binding IsSymbolVisible12}"/>
+                <Image x:Name="FirstTeamFalse3" Source="FamilyFeud;component/Images/FalseSymbol.png" Margin="0 100 0 100" Visibility="{Binding IsSymbolVisible13}"/>
+            </StackPanel>
+        </Viewbox>
+        <Viewbox Grid.Column="1" Grid.Row="5" Grid.RowSpan="3" Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <StackPanel>
+                <Image x:Name="FirstTeamLastWrong" Source="FamilyFeud;component/Images/FalseSymbol.png" Margin="10 100 10 100" Visibility="{Binding IsSymbolVisible1}"/>
+            </StackPanel>
+        </Viewbox>
+        <Viewbox Grid.Column="9" Grid.Row="5" Grid.RowSpan="3" Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <StackPanel>
+                <Image x:Name="SecondTeamFalse1" Source="FamilyFeud;component/Images/FalseSymbol.png" Margin="0 100 0 100" Visibility="{Binding IsSymbolVisible21}"/>
+                <Image x:Name="SecondTeamFalse2" Source="FamilyFeud;component/Images/FalseSymbol.png" Margin="0 100 0 100" Visibility="{Binding IsSymbolVisible22}"/>
+                <Image x:Name="SecondTeamFalse3" Source="FamilyFeud;component/Images/FalseSymbol.png" Margin="0 100 0 100" Visibility="{Binding IsSymbolVisible23}"/>
+            </StackPanel>
+        </Viewbox>
+        <Viewbox Grid.Column="9" Grid.Row="5" Grid.RowSpan="3" Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <StackPanel>
+                <Image x:Name="LastTeamLastWrong" Source="FamilyFeud;component/Images/FalseSymbol.png" Margin="10 100 10 100" Visibility="{Binding IsSymbolVisible2}"/>
+            </StackPanel>
         </Viewbox>
     </Grid>
 

@@ -15,14 +15,5 @@ namespace FamilyFeud.MVVM.ViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
-        protected virtual void OnPropertyChanged(PropertyChangedEventArgs e)
-        {
-            var handler = this.PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, e);
-            }
-        }
     }
 }

@@ -17,10 +17,12 @@ namespace FamilyFeud
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            var window = new MainWindow() { DataContext = new MainWindowViewModel() };
+            var window = new MainWindow();
             window.Show();
 
             base.OnStartup(e);
+
+
         }
     }
 }

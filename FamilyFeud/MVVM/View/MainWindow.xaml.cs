@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using FamilyFeud.MVVM.Model;
 using FamilyFeud.MVVM.ViewModel;
 
 namespace FamilyFeud.MVVM.View
@@ -23,7 +24,8 @@ namespace FamilyFeud.MVVM.View
     {
         public MainWindow()
         {
-            var viewModel = new MainWindowViewModel();
+            var game = new Game();
+            var viewModel = new MainWindowViewModel(game);
             ChildWindow childWindow = new ChildWindow();
             childWindow.DataContext = viewModel;
             childWindow.Show();
