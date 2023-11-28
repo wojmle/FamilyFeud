@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         Title="ChildWindow" Height="720" Width="1080" Background="Black" >
     <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVisibility"/>
+        <FontFamily x:Key="Familiada">pack://application:,,,/MVVM/Fonts/#Familiada Regular</FontFamily>
         <Style x:Key ="TeamName" TargetType ="TextBlock">
             <Setter Property ="Background" Value ="Black"/>
             <Setter Property ="Foreground" Value ="#FFB8BD63"/>
@@ -72,35 +74,35 @@
         <Viewbox Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="1" Margin="0" Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
             <TextBlock Text ="{Binding PointsToWin}" FontSize="24"></TextBlock>
         </Viewbox>
-        <ListBox Grid.Column="3" Grid.Row="5" Background="Black" BorderThickness="0" FontStretch="Condensed" Foreground="#FFB8BD63" FontSize="50" HorizontalAlignment="Right" VerticalAlignment="Center" ItemsSource="{Binding AnswersObjectCollection}" DisplayMemberPath="Points">
+        <ListBox Grid.Column="3" Grid.Row="5" Background="Black" BorderThickness="0" FontStretch="Condensed" Foreground="#FFB8BD63" FontSize="50" HorizontalAlignment="Right" VerticalAlignment="Center" ItemsSource="{Binding HiddenPointsObjectCollection}">
         </ListBox>
-        <ListBox Grid.Column="5" Grid.Row="5" Background="Black" BorderThickness="0" FontStretch="UltraCondensed" Foreground="#FFB8BD63" FontSize="50" HorizontalAlignment="Left" VerticalAlignment="Center" ItemsSource="{Binding AnswersObjectCollection}" DisplayMemberPath="AnswerString">
+        <ListBox Grid.Column="5" Grid.Row="5" Background="Black" BorderThickness="0" FontStretch="Condensed" Foreground="#FFB8BD63" FontSize="50" HorizontalAlignment="Left" VerticalAlignment="Center" ItemsSource="{Binding HiddenAnswersObjectCollection}">
         </ListBox>
         <Viewbox Grid.Column="5" Grid.Row="7" Stretch="Uniform" HorizontalAlignment="Right" VerticalAlignment="Stretch">
             <TextBlock Text ="{Binding PointsSum}" FontSize="24"></TextBlock>
         </Viewbox>
-        <Viewbox Grid.Column="1" Grid.Row="5" Grid.RowSpan="3" Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Viewbox Grid.Column="1" Grid.Row="5" Grid.RowSpan="3">
             <StackPanel>
-                <Image x:Name="FirstTeamFalse1" Source="FamilyFeud;component/Images/FalseSymbol.png" Margin="0 100 0 100" Visibility="{Binding IsSymbolVisible11}"/>
-                <Image x:Name="FirstTeamFalse2" Source="FamilyFeud;component/Images/FalseSymbol.png" Margin="0 100 0 100" Visibility="{Binding IsSymbolVisible12}"/>
-                <Image x:Name="FirstTeamFalse3" Source="FamilyFeud;component/Images/FalseSymbol.png" Margin="0 100 0 100" Visibility="{Binding IsSymbolVisible13}"/>
+                <Image x:Name="FirstTeamFalse1" Source="/MVVM/Images/FalseSymbol.png" Margin="0 100 0 100" Visibility="{Binding IsSymbolVisible11, Converter={StaticResource BoolToVisibility}}"/>
+                <Image x:Name="FirstTeamFalse2" Source="/MVVM/Images/FalseSymbol.png" Margin="0 100 0 100" Visibility="{Binding IsSymbolVisible12, Converter={StaticResource BoolToVisibility}}"/>
+                <Image x:Name="FirstTeamFalse3" Source="/MVVM/Images/FalseSymbol.png" Margin="0 100 0 100" Visibility="{Binding IsSymbolVisible13, Converter={StaticResource BoolToVisibility}}"/>
             </StackPanel>
         </Viewbox>
         <Viewbox Grid.Column="1" Grid.Row="5" Grid.RowSpan="3" Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <StackPanel>
-                <Image x:Name="FirstTeamLastWrong" Source="FamilyFeud;component/Images/FalseSymbol.png" Margin="10 100 10 100" Visibility="{Binding IsSymbolVisible1}"/>
+                <Image x:Name="FirstTeamLastWrong" Source="/MVVM/Images/FalseSymbol.png" Margin="10 100 10 100" Visibility="{Binding IsSymbolVisible1, Converter={StaticResource BoolToVisibility}}"/>
+            </StackPanel>
+        </Viewbox>
+        <Viewbox Grid.Column="9" Grid.Row="5" Grid.RowSpan="3">
+            <StackPanel>
+                <Image x:Name="SecondTeamFalse1" Source="/MVVM/Images/FalseSymbol.png" Margin="0 100 0 100" Visibility="{Binding IsSymbolVisible21, Converter={StaticResource BoolToVisibility}}"/>
+                <Image x:Name="SecondTeamFalse2" Source="/MVVM/Images/FalseSymbol.png" Margin="0 100 0 100" Visibility="{Binding IsSymbolVisible22, Converter={StaticResource BoolToVisibility}}"/>
+                <Image x:Name="SecondTeamFalse3" Source="/MVVM/Images/FalseSymbol.png" Margin="0 100 0 100" Visibility="{Binding IsSymbolVisible23, Converter={StaticResource BoolToVisibility}}"/>
             </StackPanel>
         </Viewbox>
         <Viewbox Grid.Column="9" Grid.Row="5" Grid.RowSpan="3" Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <StackPanel>
-                <Image x:Name="SecondTeamFalse1" Source="FamilyFeud;component/Images/FalseSymbol.png" Margin="0 100 0 100" Visibility="{Binding IsSymbolVisible21}"/>
-                <Image x:Name="SecondTeamFalse2" Source="FamilyFeud;component/Images/FalseSymbol.png" Margin="0 100 0 100" Visibility="{Binding IsSymbolVisible22}"/>
-                <Image x:Name="SecondTeamFalse3" Source="FamilyFeud;component/Images/FalseSymbol.png" Margin="0 100 0 100" Visibility="{Binding IsSymbolVisible23}"/>
-            </StackPanel>
-        </Viewbox>
-        <Viewbox Grid.Column="9" Grid.Row="5" Grid.RowSpan="3" Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <StackPanel>
-                <Image x:Name="LastTeamLastWrong" Source="FamilyFeud;component/Images/FalseSymbol.png" Margin="10 100 10 100" Visibility="{Binding IsSymbolVisible2}"/>
+                <Image x:Name="LastTeamLastWrong" Source="/MVVM/Images/FalseSymbol.png" Margin="10 100 10 100" Visibility="{Binding IsSymbolVisible2, Converter={StaticResource BoolToVisibility}}"/>
             </StackPanel>
         </Viewbox>
     </Grid>

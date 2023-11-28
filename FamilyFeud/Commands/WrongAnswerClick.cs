@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FamilyFeud.MVVM.Commands;
 using FamilyFeud.MVVM.Model;
 using FamilyFeud.MVVM.ViewModel;
+using WMPLib;
 
 namespace FamilyFeud.Commands
 {
@@ -14,9 +16,17 @@ namespace FamilyFeud.Commands
         private readonly MainWindowViewModel _mainWindowViewModel;
         private readonly Game _game;
 
-        public WrongAnswerClick(MainWindowViewModel mainWindowViewModel, Game _game)
+        public WrongAnswerClick(MainWindowViewModel mainWindowViewModel, Game game)
         {
             _mainWindowViewModel = mainWindowViewModel;
+            _game = game;
+        }
+
+        public void PlayWrongAnswer()
+        {
+            WindowsMediaPlayerClass player = new WindowsMediaPlayerClass();
+            player.URL = @"\\Sounds\\WrongAnswer.mp3"; //adjust path
+            player.play();
         }
 
         public override void Execute(object parameter)
@@ -28,6 +38,7 @@ namespace FamilyFeud.Commands
                     case 0: 
                         _game.AddWrongAnswer();
                         _mainWindowViewModel.IsSymbolVisible11 = true;
+                        PlayWrongAnswer();
                         break;
                     case 1:
                         _game.AddWrongAnswer();

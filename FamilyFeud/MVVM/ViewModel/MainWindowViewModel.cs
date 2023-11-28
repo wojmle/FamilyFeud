@@ -8,6 +8,7 @@ using System.Windows.Input;
 using FamilyFeud.MVVM.Model;
 using FamilyFeud.MVVM.View;
 using FamilyFeud.MVVM.ViewModel;
+using FamilyFeud.Commands;
 using Microsoft.Office.Interop.Excel;
 
 namespace FamilyFeud.MVVM.ViewModel
@@ -20,14 +21,23 @@ namespace FamilyFeud.MVVM.ViewModel
         public MainWindowViewModel(Game game)
         {
             _game = game;
+            SetDefaultData();
+            _wrongAnswerClickCommand = new WrongAnswerClick(this, _game);
             SetList();
         }
 
         private void SetList()
         {
-            _game.QuestionList[0].Answers.ForEach(setAnswerObjectCollection());
+            _game.QuestionList[_game.CurrentRound - 1].Answers.ForEach(setAnswerObjectCollection());
+            _game.QuestionList[_game.CurrentRound - 1].Answers.ForEach(setHiddenAnswerObjectCollection());
+            _game.QuestionList[_game.CurrentRound - 1].Answers.ForEach(setHiddenPointsObjectCollection());
         }
 
+        private void SetDefaultData()
+        {
+            IsSymbolVisible1 = IsSymbolVisible11 = IsSymbolVisible12 = IsSymbolVisible13 =
+                IsSymbolVisible2 = IsSymbolVisible21 = IsSymbolVisible22 = IsSymbolVisible23 = false;
+        }
         private Action<Answer> setAnswerObjectCollection()
         {
             this.AnswersObjectCollection = new ObservableCollection<Answer>();
@@ -36,6 +46,19 @@ namespace FamilyFeud.MVVM.ViewModel
                 AnswerString = f.AnswerString, Points = f.Points
             });
         }
+
+        private Action<Answer> setHiddenAnswerObjectCollection()
+        {
+            this.HiddenAnswersObjectCollection = new ObservableCollection<string>();
+            return f => this.hiddenAnswersObjectCollection.Add("...................");
+        }
+
+        private Action<Answer> setHiddenPointsObjectCollection()
+        {
+            this.HiddenPointsObjectCollection = new ObservableCollection<string>();
+            return f => this.hiddenPointsObjectCollection.Add("...");
+        }
+
 
 
         private ObservableCollection<Answer> answersObjectCollection;
@@ -47,6 +70,30 @@ namespace FamilyFeud.MVVM.ViewModel
                 if (value != this.answersObjectCollection)
                     answersObjectCollection = value;
                 OnPropertyChanged(nameof(AnswersObjectCollection));
+            }
+        }
+
+        private ObservableCollection<string> hiddenAnswersObjectCollection;
+        public ObservableCollection<string> HiddenAnswersObjectCollection
+        {
+            get { return hiddenAnswersObjectCollection; }
+            set
+            {
+                if (value != this.hiddenAnswersObjectCollection)
+                    hiddenAnswersObjectCollection = value;
+                OnPropertyChanged(nameof(HiddenAnswersObjectCollection));
+            }
+        }
+
+        private ObservableCollection<string> hiddenPointsObjectCollection;
+        public ObservableCollection<string> HiddenPointsObjectCollection
+        {
+            get { return hiddenPointsObjectCollection; }
+            set
+            {
+                if (value != this.hiddenPointsObjectCollection)
+                    hiddenPointsObjectCollection = value;
+                OnPropertyChanged(nameof(HiddenPointsObjectCollection));
             }
         }
 
@@ -237,6 +284,7 @@ namespace FamilyFeud.MVVM.ViewModel
             }
         }
 
+        public ICommand _wrongAnswerClickCommand { get; }
 
         public ICommand StartGame { get; }
         public ICommand ResetGame { get; }

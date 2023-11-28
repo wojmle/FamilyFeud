@@ -14,8 +14,14 @@ namespace FamilyFeud.MVVM.Model
         public int CurrentRound { get; set; }
         public int WrongAnswers { get; set; }
         public string TeamStartingRound { get; set; }
+        public string GameHistoryPath { get; set; }
 
-        public Game() { }
+        public Game()
+        {
+            GameHistoryPath = "/GameHistory.xml";
+            CurrentRound = 1;
+        }
+
         public Game(string firstTeam, string secondTeam)
         {
             QuestionList = new List<Question>();
@@ -35,13 +41,9 @@ namespace FamilyFeud.MVVM.Model
             CurrentRound--;
         }
 
-        public bool AddWrongAnswer()
+        public void AddWrongAnswer()
         {
-            if (WrongAnswers > 2)
-            {
-                return false;
-            }
-            return true;
+            WrongAnswers++;
         }
 
         public void ResetWrongAnswers()

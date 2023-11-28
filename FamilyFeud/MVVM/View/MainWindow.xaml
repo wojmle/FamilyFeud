@@ -19,7 +19,7 @@
             <ColumnDefinition ></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Label Grid.Row ="0" Grid.Column ="0" FontFamily="{DynamicResource Familiada}" Content="First team name:"/>
+        <Label Grid.Row ="0" Grid.Column ="0" Content="First team name:"/>
         <StackPanel Grid.Row ="1" Grid.Column ="0">
             <TextBox x:Name ="firstTeam" Height="30" VerticalAlignment="Top" Text ="{Binding FirstTeamName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <RadioButton HorizontalAlignment="Center" Content ="Answering now" GroupName="IsAnswering" IsChecked="{Binding IsFirstTeamAnswering, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></RadioButton>
@@ -30,8 +30,8 @@
         </StackPanel>
 
         <Label Grid.Row ="0" Grid.Column ="1"  Content="Questions list"/>
-        <ListBox Grid.Row ="1" Grid.Column="1" Name = "Questions" ItemsSource="{Binding QuestionList}"></ListBox>
-        <Button Grid.Row ="1" Grid.Column="1" VerticalAlignment="Bottom" x:Name="WrongAnswer" Content="Wrong Answer"></Button>
+        <ListBox Grid.Row ="1" Grid.Column="1" Name = "Questions" ItemsSource="{Binding AnswersObjectCollection}" DisplayMemberPath="AnswerString"></ListBox>
+        <Button Grid.Row ="1" Grid.Column="1" VerticalAlignment="Bottom" x:Name="WrongAnswer" Content="Wrong Answer" Command="{Binding _wrongAnswerClickCommand}"></Button>
         <Label Grid.Row ="0" Grid.Column ="2" Content="Second team name:"/>
         <DockPanel Grid.Row ="2" Grid.Column ="1" HorizontalAlignment="Center">
             <Button  VerticalAlignment="Center" Height ="30" Width="100" x:Name ="Start" Margin="10" Content="Start"></Button>

@@ -25,7 +25,7 @@ namespace FamilyFeud.MVVM.Model
         public void ConnectToWorkbook()
         {
             Excel.Application excelApp = new Excel.Application();
-            string excelPath = "c:/Users/wojci/Documents/KatI.xlsx";
+            string excelPath = "c:/KatI.xlsx";
             Excel.Workbook excelWorkbook = excelApp.Workbooks.Open(excelPath);
             ExcelWorkbook = excelWorkbook;
         }
