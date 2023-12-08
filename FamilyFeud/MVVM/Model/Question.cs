@@ -3,16 +3,62 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FamilyFeud.MVVM.ViewModel;
 using Excel = Microsoft.Office.Interop.Excel;
 
 namespace FamilyFeud.MVVM.Model
 {
-    public class Question
+    public class Question : ObservableObject
     {
+        private int roundNumber;
+        public int RoundNumber
+        {
+            get => roundNumber;
+            set
+            {
+                roundNumber = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private List<Answer> answers;
+        public List<Answer> Answers
+        {
+            get => answers;
+            set
+            {
+                answers = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private string questionString;
+        public string QuestionString
+        {
+            get => questionString;
+            set
+            {
+                questionString = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private bool isAvailable;
+        public bool IsAvailable
+        {
+            get => isAvailable;
+            set
+            {
+                isAvailable = value;
+                NotifyPropertyChanged();
+            }
+        }
+
         public Excel.Workbook ExcelWorkbook { get; set; }
-        public int RoundNumber { get; }
-        public List<Answer> Answers { get; set; }
-        public string QuestionString { get; set; }
+
+        public Question()
+        {
+        }
 
         public Question(int roundNumber)
         {

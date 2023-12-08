@@ -3,19 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FamilyFeud.MVVM.Service;
+using FamilyFeud.MVVM.ViewModel;
 
 namespace FamilyFeud.MVVM.Model
 {
-    public class Game
+    public class Game : ObservableObject
     {
-        public string FirstTeamName { get; set; }
-        public string SecondTeamName { get; set; }
-        public List<Question> QuestionList { get; }
-        public int CurrentRound { get; set; }
-        public int WrongAnswers { get; set; }
-        public string TeamStartingRound { get; set; }
-        public string GameHistoryPath { get; set; }
-
         public Game()
         {
             GameHistoryPath = "/GameHistory.xml";
@@ -24,21 +18,89 @@ namespace FamilyFeud.MVVM.Model
 
         public Game(string firstTeam, string secondTeam)
         {
+            FirstTeam = new Team{Name = firstTeam, Points = 0, Lives = 3};
+            SecondTeam = new Team { Name = secondTeam, Points = 0, Lives = 3 };
             QuestionList = new List<Question>();
-            FirstTeamName = firstTeam;
-            SecondTeamName = secondTeam;
             CurrentRound = 1;
             SetQuestion();
         }
 
-        public void NextRound()
+        private Team firstTeam;
+        public Team FirstTeam
         {
-            CurrentRound++;
+            get { return firstTeam; }
+            set
+            {
+                firstTeam = value;
+                NotifyPropertyChanged();
+            }
         }
 
-        public void PreviousRound()
+        private Team secondTeam;
+        public Team SecondTeam
         {
-            CurrentRound--;
+            get { return secondTeam; }
+            set
+            {
+                secondTeam = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private List<Question> questionList;
+        public List<Question> QuestionList
+        {
+            get { return questionList; }
+            set
+            {
+                questionList = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private int currentRound;
+        public int CurrentRound
+        {
+            get => currentRound;
+            set
+            {
+                currentRound = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private int wrongAnswers;
+        public int WrongAnswers
+        {
+            get => wrongAnswers;
+            set
+            {
+                wrongAnswers = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private string teamStartingRound;
+        public string TeamStartingRound
+        {
+            get => teamStartingRound;
+            set
+            {
+                teamStartingRound = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private string gameHistoryPath;
+
+        public string GameHistoryPath
+        {
+            get => gameHistoryPath;
+            set
+            {
+                gameHistoryPath = value;
+                NotifyPropertyChanged();
+            }
         }
 
         public void AddWrongAnswer()

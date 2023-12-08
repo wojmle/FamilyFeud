@@ -38,6 +38,7 @@
     <Content Include="MVVM\Fonts\familiada.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="ToDo.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="CommonServiceLocator, Version=2.0.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
@@ -91,7 +92,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\WrongAnswerClick.cs" />
+    <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="MVVM\Converters\BoolToPoints.cs" />
+    <Compile Include="MVVM\Converters\BoolToAnswer.cs" />
+    <Compile Include="MVVM\Model\Team.cs" />
     <Compile Include="MVVM\View\ChildWindow.xaml.cs">
       <DependentUpon>ChildWindow.xaml</DependentUpon>
     </Compile>
@@ -108,7 +112,7 @@
     <Compile Include="MVVM\Service\GameService.cs" />
     <Compile Include="Commands\CommandBase.cs" />
     <Compile Include="MVVM\ViewModel\MainWindowViewModel.cs" />
-    <Compile Include="MVVM\ViewModel\ViewModelBase.cs" />
+    <Compile Include="MVVM\ViewModel\ObservableObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -131,6 +135,9 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Content Include="MVVM\DataBase\QuestionsPL.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -150,18 +157,19 @@
     <Resource Include="MVVM\Images\FalseSymbol.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Sounds\CorrectAnswer.mp3">
+    <Content Include="MVVM\Sounds\CorrectAnswer.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Sounds\RoundEnd.mp3">
+    <Content Include="MVVM\Sounds\RoundEnd.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Sounds\RoundStart.mp3">
+    <Content Include="MVVM\Sounds\RoundStart.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Sounds\WrongAnswer.mp3">
+    <Content Include="MVVM\Sounds\WrongAnswer.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -8,29 +8,34 @@ using System.Windows.Input;
 using FamilyFeud.MVVM.Model;
 using FamilyFeud.MVVM.View;
 using FamilyFeud.MVVM.ViewModel;
-using FamilyFeud.Commands;
 using Microsoft.Office.Interop.Excel;
+using WMPLib;
+using FamilyFeud.Commands;
+using FamilyFeud.MVVM.Service;
 
 namespace FamilyFeud.MVVM.ViewModel
 {
-    public class MainWindowViewModel : ViewModelBase
+    public class MainWindowViewModel : ObservableObject
     {
-        private readonly Game _game;
-
+        private readonly WindowsMediaPlayerClass _playerClass;
+        private GameService gameService;
+        private List<Question> database = new List<Question>(); //temp to check functionality - everything should happen on service site
 
         public MainWindowViewModel(Game game)
         {
-            _game = game;
+            gameService = new GameService();
+            database = gameService.ConvertExcelToJson();
+            _playerClass = new WindowsMediaPlayerClass();
+            OnWrongAnswerClickCommand = new RelayCommand(OnWrongAnswerClick);
+            OnAnswerClickCommand = new RelayCommand(OnAnswerClick);
+            ActiveGame = game;
             SetDefaultData();
-            _wrongAnswerClickCommand = new WrongAnswerClick(this, _game);
             SetList();
         }
 
         private void SetList()
         {
-            _game.QuestionList[_game.CurrentRound - 1].Answers.ForEach(setAnswerObjectCollection());
-            _game.QuestionList[_game.CurrentRound - 1].Answers.ForEach(setHiddenAnswerObjectCollection());
-            _game.QuestionList[_game.CurrentRound - 1].Answers.ForEach(setHiddenPointsObjectCollection());
+            ActiveGame.QuestionList[ActiveGame.CurrentRound - 1].Answers.ForEach(setAnswerObjectCollection());
         }
 
         private void SetDefaultData()
@@ -47,19 +52,28 @@ namespace FamilyFeud.MVVM.ViewModel
             });
         }
 
-        private Action<Answer> setHiddenAnswerObjectCollection()
+        private Game activeGame;
+
+        public Game ActiveGame
         {
-            this.HiddenAnswersObjectCollection = new ObservableCollection<string>();
-            return f => this.hiddenAnswersObjectCollection.Add("...................");
+            get => activeGame;
+            set
+            {
+                activeGame = value;
+                NotifyPropertyChanged();
+            }
         }
 
-        private Action<Answer> setHiddenPointsObjectCollection()
+        private Answer currentAnswer;
+        public Answer CurrentAnswer
         {
-            this.HiddenPointsObjectCollection = new ObservableCollection<string>();
-            return f => this.hiddenPointsObjectCollection.Add("...");
+            get { return currentAnswer; }
+            set
+            {
+                currentAnswer = value;
+                NotifyPropertyChanged();
+            }
         }
-
-
 
         private ObservableCollection<Answer> answersObjectCollection;
         public ObservableCollection<Answer> AnswersObjectCollection
@@ -67,35 +81,11 @@ namespace FamilyFeud.MVVM.ViewModel
             get { return answersObjectCollection; }
             set
             {
-                if (value != this.answersObjectCollection)
-                    answersObjectCollection = value;
-                OnPropertyChanged(nameof(AnswersObjectCollection));
+                answersObjectCollection = value;
+                NotifyPropertyChanged();
             }
         }
-
-        private ObservableCollection<string> hiddenAnswersObjectCollection;
-        public ObservableCollection<string> HiddenAnswersObjectCollection
-        {
-            get { return hiddenAnswersObjectCollection; }
-            set
-            {
-                if (value != this.hiddenAnswersObjectCollection)
-                    hiddenAnswersObjectCollection = value;
-                OnPropertyChanged(nameof(HiddenAnswersObjectCollection));
-            }
-        }
-
-        private ObservableCollection<string> hiddenPointsObjectCollection;
-        public ObservableCollection<string> HiddenPointsObjectCollection
-        {
-            get { return hiddenPointsObjectCollection; }
-            set
-            {
-                if (value != this.hiddenPointsObjectCollection)
-                    hiddenPointsObjectCollection = value;
-                OnPropertyChanged(nameof(HiddenPointsObjectCollection));
-            }
-        }
+        
 
         private bool _isSymbolVisible1 { get; set; }
         public bool IsSymbolVisible1
@@ -104,7 +94,7 @@ namespace FamilyFeud.MVVM.ViewModel
             set
             {
                 _isSymbolVisible1 = value;
-                OnPropertyChanged(nameof(IsSymbolVisible1));
+                NotifyPropertyChanged();
             }
         }
 
@@ -115,7 +105,7 @@ namespace FamilyFeud.MVVM.ViewModel
             set
             {
                 _isSymbolVisible2 = value;
-                OnPropertyChanged(nameof(IsSymbolVisible2));
+                NotifyPropertyChanged();
             }
         }
 
@@ -126,7 +116,7 @@ namespace FamilyFeud.MVVM.ViewModel
             set
             {
                 _isSymbolVisible11 = value;
-                OnPropertyChanged(nameof(IsSymbolVisible11));
+                NotifyPropertyChanged();
             }
         }
 
@@ -137,7 +127,7 @@ namespace FamilyFeud.MVVM.ViewModel
             set
             {
                 _isSymbolVisible12 = value;
-                OnPropertyChanged(nameof(IsSymbolVisible12));
+                NotifyPropertyChanged();
             }
         }
 
@@ -148,7 +138,7 @@ namespace FamilyFeud.MVVM.ViewModel
             set
             {
                 _isSymbolVisible13 = value;
-                OnPropertyChanged(nameof(IsSymbolVisible13));
+                NotifyPropertyChanged();
             }
         }
 
@@ -159,7 +149,7 @@ namespace FamilyFeud.MVVM.ViewModel
             set
             {
                 _isSymbolVisible21 = value;
-                OnPropertyChanged(nameof(IsSymbolVisible21));
+                NotifyPropertyChanged();
             }
         }
 
@@ -170,7 +160,7 @@ namespace FamilyFeud.MVVM.ViewModel
             set
             {
                 _isSymbolVisible22 = value;
-                OnPropertyChanged(nameof(IsSymbolVisible22));
+                NotifyPropertyChanged();
             }
         }
 
@@ -181,7 +171,7 @@ namespace FamilyFeud.MVVM.ViewModel
             set
             {
                 _isSymbolVisible23 = value;
-                OnPropertyChanged(nameof(IsSymbolVisible23));
+                NotifyPropertyChanged();
             }
         }
 
@@ -192,7 +182,8 @@ namespace FamilyFeud.MVVM.ViewModel
             set
             {
                 _firstTeamName = value;
-                OnPropertyChanged(nameof(FirstTeamName));
+                ActiveGame.FirstTeam.Name = _firstTeamName;
+                NotifyPropertyChanged();
             }
         }
 
@@ -203,7 +194,8 @@ namespace FamilyFeud.MVVM.ViewModel
             set
             {
                 _secondTeamName = value;
-                OnPropertyChanged(nameof(SecondTeamName));
+                ActiveGame.SecondTeam.Name = _secondTeamName;
+                NotifyPropertyChanged();
             }
         }
 
@@ -214,7 +206,7 @@ namespace FamilyFeud.MVVM.ViewModel
             set
             {
                 _firstTeamScore = value;
-                OnPropertyChanged(nameof(FirstTeamScore));
+                NotifyPropertyChanged();
             }
         }
         private int _secondTeamScore { get; set; }
@@ -224,7 +216,7 @@ namespace FamilyFeud.MVVM.ViewModel
             set
             {
                 _secondTeamScore = value;
-                OnPropertyChanged(nameof(SecondTeamScore));
+                NotifyPropertyChanged();
             }
         }
 
@@ -235,7 +227,7 @@ namespace FamilyFeud.MVVM.ViewModel
             set
             {
                 _pointsToWin = value;
-                OnPropertyChanged(nameof(PointsToWin));
+                NotifyPropertyChanged();
             }
         }
 
@@ -246,7 +238,7 @@ namespace FamilyFeud.MVVM.ViewModel
             set
             {
                 _pointsSum = value;
-                OnPropertyChanged(nameof(PointsSum));
+                NotifyPropertyChanged();
             }
         }
 
@@ -257,7 +249,7 @@ namespace FamilyFeud.MVVM.ViewModel
             set
             {
                 _questionList = value;
-                OnPropertyChanged(nameof(QuestionList));
+                NotifyPropertyChanged();
             }
         }
 
@@ -269,7 +261,7 @@ namespace FamilyFeud.MVVM.ViewModel
             set
             {
                 _isFirstTeamAnswering = value;
-                OnPropertyChanged(nameof(IsFirstTeamAnswering));
+                NotifyPropertyChanged();
             }
         }
 
@@ -280,14 +272,121 @@ namespace FamilyFeud.MVVM.ViewModel
             set
             {
                 _isSecondTeamAnswering = value;
-                OnPropertyChanged(nameof(IsSecondTeamAnswering));
+                NotifyPropertyChanged();
             }
         }
 
-        public ICommand _wrongAnswerClickCommand { get; }
+        public ICommand OnWrongAnswerClickCommand { get; protected set; }
+        public ICommand OnAnswerClickCommand { get; protected set; }
+
 
         public ICommand StartGame { get; }
         public ICommand ResetGame { get; }
 
+        private void OnWrongAnswerClick(object obj)
+        {
+            if (IsFirstTeamAnswering)
+            {
+                switch (ActiveGame.WrongAnswers)
+                {
+                    case 0:
+                        ActiveGame.AddWrongAnswer();
+                        IsSymbolVisible11 = true;
+                        PlayAnswerSound("WrongAnswer");
+                        break;
+                    case 1:
+                        ActiveGame.AddWrongAnswer();
+                        IsSymbolVisible12 = true;
+                        PlayAnswerSound("WrongAnswer");
+                        break;
+                    case 2:
+                        ActiveGame.AddWrongAnswer();
+                        IsSymbolVisible13 = true;
+                        PlayAnswerSound("WrongAnswer");
+                        break;
+                    case 3:
+                        ActiveGame.AddWrongAnswer();
+                        IsSymbolVisible2 = true;
+                        PlayAnswerSound("WrongAnswer");
+                        break;
+                    default:
+                        IsSymbolVisible11 = IsSymbolVisible12 =
+                            IsSymbolVisible13 = IsSymbolVisible2 = false;
+                        ActiveGame.ResetWrongAnswers();
+                        break;
+                }
+            }
+            else if (IsSecondTeamAnswering)
+            {
+                switch (ActiveGame.WrongAnswers)
+                {
+                    case 0:
+                        ActiveGame.AddWrongAnswer();
+                        IsSymbolVisible21 = true;
+                        PlayAnswerSound("WrongAnswer");
+                        break;
+                    case 1:
+                        ActiveGame.AddWrongAnswer();
+                        IsSymbolVisible22 = true;
+                        PlayAnswerSound("WrongAnswer");
+                        break;
+                    case 2:
+                        ActiveGame.AddWrongAnswer();
+                        IsSymbolVisible23 = true;
+                        PlayAnswerSound("WrongAnswer");
+                        break;
+                    case 3:
+                        ActiveGame.AddWrongAnswer();
+                        IsSymbolVisible1 = true;
+                        PlayAnswerSound("WrongAnswer");
+                        break;
+                    default:
+                        IsSymbolVisible21 = IsSymbolVisible22 =
+                            IsSymbolVisible23 = IsSymbolVisible1 = false;
+                        ActiveGame.ResetWrongAnswers();
+                        break;
+                }
+            }
+        }
+
+        private void OnAnswerClick(object obj)
+        {
+            if (obj != null && obj is Answer answer)
+            {
+                foreach (var answerObject in AnswersObjectCollection)
+                {
+                    if (answerObject.AnswerString == answer.AnswerString)
+                    {
+                        var index = AnswersObjectCollection.IndexOf(answerObject);
+
+                        if (!answer.IsVisible)
+                        {
+                            answerObject.IsVisible = CurrentAnswer.IsVisible = true;
+                            AnswersObjectCollection[index] = answerObject;
+                            PointsToWin += answerObject.Points;
+                            PlayAnswerSound("CorrectAnswer");
+                            return;
+                            // if team1 currently answering assign points to temporary container (consider creating two separate lists for each team and separate buttons)
+
+                        }
+                        else if (answer.IsVisible)
+                        {
+                            answerObject.IsVisible = false;
+                            AnswersObjectCollection[index] = answerObject;
+                            PointsToWin -= answerObject.Points;
+                            return;
+                            // remove points from temporary container
+                        }
+                    }
+                }
+            }
+        }
+
+        private void PlayAnswerSound(string soundName)
+        {
+            _playerClass.currentPlaylist.clear();
+            _playerClass.URL = $@"MVVM\\Sounds\\{soundName}.mp3"; //adjust path
+            _playerClass.controls.play();
+        }
     }
 }

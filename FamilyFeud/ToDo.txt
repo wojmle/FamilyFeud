@@ -1,0 +1,15 @@
+﻿1. Use database: https://drive.google.com/file/d/0Bzs-xvR-5hQ3WktpWVA2RmROY1U/view?resourcekey=0-u03CutV7Ye9rxiuUE8c_UQ
+Create service for creating and manipulating answers and questions
+Create service to format excel to json, then deserialize json to get objects, add property to question - WasUsed to determine whether it should be used again.
+2. Implement button to change language
+3. Add button to skip question
+4. Add function to reset game
+5. Add button to remove/undo wrong answer
+6. Implement solution with the first answers after buzzer
+Add timer for the first answer (3seconds, then hit wronganswer sound if not answered)
+7. Stop with questions with 3/4/5 answers after 4 rounds. Then go with the last round. Add timer 15s, on start
+8. Add speech recognition (highlight proposed answer) - click ok to validate
+9. Add joke on the start screen.
+10. Upgrade MainWindowView so it looks better.
+11. Create converter for WrongAnswerGraphics
+12. Add to main window informations about round number

@@ -4,22 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FamilyFeud.MVVM.ViewModel;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace FamilyFeud.MVVM.Model
 {
-    public class Answer : ObservableObject
+    public class Team : ObservableObject
     {
-        public Answer() { }
-
-        public Answer(int points, string answerString)
-        {
-            this.points = points;
-            this.AnswerString = answerString;
-        }
-
         private int points;
-        public int Points 
-        { 
+        public int Points
+        {
             get => points;
             set
             {
@@ -28,25 +21,35 @@ namespace FamilyFeud.MVVM.Model
             }
         }
 
-        private string answerString;
-        public string AnswerString
+        private string name;
+        public string Name
         {
-            get => answerString;
+            get => name;
             set
             {
-                answerString = value;
+                name = value;
                 NotifyPropertyChanged();
             }
         }
 
-        private bool isVisible = false;
-
-        public bool IsVisible
+        private bool isAnswering;
+        public bool IsAnswering
         {
-            get => isVisible;
+            get => isAnswering;
             set
             {
-                isVisible = value;
+                isAnswering = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private int lives;
+        public int Lives
+        {
+            get => lives;
+            set
+            {
+                lives = value;
                 NotifyPropertyChanged();
             }
         }
