@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using FamilyFeud.MVVM.Model;
+using FamilyFeud.Properties;
 using Microsoft.Office.Interop.Excel;
+using Newtonsoft.Json;
 using Excel = Microsoft.Office.Interop.Excel;
 
 
@@ -13,21 +17,93 @@ namespace FamilyFeud.MVVM.Service
 {
     public class GameService
     {
+        public const string FolderPath = @"MVVM\\DataBase\\";
+        public const string PathEN = @"QuestionsEN";
+        public const string PathPL = @"QuestionsPL";
         public Excel.Workbook ExcelWorkbook { get; set; }
         public Excel.Application ExcelApplication { get; set; } = new Excel.Application();
+        private DataService dataService = new DataService();
 
-        public List<Question> ConvertExcelToJson() //temporary returning List<question>
+        public List<Question> GetQuestionsList(string path)
         {
-            string path = @"MVVM\\DataBase\\QuestionsPL.xlsx";
-            path = System.IO.Path.GetFullPath(path);
+            if (path.Equals(PathEN))
+            {
+                var jsonPath = Path.Combine(FolderPath, PathEN + ".json");
+                dataService.GetObjectFromFile(jsonPath, out List<Question> questionsList);
+                return questionsList;
+            }
+            if (path.Equals(PathPL))
+            {
+                var jsonPath = Path.Combine(FolderPath, PathPL + ".json");
+                dataService.GetObjectFromFile(jsonPath, out List<Question> questionsList);
+                return questionsList;
+            }
+
+            return new List<Question>();
+        }
+
+        public bool SerializeObjectsToJson(string type)
+        {
+            int count = 1;
+            if (type == "PL")
+            {
+                var path = Path.Combine(FolderPath, PathPL + ".xlsx");
+                var game = ReadExcel(path);
+                
+                var file = Path.Combine(FolderPath, "QuestionsPL.json");
+                
+                while (File.Exists(file))
+                {
+                    string tempFileName = string.Format("{0}({1})", PathPL, count++);
+                    file = Path.Combine(FolderPath, tempFileName + ".json");
+                }
+
+                if (dataService.SaveObjectToFile(game, file) is false)
+                {
+                    var message = "Failed to save advanced options.";
+                    return false;
+                }
+
+                return true;
+
+            }
+            if (type == "EN")
+            {
+                var path = Path.Combine(FolderPath, PathEN + ".xlsx");
+                var game = ReadExcel(path);
+
+                var file = Path.Combine(FolderPath, "QuestionsEN.json");
+
+                while (File.Exists(file))
+                {
+                    string tempFileName = string.Format("{0}({1})", PathEN, count++);
+                    file = Path.Combine(FolderPath, tempFileName + ".json");
+                }
+
+                if (dataService.SaveObjectToFile(game, file) is false)
+                {
+                    var message = "Failed to save advanced options.";
+                    return false;
+                }
+
+                return true;
+            }
+
+            return false;
+        }
+
+        public List<Question> ReadExcel(string path) //temporary returning List<question>
+        {
             ConnectToExcel(path);
-            var questionsList = ReadExcelToJson(1, path);
+            var fileName = Path.GetFileNameWithoutExtension(path);
+            var questionsList = SerializeExcelToObjects(fileName);
             CloseExcelConnection();
             return questionsList;
         }
 
-        private void ConnectToExcel(string path)
+        private void ConnectToExcel(string source)
         {
+            var path = System.IO.Path.GetFullPath(source);
             ExcelWorkbook = ExcelApplication.Workbooks.Open(path); // should be path from parameters
         }
 
@@ -37,13 +113,12 @@ namespace FamilyFeud.MVVM.Service
             ExcelApplication.Quit();
         }
 
-        public List<Question> ReadExcelToJson(int roundNumber, string source)
+        public List<Question> SerializeExcelToObjects(string source)
         {
             List<Question> questionsList = new List<Question>();
-            var path = System.IO.Path.GetFullPath(source);
-            if (source == path)
+            if (source == PathPL)
             {
-                Excel.Worksheet excelWorkSheet = ExcelWorkbook.Sheets[roundNumber];
+                Excel.Worksheet excelWorkSheet = ExcelWorkbook.Sheets[1];
                 Excel.Range excelRange = excelWorkSheet.UsedRange;
                 var question = excelRange.Cells[1, 1].Value.ToString();
                 var answersCountString = Int32.TryParse(excelRange.Cells[1, 2].Value.ToString(), out int answersCount);
@@ -52,17 +127,18 @@ namespace FamilyFeud.MVVM.Service
                     return questionsList;
                 }
                 var lastRow = excelRange.Row + excelRange.Rows.Count - 1;
-                List<Answer> answersList = new List<Answer>();
-                for (int j = 1; j < lastRow; j += answersCount)
+                
+                for (int j = 1; j < lastRow; j += answersCount + 1)
                 {
-                    answersList.Clear();
+                    answersCount = Int32.Parse(excelRange.Cells[j, 2].Value.ToString());
+                    List<Answer> answersList = new List<Answer>();
+                    question = excelRange.Cells[j, 1].Value.ToString();
                     var questionObject = new Question
                     {
                         QuestionString = question,
                         IsAvailable = true,
                     };
-                    question = excelRange.Cells[j,1].Value.ToString();
-                    for (int i = 1; i < answersCount; i++)
+                    for (int i = 1; i <= answersCount; i++)
                     {
                         var pointsToAssign = Int32.Parse(excelRange.Cells[i + j, 2].Value.ToString());
                         var answerStringToAssign = excelRange.Cells[i + j, 1].Value.ToString();
@@ -76,27 +152,47 @@ namespace FamilyFeud.MVVM.Service
                     }
 
                     questionObject.Answers = answersList;
-                    var counter = answersCount + j;
-                    answersCount = Int32.Parse(excelRange.Cells[1 + counter, 2].Value.ToString());
+                    questionsList.Add(questionObject);
+                }
+            }
+            else if (source == PathEN)
+            {
+                for (int i = 1; i <= 5; i++)
+                {
+                    Excel.Worksheet excelWorkSheet = ExcelWorkbook.Sheets[i];
+                    Excel.Range excelRange = excelWorkSheet.UsedRange;
+                    var lastRow = excelRange.Row + excelRange.Rows.Count - 1;
+                    var answersCount = i + 3;
+
+                    for (int j = 2; j <= lastRow; j++)
+                    {
+                        List<Answer> answersList = new List<Answer>();
+                        var question = excelRange.Cells[j, 1].Value.ToString();
+                        var questionObject = new Question
+                        {
+                            QuestionString = question,
+                            IsAvailable = true,
+                        };
+                        for (int k = 1; k < answersCount; k++)
+                        {
+                            var pointsToAssign = Int32.Parse(excelRange.Cells[j, 2 * k + 1].Value.ToString());
+                            var answerStringToAssign = excelRange.Cells[j, 2 * k].Value.ToString();
+                            Answer answerToQuestion = new Answer
+                            {
+                                AnswerString = answerStringToAssign,
+                                Points = pointsToAssign,
+                                IsVisible = false,
+                            };
+                            answersList.Add(answerToQuestion);
+                        }
+
+                        questionObject.Answers = answersList;
+                        questionsList.Add(questionObject);
+                    }
                 }
             }
 
             return questionsList;
-        }
-
-        public void SetQuestionAndAnswers(int roundNumber)
-        {
-            List<Answer> newList = new List<Answer>();
-            Excel._Worksheet excelWorksheet = ExcelWorkbook.Sheets[roundNumber];
-            Excel.Range excelRange = excelWorksheet.UsedRange;
-            var question = excelRange.Cells[1, 1].Value.ToString();
-            for (int i = 1; i <= GetNumberOfAnswers(roundNumber); i++)
-            {
-                var pointsToAssign = Int32.Parse(excelRange.Cells[i + 1, 2].Value.ToString());
-                var answerStringToAssign = excelRange.Cells[i + 1, 1].Value.ToString();
-                newList.Add(new Answer(pointsToAssign, answerStringToAssign));
-            }
-            CloseExcelConnection();
         }
 
         public string CheckGameHistory()

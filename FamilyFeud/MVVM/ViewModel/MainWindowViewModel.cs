@@ -19,12 +19,12 @@ namespace FamilyFeud.MVVM.ViewModel
     {
         private readonly WindowsMediaPlayerClass _playerClass;
         private GameService gameService;
-        private List<Question> database = new List<Question>(); //temp to check functionality - everything should happen on service site
+        private List<Question> databaseEN = new List<Question>(); //temp to check functionality - everything should happen on service site
+        private List<Question> databasePL = new List<Question>(); //temp to check functionality - everything should happen on service site
 
         public MainWindowViewModel(Game game)
         {
             gameService = new GameService();
-            database = gameService.ConvertExcelToJson();
             _playerClass = new WindowsMediaPlayerClass();
             OnWrongAnswerClickCommand = new RelayCommand(OnWrongAnswerClick);
             OnAnswerClickCommand = new RelayCommand(OnAnswerClick);
@@ -276,9 +276,19 @@ namespace FamilyFeud.MVVM.ViewModel
             }
         }
 
+        private string gameType { get; set; } //bind to combobox/radiobutton
+        public string GameType
+        {
+            get { return gameType; }
+            set
+            {
+                gameType = value;
+                NotifyPropertyChanged();
+            }
+        }
+
         public ICommand OnWrongAnswerClickCommand { get; protected set; }
         public ICommand OnAnswerClickCommand { get; protected set; }
-
 
         public ICommand StartGame { get; }
         public ICommand ResetGame { get; }

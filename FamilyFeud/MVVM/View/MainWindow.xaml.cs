@@ -24,7 +24,7 @@ namespace FamilyFeud.MVVM.View
     {
         public MainWindow()
         {
-            var game = new Game("MISIOROWSCY", "MLECZKI");
+            var game = new Game("", "");
             var viewModel = new MainWindowViewModel(game);
             ChildWindow childWindow = new ChildWindow();
             childWindow.DataContext = viewModel;

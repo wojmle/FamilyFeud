@@ -1,0 +1,3202 @@
+[
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 47,
+        "AnswerString": "Wieża Eiffla",
+        "IsVisible": false
+      },
+      {
+        "Points": 33,
+        "AnswerString": "Szampan",
+        "IsVisible": false
+      },
+      {
+        "Points": 19,
+        "AnswerString": "Luwr",
+        "IsVisible": false
+      },
+      {
+        "Points": 11,
+        "AnswerString": "Wino",
+        "IsVisible": false
+      },
+      {
+        "Points": 7,
+        "AnswerString": "Festiwal filmowy w Cannes",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "Z CZEGO SŁYNIE FRANCJA?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 39,
+        "AnswerString": "Morze",
+        "IsVisible": false
+      },
+      {
+        "Points": 32,
+        "AnswerString": "Basen",
+        "IsVisible": false
+      },
+      {
+        "Points": 25,
+        "AnswerString": "Jezioro",
+        "IsVisible": false
+      },
+      {
+        "Points": 13,
+        "AnswerString": "Ocean",
+        "IsVisible": false
+      },
+      {
+        "Points": 9,
+        "AnswerString": "Rzeka",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "WYMIEŃ MIEJSCE, W KTÓRYM MOŻNA PŁYWAĆ:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 52,
+        "AnswerString": "Wanna",
+        "IsVisible": false
+      },
+      {
+        "Points": 45,
+        "AnswerString": "Prysznic",
+        "IsVisible": false
+      },
+      {
+        "Points": 29,
+        "AnswerString": "Toaleta",
+        "IsVisible": false
+      },
+      {
+        "Points": 11,
+        "AnswerString": "Papier",
+        "IsVisible": false
+      },
+      {
+        "Points": 4,
+        "AnswerString": "Gumowa kaczka",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "CO ZNAJDZIEMY W ŁAZIENCE?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 37,
+        "AnswerString": "Kaczka",
+        "IsVisible": false
+      },
+      {
+        "Points": 31,
+        "AnswerString": "Łabędź",
+        "IsVisible": false
+      },
+      {
+        "Points": 23,
+        "AnswerString": "Pingwin",
+        "IsVisible": false
+      },
+      {
+        "Points": 16,
+        "AnswerString": "Gęś",
+        "IsVisible": false
+      },
+      {
+        "Points": 5,
+        "AnswerString": "Albatros",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "PODAJ PRZYKŁAD PTAKA, KTÓRY MA PŁEWIASTE STOPY:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 44,
+        "AnswerString": "Nosorożec",
+        "IsVisible": false
+      },
+      {
+        "Points": 39,
+        "AnswerString": "Tygrys",
+        "IsVisible": false
+      },
+      {
+        "Points": 28,
+        "AnswerString": "Słoń",
+        "IsVisible": false
+      },
+      {
+        "Points": 19,
+        "AnswerString": "Wąż",
+        "IsVisible": false
+      },
+      {
+        "Points": 8,
+        "AnswerString": "Lampart",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "JAKIE ZWIERZĘ MOŻNA SPOTKAĆ W INDIACH?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 38,
+        "AnswerString": "Telefon komórkowy",
+        "IsVisible": false
+      },
+      {
+        "Points": 32,
+        "AnswerString": "Radio",
+        "IsVisible": false
+      },
+      {
+        "Points": 20,
+        "AnswerString": "iPod",
+        "IsVisible": false
+      },
+      {
+        "Points": 17,
+        "AnswerString": "Słuchawki",
+        "IsVisible": false
+      },
+      {
+        "Points": 9,
+        "AnswerString": "Radio bezprzewodowe",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "NA CZYM MOŻNA SŁUCHAĆ MUZYKI?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 43,
+        "AnswerString": "Miotła",
+        "IsVisible": false
+      },
+      {
+        "Points": 39,
+        "AnswerString": "Magia",
+        "IsVisible": false
+      },
+      {
+        "Points": 27,
+        "AnswerString": "Kapelusz",
+        "IsVisible": false
+      },
+      {
+        "Points": 15,
+        "AnswerString": "Kociołek",
+        "IsVisible": false
+      },
+      {
+        "Points": 11,
+        "AnswerString": "Czarny Kot",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "CO MOŻE KOJARZYĆ SIĘ Z CZAROWNICAMI?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 36,
+        "AnswerString": "Kosz",
+        "IsVisible": false
+      },
+      {
+        "Points": 31,
+        "AnswerString": "Plecak",
+        "IsVisible": false
+      },
+      {
+        "Points": 25,
+        "AnswerString": "Lustro",
+        "IsVisible": false
+      },
+      {
+        "Points": 18,
+        "AnswerString": "Obrazek",
+        "IsVisible": false
+      },
+      {
+        "Points": 7,
+        "AnswerString": "Dzieło sztuki",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "CO MOŻNA POWIESIĆ?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 41,
+        "AnswerString": "Truskawki",
+        "IsVisible": false
+      },
+      {
+        "Points": 38,
+        "AnswerString": "Winogrona",
+        "IsVisible": false
+      },
+      {
+        "Points": 29,
+        "AnswerString": "Jabłka",
+        "IsVisible": false
+      },
+      {
+        "Points": 16,
+        "AnswerString": "Brzoskwinie",
+        "IsVisible": false
+      },
+      {
+        "Points": 10,
+        "AnswerString": "Ananas",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "WYMIEŃ SKŁADNIKI SAŁATKI OWOCOWEJ:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 47,
+        "AnswerString": "Królik",
+        "IsVisible": false
+      },
+      {
+        "Points": 39,
+        "AnswerString": "Osoba",
+        "IsVisible": false
+      },
+      {
+        "Points": 31,
+        "AnswerString": "Karta",
+        "IsVisible": false
+      },
+      {
+        "Points": 24,
+        "AnswerString": "Kapelusz",
+        "IsVisible": false
+      },
+      {
+        "Points": 12,
+        "AnswerString": "Pieniądze",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "JAKIE RZECZY MOGĄ ZNIKNĄĆ ZA SPRAWĄ MAGIKA?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 51,
+        "AnswerString": "Kangur",
+        "IsVisible": false
+      },
+      {
+        "Points": 37,
+        "AnswerString": "Skorpion",
+        "IsVisible": false
+      },
+      {
+        "Points": 32,
+        "AnswerString": "Pająk",
+        "IsVisible": false
+      },
+      {
+        "Points": 23,
+        "AnswerString": "Koala",
+        "IsVisible": false
+      },
+      {
+        "Points": 14,
+        "AnswerString": "Kolczatka",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "JAKIE ZWIERZĘ MOŻNA SPOTKAĆ W AUSTRALII?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 46,
+        "AnswerString": "Wzgórza",
+        "IsVisible": false
+      },
+      {
+        "Points": 38,
+        "AnswerString": "Klif",
+        "IsVisible": false
+      },
+      {
+        "Points": 27,
+        "AnswerString": "Drzewo",
+        "IsVisible": false
+      },
+      {
+        "Points": 17,
+        "AnswerString": "Góra",
+        "IsVisible": false
+      },
+      {
+        "Points": 8,
+        "AnswerString": "Dach",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "NA CO MOŻENA SIĘ WSPIĄĆ?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 44,
+        "AnswerString": "Ślimak",
+        "IsVisible": false
+      },
+      {
+        "Points": 32,
+        "AnswerString": "Żółw",
+        "IsVisible": false
+      },
+      {
+        "Points": 29,
+        "AnswerString": "Leniwiec",
+        "IsVisible": false
+      },
+      {
+        "Points": 16,
+        "AnswerString": "Starsi ludzie",
+        "IsVisible": false
+      },
+      {
+        "Points": 6,
+        "AnswerString": "Dziecko",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "CO PORUSZA SIĘ BARDZO POWOLI?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 34,
+        "AnswerString": "Samochody",
+        "IsVisible": false
+      },
+      {
+        "Points": 28,
+        "AnswerString": "Muzyka",
+        "IsVisible": false
+      },
+      {
+        "Points": 19,
+        "AnswerString": "Samolot",
+        "IsVisible": false
+      },
+      {
+        "Points": 12,
+        "AnswerString": "Dzieci",
+        "IsVisible": false
+      },
+      {
+        "Points": 9,
+        "AnswerString": "Fajerwerki",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "CO ROBI DUŻO HAŁASU?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 31,
+        "AnswerString": "Szczotka",
+        "IsVisible": false
+      },
+      {
+        "Points": 27,
+        "AnswerString": "Szczoteczka do zębów",
+        "IsVisible": false
+      },
+      {
+        "Points": 17,
+        "AnswerString": "Szczotka do toalety",
+        "IsVisible": false
+      },
+      {
+        "Points": 11,
+        "AnswerString": "Pędzel do malowania",
+        "IsVisible": false
+      },
+      {
+        "Points": 4,
+        "AnswerString": "Włosie nylonowe",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "PODAJ PRZYKŁAD CZEGOŚ Z WŁOSIEM:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 49,
+        "AnswerString": "Zegar",
+        "IsVisible": false
+      },
+      {
+        "Points": 41,
+        "AnswerString": "Zegarek",
+        "IsVisible": false
+      },
+      {
+        "Points": 28,
+        "AnswerString": "Telefon komórkowy",
+        "IsVisible": false
+      },
+      {
+        "Points": 16,
+        "AnswerString": "Zegarek na rękę",
+        "IsVisible": false
+      },
+      {
+        "Points": 8,
+        "AnswerString": "Słońce",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "DZIĘKI CZEMU MOŻNA OKREŚLIĆ CZAS?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 35,
+        "AnswerString": "Schody",
+        "IsVisible": false
+      },
+      {
+        "Points": 29,
+        "AnswerString": "Samolot",
+        "IsVisible": false
+      },
+      {
+        "Points": 25,
+        "AnswerString": "Winda",
+        "IsVisible": false
+      },
+      {
+        "Points": 17,
+        "AnswerString": "Huśtawka",
+        "IsVisible": false
+      },
+      {
+        "Points": 9,
+        "AnswerString": "Piłka",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "CO IDZIE W GÓRĘ I W DÓŁ?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 49,
+        "AnswerString": "Ręce",
+        "IsVisible": false
+      },
+      {
+        "Points": 43,
+        "AnswerString": "Widelec",
+        "IsVisible": false
+      },
+      {
+        "Points": 33,
+        "AnswerString": "Łyżka",
+        "IsVisible": false
+      },
+      {
+        "Points": 21,
+        "AnswerString": "Nóż",
+        "IsVisible": false
+      },
+      {
+        "Points": 14,
+        "AnswerString": "Talerz",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "CZYM MOŻNA JEŚĆ?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 51,
+        "AnswerString": "Miłość",
+        "IsVisible": false
+      },
+      {
+        "Points": 42,
+        "AnswerString": "Szczęście",
+        "IsVisible": false
+      },
+      {
+        "Points": 37,
+        "AnswerString": "Zdrowie",
+        "IsVisible": false
+      },
+      {
+        "Points": 21,
+        "AnswerString": "Zaufanie",
+        "IsVisible": false
+      },
+      {
+        "Points": 19,
+        "AnswerString": "Szacunek",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "CZEGO PIENIĄDZE NIE MOGĄ KUPIĆ?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 39,
+        "AnswerString": "Barszcz czerowny z uszkami",
+        "IsVisible": false
+      },
+      {
+        "Points": 31,
+        "AnswerString": "Zupa grzybowa",
+        "IsVisible": false
+      },
+      {
+        "Points": 26,
+        "AnswerString": "Karp",
+        "IsVisible": false
+      },
+      {
+        "Points": 17,
+        "AnswerString": "Pierogi",
+        "IsVisible": false
+      },
+      {
+        "Points": 10,
+        "AnswerString": "Sernik",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "CO JEMY W CZASIE ŚWIĄT BOŻONARODZENIOWYCH?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 32,
+        "AnswerString": "Czytamy",
+        "IsVisible": false
+      },
+      {
+        "Points": 28,
+        "AnswerString": "Oglądamy telewizję",
+        "IsVisible": false
+      },
+      {
+        "Points": 21,
+        "AnswerString": "Liczymy owce",
+        "IsVisible": false
+      },
+      {
+        "Points": 19,
+        "AnswerString": "Jemy",
+        "IsVisible": false
+      },
+      {
+        "Points": 7,
+        "AnswerString": "Pijemy mleko",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "CO ROBIMY GDY NIE MOŻEMY ZASNĄĆ?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 40,
+        "AnswerString": "Buty",
+        "IsVisible": false
+      },
+      {
+        "Points": 37,
+        "AnswerString": "Skarpety",
+        "IsVisible": false
+      },
+      {
+        "Points": 29,
+        "AnswerString": "Obuwie sportowe",
+        "IsVisible": false
+      },
+      {
+        "Points": 15,
+        "AnswerString": "Kozaki",
+        "IsVisible": false
+      },
+      {
+        "Points": 9,
+        "AnswerString": "Trzewiki",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "CO MOŻNA NOSIĆ NA STOPACH?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 47,
+        "AnswerString": "Tabletki przeciwbólowe",
+        "IsVisible": false
+      },
+      {
+        "Points": 39,
+        "AnswerString": "Paracetamol",
+        "IsVisible": false
+      },
+      {
+        "Points": 21,
+        "AnswerString": "Kawa",
+        "IsVisible": false
+      },
+      {
+        "Points": 16,
+        "AnswerString": "Herbata",
+        "IsVisible": false
+      },
+      {
+        "Points": 11,
+        "AnswerString": "Drzemka",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "CO MOŻNA ZASTOSOWAĆ NA BÓL GŁOWY?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 37,
+        "AnswerString": "Jaja",
+        "IsVisible": false
+      },
+      {
+        "Points": 26,
+        "AnswerString": "Ptaki",
+        "IsVisible": false
+      },
+      {
+        "Points": 14,
+        "AnswerString": "Gady",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "PODAJ PRZYKŁAD CZEGOŚ, CO MOŻE SIĘ WYKLUĆ:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 51,
+        "AnswerString": "Mleko",
+        "IsVisible": false
+      },
+      {
+        "Points": 47,
+        "AnswerString": "Mięso",
+        "IsVisible": false
+      },
+      {
+        "Points": 33,
+        "AnswerString": "Bilet parkingowy",
+        "IsVisible": false
+      },
+      {
+        "Points": 21,
+        "AnswerString": "Prawo jazdy",
+        "IsVisible": false
+      },
+      {
+        "Points": 14,
+        "AnswerString": "Karta bankowa",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "PODAJ PRZYKŁAD CZEGOŚ, CO TRACI WAŻNOŚĆ:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 38,
+        "AnswerString": "Żółw",
+        "IsVisible": false
+      },
+      {
+        "Points": 32,
+        "AnswerString": "Ślimak",
+        "IsVisible": false
+      },
+      {
+        "Points": 26,
+        "AnswerString": "Żółw",
+        "IsVisible": false
+      },
+      {
+        "Points": 14,
+        "AnswerString": "Małże",
+        "IsVisible": false
+      },
+      {
+        "Points": 7,
+        "AnswerString": "Ostrygi",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "CO ŻYJE W SKORUPIE?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 31,
+        "AnswerString": "Zdjęcie",
+        "IsVisible": false
+      },
+      {
+        "Points": 29,
+        "AnswerString": "Telewizor",
+        "IsVisible": false
+      },
+      {
+        "Points": 23,
+        "AnswerString": "Lustro",
+        "IsVisible": false
+      },
+      {
+        "Points": 17,
+        "AnswerString": "Obraz",
+        "IsVisible": false
+      },
+      {
+        "Points": 10,
+        "AnswerString": "Zegar",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "CO MOŻNA POWIESIĆ NA ŚCIANIE?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 35,
+        "AnswerString": "Zmiana pieluch",
+        "IsVisible": false
+      },
+      {
+        "Points": 31,
+        "AnswerString": "Karmienie dziecka",
+        "IsVisible": false
+      },
+      {
+        "Points": 26,
+        "AnswerString": "Robienie prania",
+        "IsVisible": false
+      },
+      {
+        "Points": 13,
+        "AnswerString": "Kołysanie dziecka",
+        "IsVisible": false
+      },
+      {
+        "Points": 8,
+        "AnswerString": "Opieka nad dzieckiem",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "NA CO ŚWIEŻO UPIECZENI RODZICE POŚWIĘCAJĄ NAJWIĘCEJ CZASU?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 43,
+        "AnswerString": "Torba",
+        "IsVisible": false
+      },
+      {
+        "Points": 37,
+        "AnswerString": "Plastikowa dynia",
+        "IsVisible": false
+      },
+      {
+        "Points": 24,
+        "AnswerString": "Poszewka na poduszkę",
+        "IsVisible": false
+      },
+      {
+        "Points": 15,
+        "AnswerString": "Wiadro",
+        "IsVisible": false
+      },
+      {
+        "Points": 5,
+        "AnswerString": "Kapelusz",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "W CO DZIECI MOGĄ ZBIERAĆ CUKIERKI PODCZAS HALLOWEEN?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 41,
+        "AnswerString": "Wieża Eiffla",
+        "IsVisible": false
+      },
+      {
+        "Points": 39,
+        "AnswerString": "Katedra Notre Dame",
+        "IsVisible": false
+      },
+      {
+        "Points": 27,
+        "AnswerString": "Luwr",
+        "IsVisible": false
+      },
+      {
+        "Points": 16,
+        "AnswerString": "Croissant",
+        "IsVisible": false
+      },
+      {
+        "Points": 9,
+        "AnswerString": "Francuzi",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "WYMIEŃ COŚ, CO SPODZIEWASZ SIĘ ZOBACZYĆ W PARYŻU:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 53,
+        "AnswerString": "Wypchane zwierzątka",
+        "IsVisible": false
+      },
+      {
+        "Points": 38,
+        "AnswerString": "Złota rybka",
+        "IsVisible": false
+      },
+      {
+        "Points": 25,
+        "AnswerString": "Zabawka",
+        "IsVisible": false
+      },
+      {
+        "Points": 13,
+        "AnswerString": "Balony",
+        "IsVisible": false
+      },
+      {
+        "Points": 4,
+        "AnswerString": "Plakat",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "CO MOŻNA WYGRAĆ W PARKU ROZRYWKI?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 46,
+        "AnswerString": "Pasjans",
+        "IsVisible": false
+      },
+      {
+        "Points": 38,
+        "AnswerString": "Klasy",
+        "IsVisible": false
+      },
+      {
+        "Points": 27,
+        "AnswerString": "Gry wideo",
+        "IsVisible": false
+      },
+      {
+        "Points": 15,
+        "AnswerString": "Memory",
+        "IsVisible": false
+      },
+      {
+        "Points": 8,
+        "AnswerString": "Koszykówka",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "PODAJ PRZYKŁAD GRY, W KTÓRĄ MOŻNA GRAĆ SAMEMU:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 37,
+        "AnswerString": "Gadać",
+        "IsVisible": false
+      },
+      {
+        "Points": 31,
+        "AnswerString": "Pisać",
+        "IsVisible": false
+      },
+      {
+        "Points": 24,
+        "AnswerString": "Grać w gry",
+        "IsVisible": false
+      },
+      {
+        "Points": 14,
+        "AnswerString": "Słuchać muzyki",
+        "IsVisible": false
+      },
+      {
+        "Points": 7,
+        "AnswerString": "Sprawdzać coś w internecie",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "CO MOŻNA ROBIĆ ROZMAWIAJĄC PRZEZ TELEFON?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 45,
+        "AnswerString": "Mleko",
+        "IsVisible": false
+      },
+      {
+        "Points": 32,
+        "AnswerString": "Jajka",
+        "IsVisible": false
+      },
+      {
+        "Points": 21,
+        "AnswerString": "Żywność",
+        "IsVisible": false
+      },
+      {
+        "Points": 16,
+        "AnswerString": "Ser",
+        "IsVisible": false
+      },
+      {
+        "Points": 9,
+        "AnswerString": "Mięso",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "CO MOŻE SIĘ PRZETERMINOWAĆ?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 53,
+        "AnswerString": "Jeść",
+        "IsVisible": false
+      },
+      {
+        "Points": 46,
+        "AnswerString": "Pić",
+        "IsVisible": false
+      },
+      {
+        "Points": 30,
+        "AnswerString": "Całować",
+        "IsVisible": false
+      },
+      {
+        "Points": 21,
+        "AnswerString": "Rozmawiać",
+        "IsVisible": false
+      },
+      {
+        "Points": 11,
+        "AnswerString": "Gwizdać",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "WYMIEŃ COŚ, CZEGO NIE MOŻNA BY BYŁO ZROBIĆ BEZ UST:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 43,
+        "AnswerString": "Wiatr",
+        "IsVisible": false
+      },
+      {
+        "Points": 33,
+        "AnswerString": "Sznurek",
+        "IsVisible": false
+      },
+      {
+        "Points": 25,
+        "AnswerString": "Latanie",
+        "IsVisible": false
+      },
+      {
+        "Points": 13,
+        "AnswerString": "Niebo",
+        "IsVisible": false
+      },
+      {
+        "Points": 6,
+        "AnswerString": "Dzieci",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "WYMIEŃ COŚ, CO KOJARZY SIĘ Z LATAWCAMI:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 45,
+        "AnswerString": "Ptaki",
+        "IsVisible": false
+      },
+      {
+        "Points": 32,
+        "AnswerString": "Samoloty",
+        "IsVisible": false
+      },
+      {
+        "Points": 27,
+        "AnswerString": "Motyl",
+        "IsVisible": false
+      },
+      {
+        "Points": 14,
+        "AnswerString": "Mucha",
+        "IsVisible": false
+      },
+      {
+        "Points": 8,
+        "AnswerString": "Latawiec",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "PODAJ PRZYKŁAD CZEGOŚ, CO LATA:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 47,
+        "AnswerString": "Hokej",
+        "IsVisible": false
+      },
+      {
+        "Points": 33,
+        "AnswerString": "Zimno",
+        "IsVisible": false
+      },
+      {
+        "Points": 29,
+        "AnswerString": "Wodospad Niagara",
+        "IsVisible": false
+      },
+      {
+        "Points": 17,
+        "AnswerString": "Górale",
+        "IsVisible": false
+      },
+      {
+        "Points": 7,
+        "AnswerString": "Piwo",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "WYMIEŃ COŚ, Z CZEGO SŁYNIE KANADA:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 49,
+        "AnswerString": "Cytrynę",
+        "IsVisible": false
+      },
+      {
+        "Points": 37,
+        "AnswerString": "Pomarańczę",
+        "IsVisible": false
+      },
+      {
+        "Points": 20,
+        "AnswerString": "Pastę do zębów",
+        "IsVisible": false
+      },
+      {
+        "Points": 17,
+        "AnswerString": "Keczup",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "CO MOŻNA WYCISNĄĆ?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 41,
+        "AnswerString": "Farba",
+        "IsVisible": false
+      },
+      {
+        "Points": 39,
+        "AnswerString": "Atrament",
+        "IsVisible": false
+      },
+      {
+        "Points": 25,
+        "AnswerString": "Smar",
+        "IsVisible": false
+      },
+      {
+        "Points": 13,
+        "AnswerString": "Marker permanentny",
+        "IsVisible": false
+      },
+      {
+        "Points": 5,
+        "AnswerString": "Olej",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "NAZWIJ COŚ, CO TRUDNO JEST ZMYĆ:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 32,
+        "AnswerString": "Kable rozruchowe",
+        "IsVisible": false
+      },
+      {
+        "Points": 27,
+        "AnswerString": "Apteczka",
+        "IsVisible": false
+      },
+      {
+        "Points": 17,
+        "AnswerString": "Okulary",
+        "IsVisible": false
+      },
+      {
+        "Points": 12,
+        "AnswerString": "Ubrania na zmianę",
+        "IsVisible": false
+      },
+      {
+        "Points": 6,
+        "AnswerString": "Parasol",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "PODAJ PRZYKŁAD CZEGOŚ, CO MOŻNA TRZYMAĆ W SAMOCHODZIE:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 51,
+        "AnswerString": "Piżama",
+        "IsVisible": false
+      },
+      {
+        "Points": 48,
+        "AnswerString": "Bielizna",
+        "IsVisible": false
+      },
+      {
+        "Points": 31,
+        "AnswerString": "Koszula nocna",
+        "IsVisible": false
+      },
+      {
+        "Points": 20,
+        "AnswerString": "Skarpety",
+        "IsVisible": false
+      },
+      {
+        "Points": 13,
+        "AnswerString": "Koszulkę",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "CO ZAKŁADAMY DO SPANIA?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 45,
+        "AnswerString": "Saksofon",
+        "IsVisible": false
+      },
+      {
+        "Points": 38,
+        "AnswerString": "Trąbka",
+        "IsVisible": false
+      },
+      {
+        "Points": 29,
+        "AnswerString": "Pianino",
+        "IsVisible": false
+      },
+      {
+        "Points": 14,
+        "AnswerString": "Nowy Orlean",
+        "IsVisible": false
+      },
+      {
+        "Points": 7,
+        "AnswerString": "Blues",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "CO KOJARZY SIĘ Z MUZYKĄ JAZZOWĄ?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 39,
+        "AnswerString": "Telefon",
+        "IsVisible": false
+      },
+      {
+        "Points": 31,
+        "AnswerString": "Plecak",
+        "IsVisible": false
+      },
+      {
+        "Points": 25,
+        "AnswerString": "Książki",
+        "IsVisible": false
+      },
+      {
+        "Points": 12,
+        "AnswerString": "Odtwarzacz MP3",
+        "IsVisible": false
+      },
+      {
+        "Points": 8,
+        "AnswerString": "Drugie śniadanie",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "CO NASTOLATEK MOŻE PRZYNIEŚĆ DO SZKOŁY?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 36,
+        "AnswerString": "Kocimiętka",
+        "IsVisible": false
+      },
+      {
+        "Points": 28,
+        "AnswerString": "Myszy",
+        "IsVisible": false
+      },
+      {
+        "Points": 21,
+        "AnswerString": "Mleko",
+        "IsVisible": false
+      },
+      {
+        "Points": 15,
+        "AnswerString": "Karma dla kotów",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "PODAJ PRZYKŁAD CZEGOŚ, CO LUBI KOT:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 47,
+        "AnswerString": "Bieganie",
+        "IsVisible": false
+      },
+      {
+        "Points": 38,
+        "AnswerString": "Sztuki walki",
+        "IsVisible": false
+      },
+      {
+        "Points": 26,
+        "AnswerString": "Przysiady",
+        "IsVisible": false
+      },
+      {
+        "Points": 13,
+        "AnswerString": "Podnoszenie ciężarów",
+        "IsVisible": false
+      },
+      {
+        "Points": 10,
+        "AnswerString": "Joga",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "WYMIEŃ COŚ, CO LUDZIE ROBIĄ, PODCZAS TRENINGU:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 31,
+        "AnswerString": "Kot",
+        "IsVisible": false
+      },
+      {
+        "Points": 26,
+        "AnswerString": "Latawiec",
+        "IsVisible": false
+      },
+      {
+        "Points": 17,
+        "AnswerString": "Piłka",
+        "IsVisible": false
+      },
+      {
+        "Points": 11,
+        "AnswerString": "Dzieci",
+        "IsVisible": false
+      },
+      {
+        "Points": 5,
+        "AnswerString": "Frisbee",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "PODAJ PRZYKŁAD CZEGOŚ, CO MOŻE UTKNĄĆ NA DRZEWIE:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 32,
+        "AnswerString": "Mafia",
+        "IsVisible": false
+      },
+      {
+        "Points": 24,
+        "AnswerString": "Włosi",
+        "IsVisible": false
+      },
+      {
+        "Points": 16,
+        "AnswerString": "Rodzina",
+        "IsVisible": false
+      },
+      {
+        "Points": 8,
+        "AnswerString": "Program telewizyjny",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "WYMIEŃ COŚ, CO KOJARZY SIĘ Z RODZINĄ SOPRANO:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 47,
+        "AnswerString": "Posiadanie dzieci",
+        "IsVisible": false
+      },
+      {
+        "Points": 39,
+        "AnswerString": "Choroba",
+        "IsVisible": false
+      },
+      {
+        "Points": 23,
+        "AnswerString": "Miłość",
+        "IsVisible": false
+      },
+      {
+        "Points": 21,
+        "AnswerString": "Śmierć w rodzinie",
+        "IsVisible": false
+      },
+      {
+        "Points": 12,
+        "AnswerString": "Rozwód",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "PODAJ PRZYKŁAD CZEGOŚ, CO MOŻNA OKREŚLIĆ JAKO ZMIENIAJĄCE ŻYCIE:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 44,
+        "AnswerString": "Obowiązki domowe",
+        "IsVisible": false
+      },
+      {
+        "Points": 33,
+        "AnswerString": "Jedzenie warzyw",
+        "IsVisible": false
+      },
+      {
+        "Points": 21,
+        "AnswerString": "Odrabianice pracy domowej",
+        "IsVisible": false
+      },
+      {
+        "Points": 9,
+        "AnswerString": "Kąpiel",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "DO CZEGO RODZICE ZMUSZAJĄ SWOJE DZIECKO?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 37,
+        "AnswerString": "Objazdy",
+        "IsVisible": false
+      },
+      {
+        "Points": 25,
+        "AnswerString": "Wolna jazda",
+        "IsVisible": false
+      },
+      {
+        "Points": 17,
+        "AnswerString": "Korek",
+        "IsVisible": false
+      },
+      {
+        "Points": 10,
+        "AnswerString": "Inni kierowcy",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "CO MOŻE DENEROWAĆ PODCZAS JAZDY SAMOCHODEM?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 42,
+        "AnswerString": "Chleb",
+        "IsVisible": false
+      },
+      {
+        "Points": 38,
+        "AnswerString": "Pizza",
+        "IsVisible": false
+      },
+      {
+        "Points": 27,
+        "AnswerString": "Ciasto",
+        "IsVisible": false
+      },
+      {
+        "Points": 16,
+        "AnswerString": "Placki",
+        "IsVisible": false
+      },
+      {
+        "Points": 8,
+        "AnswerString": "Ser",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "CO MOŻNA JEŚĆ KAWAŁKAMI?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 46,
+        "AnswerString": "Pająki",
+        "IsVisible": false
+      },
+      {
+        "Points": 41,
+        "AnswerString": "Ciemność",
+        "IsVisible": false
+      },
+      {
+        "Points": 35,
+        "AnswerString": "Węże",
+        "IsVisible": false
+      },
+      {
+        "Points": 22,
+        "AnswerString": "Duchy",
+        "IsVisible": false
+      },
+      {
+        "Points": 13,
+        "AnswerString": "Wysokość",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "PODAJ PRZYKŁAD CZEGOŚ, CZEGO LUDZIE SIĘ BOJĄ:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 43,
+        "AnswerString": "Śnieżki",
+        "IsVisible": false
+      },
+      {
+        "Points": 32,
+        "AnswerString": "Balony z wodą",
+        "IsVisible": false
+      },
+      {
+        "Points": 24,
+        "AnswerString": "Kamienie",
+        "IsVisible": false
+      },
+      {
+        "Points": 13,
+        "AnswerString": "Poduszki",
+        "IsVisible": false
+      },
+      {
+        "Points": 6,
+        "AnswerString": "Błoto",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "CZYM DZIECI MOGĄ W SIEBIE RZUCAĆ?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 43,
+        "AnswerString": "Miecz",
+        "IsVisible": false
+      },
+      {
+        "Points": 32,
+        "AnswerString": "Tarcza",
+        "IsVisible": false
+      },
+      {
+        "Points": 21,
+        "AnswerString": "Hełm",
+        "IsVisible": false
+      },
+      {
+        "Points": 17,
+        "AnswerString": "Topór",
+        "IsVisible": false
+      },
+      {
+        "Points": 7,
+        "AnswerString": "Trójząb",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "PODAJ PRZYKŁAD CZEGOŚ, CO GLADIATOR MOŻE ZABRAĆ ZE SOBĄ DO WALKI:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 45,
+        "AnswerString": "Posiadanie dziecka/dzieci",
+        "IsVisible": false
+      },
+      {
+        "Points": 34,
+        "AnswerString": "Praca",
+        "IsVisible": false
+      },
+      {
+        "Points": 26,
+        "AnswerString": "Druga połowa",
+        "IsVisible": false
+      },
+      {
+        "Points": 14,
+        "AnswerString": "Lina/sznur",
+        "IsVisible": false
+      },
+      {
+        "Points": 6,
+        "AnswerString": "Rachunki/długi",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "WYMIEŃ COŚ, CO CIĘ WIĄŻE/CO MOŻE BYĆ WIĄŻĄCE:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 33,
+        "AnswerString": "Frank Sinatra",
+        "IsVisible": false
+      },
+      {
+        "Points": 27,
+        "AnswerString": "Muzyka",
+        "IsVisible": false
+      },
+      {
+        "Points": 21,
+        "AnswerString": "Dean Martin",
+        "IsVisible": false
+      },
+      {
+        "Points": 16,
+        "AnswerString": "Sammy Davis Jr",
+        "IsVisible": false
+      },
+      {
+        "Points": 5,
+        "AnswerString": "Las Vegas",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "WYMIEŃ COŚ, CO KOJARZY SIĘ Z RAT PACK:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 53,
+        "AnswerString": "Samochód",
+        "IsVisible": false
+      },
+      {
+        "Points": 47,
+        "AnswerString": "Dom",
+        "IsVisible": false
+      },
+      {
+        "Points": 27,
+        "AnswerString": "Ubrania",
+        "IsVisible": false
+      },
+      {
+        "Points": 15,
+        "AnswerString": "Meble",
+        "IsVisible": false
+      },
+      {
+        "Points": 6,
+        "AnswerString": "Sprzęt elektroniczny",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "CO LUDZIE CZĘSTO KUPUJĄ NA KREDYT?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 47,
+        "AnswerString": "Szklane pantofelki",
+        "IsVisible": false
+      },
+      {
+        "Points": 39,
+        "AnswerString": "Książę",
+        "IsVisible": false
+      },
+      {
+        "Points": 25,
+        "AnswerString": "Wróżka Chrzestna",
+        "IsVisible": false
+      },
+      {
+        "Points": 17,
+        "AnswerString": "Myszy",
+        "IsVisible": false
+      },
+      {
+        "Points": 9,
+        "AnswerString": "Północ",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "WYMIEŃ COŚ, CO KOJARZY SIĘ Z KOPCIUSZKIEM:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 39,
+        "AnswerString": "Stałocieplność",
+        "IsVisible": false
+      },
+      {
+        "Points": 26,
+        "AnswerString": "Poród naturalny",
+        "IsVisible": false
+      },
+      {
+        "Points": 19,
+        "AnswerString": "Włosy lub futro",
+        "IsVisible": false
+      },
+      {
+        "Points": 11,
+        "AnswerString": "Produkowanie mleka",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "CO ODRÓŻNIANIA SSAKI OD INNYCH ZWIERZĄT?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 35,
+        "AnswerString": "Złamane serce",
+        "IsVisible": false
+      },
+      {
+        "Points": 24,
+        "AnswerString": "Ubrania",
+        "IsVisible": false
+      },
+      {
+        "Points": 18,
+        "AnswerString": "Związek",
+        "IsVisible": false
+      },
+      {
+        "Points": 7,
+        "AnswerString": "Płot",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "CO MOŻNA NAPRAWIĆ?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 31,
+        "AnswerString": "Oplać się",
+        "IsVisible": false
+      },
+      {
+        "Points": 27,
+        "AnswerString": "Pracować w ogrodzie",
+        "IsVisible": false
+      },
+      {
+        "Points": 18,
+        "AnswerString": "Jeździć na rowerze",
+        "IsVisible": false
+      },
+      {
+        "Points": 11,
+        "AnswerString": "Pływać",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "CO MOŻNA ROBIĆ W ŁADNY DZIEŃ?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 48,
+        "AnswerString": "Stetoskop",
+        "IsVisible": false
+      },
+      {
+        "Points": 41,
+        "AnswerString": "Biały fartuch",
+        "IsVisible": false
+      },
+      {
+        "Points": 34,
+        "AnswerString": "Pacjenci",
+        "IsVisible": false
+      },
+      {
+        "Points": 25,
+        "AnswerString": "Stopień naukowy",
+        "IsVisible": false
+      },
+      {
+        "Points": 12,
+        "AnswerString": "Medycyna",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "PODAJ PRZYKŁAD CZEGOŚ, CO MOŻE ZOSTAĆ UŻYTE PRZEZ LEKARZA:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 38,
+        "AnswerString": "Zasnąć",
+        "IsVisible": false
+      },
+      {
+        "Points": 29,
+        "AnswerString": "Wyjść",
+        "IsVisible": false
+      },
+      {
+        "Points": 25,
+        "AnswerString": "Rozmawiać",
+        "IsVisible": false
+      },
+      {
+        "Points": 13,
+        "AnswerString": "Buczeć",
+        "IsVisible": false
+      },
+      {
+        "Points": 7,
+        "AnswerString": "Ziewać",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "CO LUDZIE MOGĄ ROBIĆ PODCZAS ZŁEGO FILMU?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 31,
+        "AnswerString": "Sos",
+        "IsVisible": false
+      },
+      {
+        "Points": 26,
+        "AnswerString": "Keczup",
+        "IsVisible": false
+      },
+      {
+        "Points": 19,
+        "AnswerString": "Syrop",
+        "IsVisible": false
+      },
+      {
+        "Points": 11,
+        "AnswerString": "Mleko",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "CZYM MOŻEMY POLEWAĆ JEDZENIE?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 41,
+        "AnswerString": "Recepta",
+        "IsVisible": false
+      },
+      {
+        "Points": 37,
+        "AnswerString": "Butelka",
+        "IsVisible": false
+      },
+      {
+        "Points": 25,
+        "AnswerString": "Zbiornik paliwowy",
+        "IsVisible": false
+      },
+      {
+        "Points": 14,
+        "AnswerString": "Filiżanka kawy",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "PODAJ PRZYKŁAD CZEGOŚ, CO MOŻNA UZUPEŁNIĆ/WYPEŁNIĆ:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 31,
+        "AnswerString": "Papierosy",
+        "IsVisible": false
+      },
+      {
+        "Points": 27,
+        "AnswerString": "Cygara",
+        "IsVisible": false
+      },
+      {
+        "Points": 15,
+        "AnswerString": "Grilla",
+        "IsVisible": false
+      },
+      {
+        "Points": 10,
+        "AnswerString": "Drewno w kominku",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "CO MOŻNA PALIĆ?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 44,
+        "AnswerString": "Masło",
+        "IsVisible": false
+      },
+      {
+        "Points": 38,
+        "AnswerString": "Ser",
+        "IsVisible": false
+      },
+      {
+        "Points": 29,
+        "AnswerString": "Lody",
+        "IsVisible": false
+      },
+      {
+        "Points": 17,
+        "AnswerString": "Jogurt",
+        "IsVisible": false
+      },
+      {
+        "Points": 11,
+        "AnswerString": "Mleko skondensowane",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "PODAJ PRZYKŁAD CZEGOŚ, CO JEST ZROBIONE Z MLEKA:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 37,
+        "AnswerString": "Popsuty samochód",
+        "IsVisible": false
+      },
+      {
+        "Points": 31,
+        "AnswerString": "Brak pieniędzy",
+        "IsVisible": false
+      },
+      {
+        "Points": 26,
+        "AnswerString": "Zostać \"wystawionym\" przez drugą połowę",
+        "IsVisible": false
+      },
+      {
+        "Points": 16,
+        "AnswerString": "Kłótnia",
+        "IsVisible": false
+      },
+      {
+        "Points": 7,
+        "AnswerString": "Wylany napój",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "CO MOŻE PÓJŚĆ NIE TAK NA RANDCE?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 41,
+        "AnswerString": "Czerwone wino",
+        "IsVisible": false
+      },
+      {
+        "Points": 38,
+        "AnswerString": "Oranżada",
+        "IsVisible": false
+      },
+      {
+        "Points": 25,
+        "AnswerString": "Sok pomidorowy",
+        "IsVisible": false
+      },
+      {
+        "Points": 14,
+        "AnswerString": "Sok żurawinowy",
+        "IsVisible": false
+      },
+      {
+        "Points": 8,
+        "AnswerString": "Poncz owocowy",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "CO LUDZIE PIJĄ, A CO JEST CZERWONE?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 36,
+        "AnswerString": "Pasta do zębów",
+        "IsVisible": false
+      },
+      {
+        "Points": 29,
+        "AnswerString": "Aparat ortodontyczny",
+        "IsVisible": false
+      },
+      {
+        "Points": 21,
+        "AnswerString": "Produktów wybielających",
+        "IsVisible": false
+      },
+      {
+        "Points": 15,
+        "AnswerString": "Szczoteczka do zębów",
+        "IsVisible": false
+      },
+      {
+        "Points": 9,
+        "AnswerString": "Nakładki",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "PODAJ PRZYKŁAD CZEGOŚ, CZEGO MOŻNA UŻYWAĆ DO ZĘBÓW?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 39,
+        "AnswerString": "Wino",
+        "IsVisible": false
+      },
+      {
+        "Points": 28,
+        "AnswerString": "Trawa",
+        "IsVisible": false
+      },
+      {
+        "Points": 16,
+        "AnswerString": "Krew",
+        "IsVisible": false
+      },
+      {
+        "Points": 13,
+        "AnswerString": "Brud",
+        "IsVisible": false
+      },
+      {
+        "Points": 6,
+        "AnswerString": "Olej",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "CZYM MOŻNA POPLAMIĆ UBRANIE?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 47,
+        "AnswerString": "Złe aktorstwo",
+        "IsVisible": false
+      },
+      {
+        "Points": 39,
+        "AnswerString": "Rywalizująca drużyna sportowa",
+        "IsVisible": false
+      },
+      {
+        "Points": 25,
+        "AnswerString": "Zły żart",
+        "IsVisible": false
+      },
+      {
+        "Points": 18,
+        "AnswerString": "Zła muzyka",
+        "IsVisible": false
+      },
+      {
+        "Points": 12,
+        "AnswerString": "Sędzia sportowy",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "NA CO MOŻNA BUCZEĆ/CO MOŻNA WYBUCZEĆ?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 31,
+        "AnswerString": "Dressing do sałatki",
+        "IsVisible": false
+      },
+      {
+        "Points": 28,
+        "AnswerString": "Ręce",
+        "IsVisible": false
+      },
+      {
+        "Points": 21,
+        "AnswerString": "Głowa",
+        "IsVisible": false
+      },
+      {
+        "Points": 15,
+        "AnswerString": "Butelka",
+        "IsVisible": false
+      },
+      {
+        "Points": 8,
+        "AnswerString": "Koktajl",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "WYMIEŃ, CZYM LUB CO MOŻNA POTRZĄSNĄĆ/WSTRZĄSNAĆ:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 37,
+        "AnswerString": "Drzewo",
+        "IsVisible": false
+      },
+      {
+        "Points": 31,
+        "AnswerString": "Włosy",
+        "IsVisible": false
+      },
+      {
+        "Points": 26,
+        "AnswerString": "Roślina",
+        "IsVisible": false
+      },
+      {
+        "Points": 14,
+        "AnswerString": "Zęby",
+        "IsVisible": false
+      },
+      {
+        "Points": 9,
+        "AnswerString": "Kwiaty",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "PODAJ PRZYKŁAD CZEGOŚ, CO MA KORZENIE:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 51,
+        "AnswerString": "Miłość",
+        "IsVisible": false
+      },
+      {
+        "Points": 37,
+        "AnswerString": "Zerwanie",
+        "IsVisible": false
+      },
+      {
+        "Points": 21,
+        "AnswerString": "Ameryka",
+        "IsVisible": false
+      },
+      {
+        "Points": 12,
+        "AnswerString": "Picie",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "WYMIEŃ COŚ, O CZYM LUBIĄ ŚPIEWAĆ PIOSENKARZE COUNTRY:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 45,
+        "AnswerString": "Balon",
+        "IsVisible": false
+      },
+      {
+        "Points": 31,
+        "AnswerString": "Opona",
+        "IsVisible": false
+      },
+      {
+        "Points": 24,
+        "AnswerString": "Ponton",
+        "IsVisible": false
+      },
+      {
+        "Points": 13,
+        "AnswerString": "Materac",
+        "IsVisible": false
+      },
+      {
+        "Points": 7,
+        "AnswerString": "Piłka plażowa",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "CO NAPEŁNIA SIĘ POWIETRZEM?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 51,
+        "AnswerString": "Samochody",
+        "IsVisible": false
+      },
+      {
+        "Points": 47,
+        "AnswerString": "Ubrania",
+        "IsVisible": false
+      },
+      {
+        "Points": 30,
+        "AnswerString": "Meble",
+        "IsVisible": false
+      },
+      {
+        "Points": 23,
+        "AnswerString": "Książki",
+        "IsVisible": false
+      },
+      {
+        "Points": 13,
+        "AnswerString": "Elektronika",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "CO MOŻNA KUPIĆ UŻYWANE?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 40,
+        "AnswerString": "James Bond",
+        "IsVisible": false
+      },
+      {
+        "Points": 34,
+        "AnswerString": "Pistolety",
+        "IsVisible": false
+      },
+      {
+        "Points": 27,
+        "AnswerString": "Samochody",
+        "IsVisible": false
+      },
+      {
+        "Points": 13,
+        "AnswerString": "Alkohol",
+        "IsVisible": false
+      },
+      {
+        "Points": 9,
+        "AnswerString": "Eksplozje",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "PODAJ PRZYKŁAD CZEGOŚ, CO ZNAJDUJE SIĘ W KAŻDYM FILMIE O JAMESIE BONDZIE:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 38,
+        "AnswerString": "Udostępniać treści",
+        "IsVisible": false
+      },
+      {
+        "Points": 25,
+        "AnswerString": "Czatować",
+        "IsVisible": false
+      },
+      {
+        "Points": 14,
+        "AnswerString": "Grać w gry",
+        "IsVisible": false
+      },
+      {
+        "Points": 11,
+        "AnswerString": "Stalkować",
+        "IsVisible": false
+      },
+      {
+        "Points": 7,
+        "AnswerString": "Znajdować znajomych",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "WYMIEŃ COŚ, CO MOŻNA ROBIĆ NA FACEBOOKU:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 45,
+        "AnswerString": "Statua Wolności",
+        "IsVisible": false
+      },
+      {
+        "Points": 31,
+        "AnswerString": "Empire State Building",
+        "IsVisible": false
+      },
+      {
+        "Points": 26,
+        "AnswerString": "Times Square",
+        "IsVisible": false
+      },
+      {
+        "Points": 14,
+        "AnswerString": "Wielkie Jabłko",
+        "IsVisible": false
+      },
+      {
+        "Points": 10,
+        "AnswerString": "Broadway",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "WYMIEŃ COŚ, CO KOJARZY SIĘ Z NOWYM JORKIEM:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 36,
+        "AnswerString": "Zabawki",
+        "IsVisible": false
+      },
+      {
+        "Points": 27,
+        "AnswerString": "Rower",
+        "IsVisible": false
+      },
+      {
+        "Points": 21,
+        "AnswerString": "Pieniądze",
+        "IsVisible": false
+      },
+      {
+        "Points": 14,
+        "AnswerString": "Szczeniak",
+        "IsVisible": false
+      },
+      {
+        "Points": 8,
+        "AnswerString": "Gry wideo",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "WYMIEŃ COŚ, CO KAŻDE DZIECKO CHCE DOSTAĆ NA ŚWIĘTA:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 37,
+        "AnswerString": "Praca domowa",
+        "IsVisible": false
+      },
+      {
+        "Points": 26,
+        "AnswerString": "Chodzenie do szkoły",
+        "IsVisible": false
+      },
+      {
+        "Points": 19,
+        "AnswerString": "Obowiązki domowe",
+        "IsVisible": false
+      },
+      {
+        "Points": 16,
+        "AnswerString": "Pora do spania",
+        "IsVisible": false
+      },
+      {
+        "Points": 7,
+        "AnswerString": "Głód",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "WYMIEŃ COŚ, NA CO DZIECI ZAWSZE NARZEKAJĄ:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 35,
+        "AnswerString": "Włosy",
+        "IsVisible": false
+      },
+      {
+        "Points": 27,
+        "AnswerString": "Papier",
+        "IsVisible": false
+      },
+      {
+        "Points": 21,
+        "AnswerString": "Trawa",
+        "IsVisible": false
+      },
+      {
+        "Points": 15,
+        "AnswerString": "Mięso",
+        "IsVisible": false
+      },
+      {
+        "Points": 8,
+        "AnswerString": "Paznokcie",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "CO MOŻNA CIĄĆ/OBCIĄĆ?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 32,
+        "AnswerString": "Płatki śniadaniowe",
+        "IsVisible": false
+      },
+      {
+        "Points": 28,
+        "AnswerString": "Kawa",
+        "IsVisible": false
+      },
+      {
+        "Points": 19,
+        "AnswerString": "Ciasto",
+        "IsVisible": false
+      },
+      {
+        "Points": 14,
+        "AnswerString": "Truskawki",
+        "IsVisible": false
+      },
+      {
+        "Points": 9,
+        "AnswerString": "Napój",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "WYMIEŃ COŚ, DO CZEGO MOŻNA DODAĆ CUKIER:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 33,
+        "AnswerString": "Ogień",
+        "IsVisible": false
+      },
+      {
+        "Points": 27,
+        "AnswerString": "Powódź",
+        "IsVisible": false
+      },
+      {
+        "Points": 16,
+        "AnswerString": "Kradzież",
+        "IsVisible": false
+      },
+      {
+        "Points": 11,
+        "AnswerString": "Huragan",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "WYMIEŃ COŚ, OD CZEGO LUDZIE UBEZPIECZAJĄ SWÓJ DOM:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 47,
+        "AnswerString": "Muzyka",
+        "IsVisible": false
+      },
+      {
+        "Points": 31,
+        "AnswerString": "John Lennon",
+        "IsVisible": false
+      },
+      {
+        "Points": 28,
+        "AnswerString": "Włosy",
+        "IsVisible": false
+      },
+      {
+        "Points": 21,
+        "AnswerString": "Anglia",
+        "IsVisible": false
+      },
+      {
+        "Points": 13,
+        "AnswerString": "Paul McCartney",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "WYMIEŃ COŚ, CO KOJARZY SIĘ Z THE BEATLES:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 33,
+        "AnswerString": "Łazienka",
+        "IsVisible": false
+      },
+      {
+        "Points": 27,
+        "AnswerString": "Kuchnia",
+        "IsVisible": false
+      },
+      {
+        "Points": 18,
+        "AnswerString": "Naczynia",
+        "IsVisible": false
+      },
+      {
+        "Points": 10,
+        "AnswerString": "Ubrania",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "NAZWIJ COŚ, CO MOŻNA POSPRZĄTAĆ:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 35,
+        "AnswerString": "Przylądek",
+        "IsVisible": false
+      },
+      {
+        "Points": 31,
+        "AnswerString": "Latanie",
+        "IsVisible": false
+      },
+      {
+        "Points": 25,
+        "AnswerString": "Lois Lane",
+        "IsVisible": false
+      },
+      {
+        "Points": 14,
+        "AnswerString": "Krypton",
+        "IsVisible": false
+      },
+      {
+        "Points": 9,
+        "AnswerString": "Clark Kent",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "WYMIEŃ COŚ, CO KOJARZY SIĘ Z SUPERMANEM:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 44,
+        "AnswerString": "Szalony Kapelusznik",
+        "IsVisible": false
+      },
+      {
+        "Points": 39,
+        "AnswerString": "Biały Królik",
+        "IsVisible": false
+      },
+      {
+        "Points": 28,
+        "AnswerString": "Kot z Cheshire",
+        "IsVisible": false
+      },
+      {
+        "Points": 18,
+        "AnswerString": "Alicja",
+        "IsVisible": false
+      },
+      {
+        "Points": 11,
+        "AnswerString": "Królowa Kier",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "WYMIEŃ COŚ ZWIĄZANEGO Z ALICJĄ W KRAINIE CZARÓW:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 31,
+        "AnswerString": "Rozłączenie połączenia",
+        "IsVisible": false
+      },
+      {
+        "Points": 27,
+        "AnswerString": "Nie odbieranie telefonu",
+        "IsVisible": false
+      },
+      {
+        "Points": 20,
+        "AnswerString": "Odmówienie",
+        "IsVisible": false
+      },
+      {
+        "Points": 11,
+        "AnswerString": "Odebranie telefonu",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "WYMIEŃ COŚ, CO ROBISZ, GDY DZWONI TELEMARKETER:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 46,
+        "AnswerString": "Ćwiczenia/Sport",
+        "IsVisible": false
+      },
+      {
+        "Points": 38,
+        "AnswerString": "Ciepło",
+        "IsVisible": false
+      },
+      {
+        "Points": 26,
+        "AnswerString": "Bieganie",
+        "IsVisible": false
+      },
+      {
+        "Points": 14,
+        "AnswerString": "Pikantne jedzenie",
+        "IsVisible": false
+      },
+      {
+        "Points": 8,
+        "AnswerString": "Opalanie się",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "PODAJ PRZYKŁAD CZEGOŚ, CO SPRAWIA, ŻE SIĘ POCISZ:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 43,
+        "AnswerString": "Sprzedawać lemonidę",
+        "IsVisible": false
+      },
+      {
+        "Points": 37,
+        "AnswerString": "Kosić trawnik",
+        "IsVisible": false
+      },
+      {
+        "Points": 24,
+        "AnswerString": "Wykonywać obowiązki domowe",
+        "IsVisible": false
+      },
+      {
+        "Points": 13,
+        "AnswerString": "Roznosić ulotki/gazety",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "WYMIEŃ COŚ, CO DZIECKO MOŻE ROBIĆ, ABY ZAROBIĆ PIENIĄDZE:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 38,
+        "AnswerString": "Makijaż",
+        "IsVisible": false
+      },
+      {
+        "Points": 27,
+        "AnswerString": "Ćwiczenia",
+        "IsVisible": false
+      },
+      {
+        "Points": 18,
+        "AnswerString": "Jedzenie",
+        "IsVisible": false
+      },
+      {
+        "Points": 10,
+        "AnswerString": "Praca",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "WYMIEŃ COŚ, Z CZYM LUDZIE PRZESADZAJĄ:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 43,
+        "AnswerString": "E-mail",
+        "IsVisible": false
+      },
+      {
+        "Points": 32,
+        "AnswerString": "Czas/Godzina",
+        "IsVisible": false
+      },
+      {
+        "Points": 24,
+        "AnswerString": "Konto bankowe",
+        "IsVisible": false
+      },
+      {
+        "Points": 15,
+        "AnswerString": "Wiadomości",
+        "IsVisible": false
+      },
+      {
+        "Points": 8,
+        "AnswerString": "Włosy",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "WYMIEŃ COŚ, CO SPRAWDZASZ CODZIENNIE:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 48,
+        "AnswerString": "Kameleon",
+        "IsVisible": false
+      },
+      {
+        "Points": 39,
+        "AnswerString": "Jaszczurka",
+        "IsVisible": false
+      },
+      {
+        "Points": 26,
+        "AnswerString": "Niebo",
+        "IsVisible": false
+      },
+      {
+        "Points": 14,
+        "AnswerString": "Włosy",
+        "IsVisible": false
+      },
+      {
+        "Points": 9,
+        "AnswerString": "Liście",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "PODAJ PRZYKŁAD CZEGOŚ, CO ZMIENIA KOLOR:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 36,
+        "AnswerString": "Śpiewać",
+        "IsVisible": false
+      },
+      {
+        "Points": 28,
+        "AnswerString": "Kąpać się",
+        "IsVisible": false
+      },
+      {
+        "Points": 15,
+        "AnswerString": "Myć włosy",
+        "IsVisible": false
+      },
+      {
+        "Points": 9,
+        "AnswerString": "Golić się",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "CO LUDZIE MOGĄ ROBIĆ POD PRYSZNICEM:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 44,
+        "AnswerString": "Samochód",
+        "IsVisible": false
+      },
+      {
+        "Points": 31,
+        "AnswerString": "Narzędzia",
+        "IsVisible": false
+      },
+      {
+        "Points": 26,
+        "AnswerString": "Kosiarka",
+        "IsVisible": false
+      },
+      {
+        "Points": 13,
+        "AnswerString": "Rower",
+        "IsVisible": false
+      },
+      {
+        "Points": 8,
+        "AnswerString": "Śmietniki",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "PODAJ PRZYKŁAD CZEGOŚ, CO MOŻNA ZNALEŹĆ W GARAŻU:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 30,
+        "AnswerString": "Kocimiętka",
+        "IsVisible": false
+      },
+      {
+        "Points": 27,
+        "AnswerString": "Pojemnik na śmieci",
+        "IsVisible": false
+      },
+      {
+        "Points": 15,
+        "AnswerString": "Karma dla kotów",
+        "IsVisible": false
+      },
+      {
+        "Points": 11,
+        "AnswerString": "Włóczka",
+        "IsVisible": false
+      },
+      {
+        "Points": 9,
+        "AnswerString": "Piłka",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "CO MOŻNA KUPIĆ DLA KOTA?",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  },
+  {
+    "RoundNumber": 0,
+    "Answers": [
+      {
+        "Points": 37,
+        "AnswerString": "Superman",
+        "IsVisible": false
+      },
+      {
+        "Points": 29,
+        "AnswerString": "Batman",
+        "IsVisible": false
+      },
+      {
+        "Points": 21,
+        "AnswerString": "Kapitan Ameryka",
+        "IsVisible": false
+      },
+      {
+        "Points": 15,
+        "AnswerString": "Iron-Man",
+        "IsVisible": false
+      },
+      {
+        "Points": 8,
+        "AnswerString": "Spider-Man",
+        "IsVisible": false
+      }
+    ],
+    "QuestionString": "PODAJ PRZYKŁAD KOMIKSOWEGO SUPERBOHATERA:",
+    "IsAvailable": true,
+    "ExcelWorkbook": null
+  }
+]
