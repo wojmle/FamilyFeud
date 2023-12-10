@@ -142,8 +142,12 @@
     <Content Include="MVVM\DataBase\QuestionsEN.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="MVVM\DataBase\QuestionsEN.json" />
-    <None Include="MVVM\DataBase\QuestionsPL.json" />
+    <Content Include="MVVM\DataBase\QuestionsEN.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MVVM\DataBase\QuestionsPL.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
