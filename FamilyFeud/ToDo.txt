@@ -13,10 +13,52 @@ Add timer for the first answer (3seconds, then hit wronganswer sound if not answ
 10. Upgrade MainWindowView so it looks better.
 11. Create converter for WrongAnswerGraphics
 12. Add to main window informations about round number/game
+13. Add option to save game
 
 
 
 
 Game window scenario:
 1. Welcome window with name FAMILIADA and Team Names, reading joke (separte view for that)
-2. Start game in main window
+2. Start game by button in main window
+
+
+
+
+
+Main window (settings window) should contain:
+- Game Settings page with following options:
+	- Points to win the game/how many questions to be in the game
+	- team names
+	- which database to be used
+	- decide which type of the final round should be included
+		- set questions number
+		- set timer for each attendant
+- Control game window
+	- assign points to the answering team
+	- click wrong answer button
+	- click start for every round
+	- skip question
+	- block with informations
+		- current round
+		- points required to win
+- control game window for last round
+	- button to start the round and timer
+	- fields with questions
+	- fields to write down answers
+	- button to reveal each answer and points
+
+Game Window
+- Start screen
+	- Team names
+	- Familiada label
+	- joke reader
+- Default round
+	- Team names on both sides
+	- answers in the middle with points and numbering
+	- points sum at bottom
+	- points at top (total if multiplied)
+- Last round
+	- two columns for two attendants
+	- timer at top
+
