@@ -12,4 +12,11 @@ Add timer for the first answer (3seconds, then hit wronganswer sound if not answ
 9. Add joke on the start screen.
 10. Upgrade MainWindowView so it looks better.
 11. Create converter for WrongAnswerGraphics
-12. Add to main window informations about round number
+12. Add to main window informations about round number/game
+
+
+
+
+Game window scenario:
+1. Welcome window with name FAMILIADA and Team Names, reading joke (separte view for that)
+2. Start game in main window

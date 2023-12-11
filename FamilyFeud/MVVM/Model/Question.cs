@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,8 +22,8 @@ namespace FamilyFeud.MVVM.Model
             }
         }
 
-        private List<Answer> answers;
-        public List<Answer> Answers
+        private ObservableCollection<Answer> answers;
+        public ObservableCollection<Answer> Answers
         {
             get => answers;
             set
@@ -62,7 +63,7 @@ namespace FamilyFeud.MVVM.Model
 
         public Question(int roundNumber)
         {
-            Answers = new List<Answer>();
+            Answers = new ObservableCollection<Answer>();
             RoundNumber = roundNumber;
             ConnectToWorkbook();
             SetQuestionAndAnswers(RoundNumber);

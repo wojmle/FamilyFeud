@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:FamilyFeud" 
         xmlns:viewmodel="clr-namespace:FamilyFeud.MVVM.ViewModel"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
         d:DataContext="{d:DesignInstance Type=viewmodel:MainWindowViewModel}"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
@@ -33,57 +34,77 @@
         </StackPanel>
 
         <Label Grid.Row ="0" Grid.Column ="1"  Content="Questions list"/>
-        <DataGrid Grid.Row ="1" Grid.Column="1" 
-                  ItemsSource="{Binding AnswersObjectCollection, UpdateSourceTrigger=PropertyChanged}" 
-                  SelectedItem="{Binding CurrentAnswer, Mode=TwoWay}"
-                  DisplayMemberPath="AnswerString" 
-                  CanUserAddRows="False"
-                  CanUserSortColumns="False" 
-                  SelectionMode="Single"
-                  MinRowHeight="40"
-                  AutoGenerateColumns="False"
-                  VirtualizingPanel.IsVirtualizingWhenGrouping="True" 
-                  IsReadOnly="False"
-                  Background="Transparent"
-                  IsHitTestVisible="True">
-            <i:Interaction.Triggers>
-                <i:EventTrigger EventName="MouseLeftButtonUp">
-                    <i:InvokeCommandAction
-                        Command="{Binding RelativeSource={RelativeSource AncestorType=DataGrid}, Path=DataContext.OnAnswerClickCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=DataGrid}, Path=DataContext.CurrentAnswer}" />
-                </i:EventTrigger>
-            </i:Interaction.Triggers>
-            <DataGrid.Columns>
-                <DataGridTemplateColumn Width="*">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBlock Style = "{StaticResource {x:Type TextBlock}}" 
-                                       VerticalAlignment="Stretch"
-                                       IsHitTestVisible="True"
-                                       Background="Transparent"
-                                       HorizontalAlignment="Stretch"
-                                       Text="{Binding AnswerString}">
-                            </TextBlock>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-            <DataGrid.RowStyle>
-                <Style TargetType="{x:Type DataGridRow}" BasedOn="{StaticResource {x:Type DataGridRow}}">
-                    <Style.Triggers>
-                        <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="Background" Value="#9B9AA2"/>
-                            <Setter Property="BorderThickness" Value="0"/>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </DataGrid.RowStyle>
-        </DataGrid>
-        <Button Grid.Row ="1" Grid.Column="1" VerticalAlignment="Bottom" x:Name="WrongAnswer" Content="Wrong Answer" Command="{Binding OnWrongAnswerClickCommand}"></Button>
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <Label Content="{Binding CurrentQuestion.QuestionString}"></Label>
+            <DataGrid ItemsSource="{Binding AnswersObjectCollection, UpdateSourceTrigger=PropertyChanged}" 
+                      SelectedItem="{Binding CurrentAnswer, Mode=TwoWay}"
+                      DisplayMemberPath="AnswerString" 
+                      CanUserAddRows="False"
+                      CanUserSortColumns="False" 
+                      SelectionMode="Single"
+                      MinRowHeight="40"
+                      AutoGenerateColumns="False"
+                      VirtualizingPanel.IsVirtualizingWhenGrouping="True" 
+                      IsReadOnly="False"
+                      Background="Transparent"
+                      IsHitTestVisible="True">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseLeftButtonUp">
+                        <i:InvokeCommandAction
+                Command="{Binding RelativeSource={RelativeSource AncestorType=DataGrid}, Path=DataContext.OnAnswerClickCommand}"
+                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=DataGrid}, Path=DataContext.CurrentAnswer}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Style = "{StaticResource {x:Type TextBlock}}" 
+                               VerticalAlignment="Stretch"
+                               IsHitTestVisible="True"
+                               Background="Transparent"
+                               HorizontalAlignment="Stretch"
+                               Text="{Binding AnswerString}">
+                                </TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+                <DataGrid.RowStyle>
+                    <Style TargetType="{x:Type DataGridRow}" BasedOn="{StaticResource {x:Type DataGridRow}}">
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="#9B9AA2"/>
+                                <Setter Property="BorderThickness" Value="0"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.RowStyle>
+            </DataGrid>
+            <Button Grid.Row ="1" Grid.Column="1" VerticalAlignment="Bottom" x:Name="WrongAnswer" Content="Wrong Answer" Command="{Binding OnWrongAnswerClickCommand}"></Button>
+        </StackPanel>
+        
         <Label Grid.Row ="0" Grid.Column ="2" Content="Second team name:"/>
-        <DockPanel Grid.Row ="2" Grid.Column ="1" HorizontalAlignment="Center">
-            <Button  VerticalAlignment="Center" Height ="30" Width="100" x:Name ="Start" Margin="10" Content="Start"></Button>
-            <Button  VerticalAlignment="Center" Height ="30" Width="100" x:Name ="Reset" Margin="10" Content="Reset"></Button>
-        </DockPanel>
+        <StackPanel Grid.Row ="2" Grid.Column ="1">
+            <DockPanel Grid.Row ="2" Grid.Column ="1" HorizontalAlignment="Center">
+                <Button  VerticalAlignment="Center" Height ="30" Width="100" x:Name ="Start" Margin="5" Content="Start"></Button>
+                <Button  VerticalAlignment="Center" Height ="30" Width="100" x:Name ="Reset" Margin="5" Content="Reset"></Button>
+            </DockPanel>
+            <DockPanel Grid.Row ="2" Grid.Column ="1" HorizontalAlignment="Center">
+                <Button  VerticalAlignment="Center" Height ="30" Width="100" x:Name ="ResetQuestions" Margin="5" Content="Reset Questions" Command="{Binding OnResetQuestionsClickCommand}"></Button>
+                <Button  VerticalAlignment="Center" Height ="30" Width="100" x:Name ="NoName" Margin="5" Content="Reset"></Button>
+            </DockPanel>
+        </StackPanel>
+        <StackPanel Grid.Row ="2" Grid.Column ="0">
+            <ComboBox SelectedValue ="{Binding Path = GameType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}">
+                <ComboBox.ItemsSource>
+                    <x:Array Type="system:String">
+                        <system:String>gamePL</system:String>
+                        <system:String>gameEN</system:String>
+                    </x:Array>
+                </ComboBox.ItemsSource>
+            </ComboBox>
+        </StackPanel>
+
     </Grid>
 </Window>

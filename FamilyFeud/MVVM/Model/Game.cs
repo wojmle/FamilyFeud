@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,9 +19,9 @@ namespace FamilyFeud.MVVM.Model
 
         public Game(string firstTeam, string secondTeam)
         {
-            FirstTeam = new Team{Name = firstTeam, Points = 0, Lives = 3};
+            FirstTeam = new Team{ Name = firstTeam, Points = 0, Lives = 3};
             SecondTeam = new Team { Name = secondTeam, Points = 0, Lives = 3 };
-            QuestionList = new List<Question>();
+            QuestionList = new ObservableCollection<Question>();
             CurrentRound = 1;
             SetQuestion();
         }
@@ -47,8 +48,8 @@ namespace FamilyFeud.MVVM.Model
             }
         }
 
-        private List<Question> questionList;
-        public List<Question> QuestionList
+        private ObservableCollection<Question> questionList;
+        public ObservableCollection<Question> QuestionList
         {
             get { return questionList; }
             set

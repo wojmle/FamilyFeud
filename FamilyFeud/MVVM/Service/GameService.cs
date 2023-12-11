@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -45,7 +46,7 @@ namespace FamilyFeud.MVVM.Service
         public bool SerializeObjectsToJson(string type)
         {
             int count = 1;
-            if (type == "PL")
+            if (type == PathPL)
             {
                 var path = Path.Combine(FolderPath, PathPL + ".xlsx");
                 var game = ReadExcel(path);
@@ -67,7 +68,7 @@ namespace FamilyFeud.MVVM.Service
                 return true;
 
             }
-            if (type == "EN")
+            if (type == PathEN)
             {
                 var path = Path.Combine(FolderPath, PathEN + ".xlsx");
                 var game = ReadExcel(path);
@@ -131,7 +132,7 @@ namespace FamilyFeud.MVVM.Service
                 for (int j = 1; j < lastRow; j += answersCount + 1)
                 {
                     answersCount = Int32.Parse(excelRange.Cells[j, 2].Value.ToString());
-                    List<Answer> answersList = new List<Answer>();
+                    ObservableCollection<Answer> answersList = new ObservableCollection<Answer>();
                     question = excelRange.Cells[j, 1].Value.ToString();
                     var questionObject = new Question
                     {
@@ -166,7 +167,7 @@ namespace FamilyFeud.MVVM.Service
 
                     for (int j = 2; j <= lastRow; j++)
                     {
-                        List<Answer> answersList = new List<Answer>();
+                        ObservableCollection<Answer> answersList = new ObservableCollection<Answer>();
                         var question = excelRange.Cells[j, 1].Value.ToString();
                         var questionObject = new Question
                         {

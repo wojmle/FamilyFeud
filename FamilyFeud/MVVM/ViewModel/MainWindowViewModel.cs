@@ -21,6 +21,7 @@ namespace FamilyFeud.MVVM.ViewModel
         private GameService gameService;
         private List<Question> databaseEN = new List<Question>(); //temp to check functionality - everything should happen on service site
         private List<Question> databasePL = new List<Question>(); //temp to check functionality - everything should happen on service site
+        private const int roundCount = 10;
 
         public MainWindowViewModel(Game game)
         {
@@ -28,6 +29,7 @@ namespace FamilyFeud.MVVM.ViewModel
             _playerClass = new WindowsMediaPlayerClass();
             OnWrongAnswerClickCommand = new RelayCommand(OnWrongAnswerClick);
             OnAnswerClickCommand = new RelayCommand(OnAnswerClick);
+            OnResetQuestionsClickCommand = new RelayCommand(OnResetQuestionsClick);
             ActiveGame = game;
             SetDefaultData();
             SetList();
@@ -35,22 +37,38 @@ namespace FamilyFeud.MVVM.ViewModel
 
         private void SetList()
         {
-            ActiveGame.QuestionList[ActiveGame.CurrentRound - 1].Answers.ForEach(setAnswerObjectCollection());
+            //ActiveGame.QuestionList[ActiveGame.CurrentRound - 1].Answers.ForEach(setAnswerObjectCollection());
+            AnswersObjectCollection = ActiveGame.QuestionList[ActiveGame.CurrentRound - 1].Answers;
+            CurrentQuestion = ActiveGame.QuestionList[ActiveGame.CurrentRound - 1];
         }
-
+        
         private void SetDefaultData()
         {
             IsSymbolVisible1 = IsSymbolVisible11 = IsSymbolVisible12 = IsSymbolVisible13 =
                 IsSymbolVisible2 = IsSymbolVisible21 = IsSymbolVisible22 = IsSymbolVisible23 = false;
+
+            databaseEN = gameService.GetQuestionsList(GameService.PathEN);
+            databasePL = gameService.GetQuestionsList(GameService.PathPL);
+
+            //Setting first question
+            if (databaseEN.Count > 0 && GameType == "gameEN")
+            {
+                ActiveGame.QuestionList.Add(databaseEN.FirstOrDefault(x => x.IsAvailable && x.Answers.Count == gameService.GetNumberOfAnswers(ActiveGame.CurrentRound)));
+            }
+            else if (databaseEN.Count > 0 && GameType == "gamePL")
+            {
+                ActiveGame.QuestionList.Add(databasePL.FirstOrDefault(x => x.IsAvailable && x.Answers.Count == gameService.GetNumberOfAnswers(ActiveGame.CurrentRound)));
+            }
         }
-        private Action<Answer> setAnswerObjectCollection()
+
+        /*private Action<Answer> setAnswerObjectCollection()
         {
             this.AnswersObjectCollection = new ObservableCollection<Answer>();
             return f => this.answersObjectCollection.Add(new Answer
             {
                 AnswerString = f.AnswerString, Points = f.Points
             });
-        }
+        }*/
 
         private Game activeGame;
 
@@ -64,10 +82,21 @@ namespace FamilyFeud.MVVM.ViewModel
             }
         }
 
+        private Question currentQuestion;
+        public Question CurrentQuestion
+        {
+            get => currentQuestion;
+            set
+            {
+                currentQuestion = value;
+                NotifyPropertyChanged();
+            }
+        }
+
         private Answer currentAnswer;
         public Answer CurrentAnswer
         {
-            get { return currentAnswer; }
+            get => currentAnswer;
             set
             {
                 currentAnswer = value;
@@ -78,7 +107,7 @@ namespace FamilyFeud.MVVM.ViewModel
         private ObservableCollection<Answer> answersObjectCollection;
         public ObservableCollection<Answer> AnswersObjectCollection
         {
-            get { return answersObjectCollection; }
+            get => answersObjectCollection;
             set
             {
                 answersObjectCollection = value;
@@ -87,10 +116,10 @@ namespace FamilyFeud.MVVM.ViewModel
         }
         
 
-        private bool _isSymbolVisible1 { get; set; }
+        private bool _isSymbolVisible1; 
         public bool IsSymbolVisible1
         {
-            get { return _isSymbolVisible1; }
+            get => _isSymbolVisible1;
             set
             {
                 _isSymbolVisible1 = value;
@@ -98,10 +127,10 @@ namespace FamilyFeud.MVVM.ViewModel
             }
         }
 
-        private bool _isSymbolVisible2 { get; set; }
+        private bool _isSymbolVisible2;
         public bool IsSymbolVisible2
         {
-            get { return _isSymbolVisible2; }
+            get => _isSymbolVisible2;
             set
             {
                 _isSymbolVisible2 = value;
@@ -109,10 +138,10 @@ namespace FamilyFeud.MVVM.ViewModel
             }
         }
 
-        private bool _isSymbolVisible11 { get; set; }
+        private bool _isSymbolVisible11;
         public bool IsSymbolVisible11
         {
-            get { return _isSymbolVisible11; }
+            get => _isSymbolVisible11;
             set
             {
                 _isSymbolVisible11 = value;
@@ -120,10 +149,10 @@ namespace FamilyFeud.MVVM.ViewModel
             }
         }
 
-        private bool _isSymbolVisible12 { get; set; }
+        private bool _isSymbolVisible12;
         public bool IsSymbolVisible12
         {
-            get { return _isSymbolVisible12; }
+            get => _isSymbolVisible12;
             set
             {
                 _isSymbolVisible12 = value;
@@ -131,10 +160,10 @@ namespace FamilyFeud.MVVM.ViewModel
             }
         }
 
-        private bool _isSymbolVisible13 { get; set; }
+        private bool _isSymbolVisible13;
         public bool IsSymbolVisible13
         {
-            get { return _isSymbolVisible13; }
+            get => _isSymbolVisible13;
             set
             {
                 _isSymbolVisible13 = value;
@@ -142,10 +171,10 @@ namespace FamilyFeud.MVVM.ViewModel
             }
         }
 
-        private bool _isSymbolVisible21 { get; set; }
+        private bool _isSymbolVisible21;
         public bool IsSymbolVisible21
         {
-            get { return _isSymbolVisible21; }
+            get => _isSymbolVisible21;
             set
             {
                 _isSymbolVisible21 = value;
@@ -153,10 +182,10 @@ namespace FamilyFeud.MVVM.ViewModel
             }
         }
 
-        private bool _isSymbolVisible22 { get; set; }
+        private bool _isSymbolVisible22;
         public bool IsSymbolVisible22
         {
-            get { return _isSymbolVisible22; }
+            get => _isSymbolVisible22;
             set
             {
                 _isSymbolVisible22 = value;
@@ -164,10 +193,10 @@ namespace FamilyFeud.MVVM.ViewModel
             }
         }
 
-        private bool _isSymbolVisible23 { get; set; }
+        private bool _isSymbolVisible23;    
         public bool IsSymbolVisible23
         {
-            get { return _isSymbolVisible23; }
+            get => _isSymbolVisible23;
             set
             {
                 _isSymbolVisible23 = value;
@@ -175,44 +204,44 @@ namespace FamilyFeud.MVVM.ViewModel
             }
         }
 
-        private string _firstTeamName { get; set; }
+       /* private string _firstTeamName;
         public string FirstTeamName
         {
-            get { return _firstTeamName; }
+            get => _firstTeamName;
             set
             {
                 _firstTeamName = value;
                 ActiveGame.FirstTeam.Name = _firstTeamName;
                 NotifyPropertyChanged();
             }
-        }
+        }*/
 
-        private string _secondTeamName { get; set; }
+        /*private string _secondTeamName;
         public string SecondTeamName
         {
-            get { return _secondTeamName; }
+            get => _secondTeamName;
             set
             {
                 _secondTeamName = value;
                 ActiveGame.SecondTeam.Name = _secondTeamName;
                 NotifyPropertyChanged();
             }
-        }
+        }*/
 
-        private int _firstTeamScore { get; set; }
+        private int _firstTeamScore;
         public int FirstTeamScore
         {
-            get { return _firstTeamScore; }
+            get => _firstTeamScore;
             set
             {
                 _firstTeamScore = value;
                 NotifyPropertyChanged();
             }
         }
-        private int _secondTeamScore { get; set; }
+        private int _secondTeamScore;
         public int SecondTeamScore
         {
-            get { return _secondTeamScore; }
+            get => _secondTeamScore;
             set
             {
                 _secondTeamScore = value;
@@ -220,21 +249,32 @@ namespace FamilyFeud.MVVM.ViewModel
             }
         }
 
-        private int _pointsToWin { get; set; }
-        public int PointsToWin
+        private int _pointsToWinRound = 500;
+        public int PointsToWinRound
         {
-            get { return _pointsToWin; }
+            get => _pointsToWinRound;
             set
             {
-                _pointsToWin = value;
+                _pointsToWinRound = value;
                 NotifyPropertyChanged();
             }
         }
 
-        private int _pointsSum { get; set; }
+        private int _pointsToWinInRound;
+        public int PointsToWin
+        {
+            get => _pointsToWinInRound;
+            set
+            {
+                _pointsToWinInRound = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private int _pointsSum;
         public int PointsSum
         {
-            get { return _pointsSum; }
+            get => _pointsSum;
             set
             {
                 _pointsSum = value;
@@ -242,10 +282,10 @@ namespace FamilyFeud.MVVM.ViewModel
             }
         }
 
-        private List<string> _questionList { get; set; }
+        private List<string> _questionList;
         public List<string> QuestionList
         {
-            get { return _questionList; }
+            get => _questionList;
             set
             {
                 _questionList = value;
@@ -254,10 +294,10 @@ namespace FamilyFeud.MVVM.ViewModel
         }
 
 
-        private bool _isFirstTeamAnswering { get; set; }
+        private bool _isFirstTeamAnswering;
         public bool IsFirstTeamAnswering
         {
-            get { return _isFirstTeamAnswering; }
+            get => _isFirstTeamAnswering;
             set
             {
                 _isFirstTeamAnswering = value;
@@ -265,10 +305,10 @@ namespace FamilyFeud.MVVM.ViewModel
             }
         }
 
-        private bool _isSecondTeamAnswering { get; set; }
+        private bool _isSecondTeamAnswering;
         public bool IsSecondTeamAnswering
         {
-            get { return _isSecondTeamAnswering; }
+            get => _isSecondTeamAnswering;
             set
             {
                 _isSecondTeamAnswering = value;
@@ -276,19 +316,23 @@ namespace FamilyFeud.MVVM.ViewModel
             }
         }
 
-        private string gameType { get; set; } //bind to combobox/radiobutton
+        private string gameType = "gamePL"; //bind to combobox/radiobutton
         public string GameType
         {
-            get { return gameType; }
+            get => gameType;
             set
             {
-                gameType = value;
-                NotifyPropertyChanged();
+                if (gameType != value)
+                {
+                    gameType = value;
+                    NotifyPropertyChanged();
+                }
             }
         }
 
         public ICommand OnWrongAnswerClickCommand { get; protected set; }
         public ICommand OnAnswerClickCommand { get; protected set; }
+        public ICommand OnResetQuestionsClickCommand { get; protected set; }
 
         public ICommand StartGame { get; }
         public ICommand ResetGame { get; }
@@ -397,6 +441,18 @@ namespace FamilyFeud.MVVM.ViewModel
             _playerClass.currentPlaylist.clear();
             _playerClass.URL = $@"MVVM\\Sounds\\{soundName}.mp3"; //adjust path
             _playerClass.controls.play();
+        }
+
+        private void OnResetQuestionsClick(object obj)
+        {
+            if (gameService.SerializeObjectsToJson(GameService.PathEN))
+            {
+                databaseEN = gameService.GetQuestionsList(GameService.PathEN);
+            }
+            if (gameService.SerializeObjectsToJson(GameService.PathPL))
+            {
+                databasePL = gameService.GetQuestionsList(GameService.PathPL);
+            }
         }
     }
 }
