@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Input;
 using FamilyFeud.MVVM.Model;
 using FamilyFeud.MVVM.View;
@@ -26,11 +27,14 @@ namespace FamilyFeud.MVVM.ViewModel
         public MainWindowViewModel(Game game)
         {
             gameService = new GameService();
-            _playerClass = new WindowsMediaPlayerClass();
+            _playerClass = new WindowsMediaPlayerClass(); 
+            SwitchViewCommand = new RelayCommand(SwitchView);
             OnWrongAnswerClickCommand = new RelayCommand(OnWrongAnswerClick);
             OnAnswerClickCommand = new RelayCommand(OnAnswerClick);
             OnResetQuestionsClickCommand = new RelayCommand(OnResetQuestionsClick);
             ActiveGame = game;
+            CurrentView = new RoundControlView();
+            CurrentViewType = View.Game;
             SetDefaultData();
             SetList();
         }
@@ -330,13 +334,64 @@ namespace FamilyFeud.MVVM.ViewModel
             }
         }
 
+        public enum View
+        {
+            Settings,
+            Game,
+            Statistics,
+        }
+
+        private View _currentViewType;
+        public View CurrentViewType
+        {
+            get => _currentViewType;
+            set
+            {
+                if (_currentViewType != value)
+                {
+                    _currentViewType = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        private UserControl _currentView;
+        public UserControl CurrentView
+        {
+            get => _currentView;
+            set
+            {
+                if (_currentView != value)
+                {
+                    _currentView = value; 
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
         public ICommand OnWrongAnswerClickCommand { get; protected set; }
         public ICommand OnAnswerClickCommand { get; protected set; }
         public ICommand OnResetQuestionsClickCommand { get; protected set; }
+        public ICommand SwitchViewCommand { get; private set; }
 
         public ICommand StartGame { get; }
         public ICommand ResetGame { get; }
-
+        private void SwitchView(object obj)
+        {
+            // Implement logic to switch between views
+            // For example, toggle between ViewA and ViewB
+            if (obj is string viewType)
+            {
+                if (viewType == View.Settings.ToString())
+                {
+                    CurrentView = new SettingsView();
+                }
+                else if(viewType == View.Game.ToString())
+                {
+                    CurrentView = new RoundControlView();
+                }
+            }
+        }
         private void OnWrongAnswerClick(object obj)
         {
             if (IsFirstTeamAnswering)

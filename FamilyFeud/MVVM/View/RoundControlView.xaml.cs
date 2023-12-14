@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace FamilyFeud.MVVM.View
 {
     /// <summary>
-    /// Interaction logic for Page1.xaml
+    /// Interaction logic for RoundControlView.xaml
     /// </summary>
-    public partial class Page1 : Page
+    public partial class RoundControlView : UserControl
     {
-        public Page1()
+        public RoundControlView()
         {
             InitializeComponent();
         }

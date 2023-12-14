@@ -14,6 +14,9 @@ Add timer for the first answer (3seconds, then hit wronganswer sound if not answ
 11. Create converter for WrongAnswerGraphics
 12. Add to main window informations about round number/game
 13. Add option to save game
+14. Controller reader - read click and assignn answering
+15. Add button to reset buttons
+16. Add blinking name for answering team
 
 
 
