@@ -12,18 +12,70 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0" Margin="10 5 5 5">
-        <Label Padding="5" Content="First team name:"/>
-            <TextBox Margin="5 5 5 0"/>
-            <Label Padding="5" Content="Second team name:"/>
-            <TextBox Margin="5 5 5 0"/>
-        <Label Padding="5" Content="Points to win"/>
-            <ui:NumberBox Margin="5 5 5 0"/>
-        <Label Padding="5" Content="Rounds number:"/>
-            <ui:NumberBox Margin="5 5 5 0"/>
+
+        <Border Grid.Column="0" CornerRadius="6" BorderBrush="Gray" BorderThickness="2" DockPanel.Dock="Top">
+            <StackPanel Grid.Column="0" Margin="5 5 5 5">
+                <Label Padding="5" Content="GENERAL SETTINGS" FontWeight="Bold" FontSize="15" HorizontalContentAlignment="Center"/>
+
+                <Label Padding="5" Content="First team name:"/>
+                <TextBox Margin="5 5 5 0"/>
+
+                <Label Padding="5" Content="Second team name:"/>
+                <TextBox Margin="5 5 5 0"/>
+
+                <Label Padding="5" Content="Points to win"/>
+                <ui:NumberBox Minimum ="0" Value ="600"  Margin="5 5 5 0"/>
+
+                <Label Padding="5" Content="Max rounds number:"/>
+                <ui:NumberBox Minimum ="0" Value="6"  Margin="5 5 5 0"/>
+
+                <Label Padding="5" Content="Question source"/>
+                <ComboBox Margin="5 5 5 0"/>
+
+                <Label Padding="5" Content="Language"/>
+                <ComboBox Margin="5 5 5 0" />
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Column="1" CornerRadius="6" BorderBrush="Gray" BorderThickness="2" DockPanel.Dock="Top">
+            <StackPanel Grid.Column="1" Margin="5 5 5 5">
+            <Label Padding="5" Content="FINAL SETTINGS" FontWeight="Bold" FontSize="15" HorizontalContentAlignment="Center"/>
+
+            <Label Padding="5" Content="One man army"/>
+            <ComboBox Margin="5 5 5 0"/>
+
+                <Label Padding="5" Content="First person answer time"/>
+                <ui:NumberBox Minimum ="0" Value="15"  Margin="5 5 5 0"/>
+
+            <Label Padding="5" Content="Second person answer time"/>
+                <ui:NumberBox Minimum ="0" Value="20" Margin="5 5 5 0"/>
+
+            <Label Padding="5" Content="Questions number:"/>
+                <ui:NumberBox Minimum ="0" Value="5" Margin="5 5 5 0"/>
+
+            <Label Padding="5" Content="Speech recognition"/>
+            <ComboBox Margin="5 5 5 0"/>
         </StackPanel>
-        
+            </Border>
+        <Border Grid.Column="2" CornerRadius="6" BorderBrush="Gray" BorderThickness="2" DockPanel.Dock="Top">
+        <StackPanel Grid.Column="2" Margin="5 5 5 5">
+            
+            <Label Padding="5" Content="MISCELLANEOUS" FontWeight="Bold" FontSize="15" HorizontalContentAlignment="Center"/>
+
+            <Label Padding="5" Content="Controller reader"/>
+            <ComboBox Margin="5 5 5 0"/>
+
+            <Label Padding="5" Content="Presenter joke"/>
+            <ComboBox Margin="5 5 5 0"/>
+
+            <Label Padding="5" Content="Presenter voice"/>
+            <ComboBox Margin="5 5 5 0"/>
+
+        </StackPanel>
+            </Border>
     </Grid>
 </UserControl>

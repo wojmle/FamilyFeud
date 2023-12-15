@@ -23,5 +23,25 @@ namespace FamilyFeud.MVVM.View
         {
             InitializeComponent();
         }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
+        }
+
+        private void ChildWindow_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (this.WindowState == WindowState.Normal && e.ClickCount == 1)
+            {
+                this.WindowState = WindowState.Maximized;
+            }
+            else if (e.ClickCount == 1)
+            {
+                this.WindowState = WindowState.Normal;
+            }
+            
+                
+        }
     }
 }

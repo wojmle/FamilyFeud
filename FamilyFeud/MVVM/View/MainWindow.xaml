@@ -1,4 +1,4 @@
-﻿<Window x:Class="FamilyFeud.MVVM.View.MainWindow"
+﻿<ui:UiWindow x:Class="FamilyFeud.MVVM.View.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -30,4 +30,4 @@
             <ui:Button Icon="Status12" Margin="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" x:Name="StatisticsBtn" Grid.Row="2" Content ="Statistics"  Command ="{Binding SwitchViewCommand}" CommandParameter ="{Binding ElementName=StatisticsBtn, Path = Content}"/>
         </Grid>
     </Grid>
-</Window>
+</ui:UiWindow>

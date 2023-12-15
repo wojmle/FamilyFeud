@@ -7,7 +7,9 @@
         xmlns:converters="clr-namespace:FamilyFeud.MVVM.Converters"
         d:DataContext="{d:DesignInstance Type=viewmodel:MainWindowViewModel}"
         mc:Ignorable="d"
-        Title="ChildWindow" Height="720" Width="1400" Background="Black">
+        Title="ChildWindow" Height="720" Width="1400" Background="Black" WindowStyle ="None" AllowsTransparency="True" ResizeMode="CanResizeWithGrip"
+        MouseDown="Window_MouseDown"
+        MouseDoubleClick="ChildWindow_OnMouseDoubleClick">
     <Window.Resources>
         <CollectionViewSource x:Key="Answers" Source="{Binding AnswersObjectCollection}" />
         <BooleanToVisibilityConverter x:Key="BoolToVisibility" />

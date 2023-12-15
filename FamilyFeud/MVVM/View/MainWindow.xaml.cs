@@ -14,13 +14,14 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using FamilyFeud.MVVM.Model;
 using FamilyFeud.MVVM.ViewModel;
+using Wpf.Ui.Controls;
 
 namespace FamilyFeud.MVVM.View
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : UiWindow
     {
         public MainWindow()
         {
@@ -31,6 +32,11 @@ namespace FamilyFeud.MVVM.View
             childWindow.Show();
             InitializeComponent();
             DataContext = viewModel;
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            
         }
     }
 }
