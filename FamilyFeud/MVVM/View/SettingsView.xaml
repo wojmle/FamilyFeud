@@ -9,16 +9,20 @@
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance Type=viewModel:MainWindowViewModel}"
              d:DesignHeight="450" d:DesignWidth="800">
-    
     <Grid>
-
-        <StackPanel Grid.Row="1">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="6*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" Margin="10 5 5 5">
         <Label Padding="5" Content="First team name:"/>
-        <TextBox Margin="5"></TextBox>
-        <Label Padding="5" Content="Second team name:"/>
-        <Label Padding="5" Content="First team name:"/>
-        <Label Padding="5" Content="First team name:"/>
-
+            <TextBox Margin="5 5 5 0"/>
+            <Label Padding="5" Content="Second team name:"/>
+            <TextBox Margin="5 5 5 0"/>
+        <Label Padding="5" Content="Points to win"/>
+            <ui:NumberBox Margin="5 5 5 0"/>
+        <Label Padding="5" Content="Rounds number:"/>
+            <ui:NumberBox Margin="5 5 5 0"/>
         </StackPanel>
         
     </Grid>
