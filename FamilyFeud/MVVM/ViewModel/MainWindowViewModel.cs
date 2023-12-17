@@ -35,6 +35,7 @@ namespace FamilyFeud.MVVM.ViewModel
             ActiveGame = game;
             CurrentView = new RoundControlView();
             CurrentViewType = View.Game;
+            GameType = "gamePL";
             SetDefaultData();
             SetList();
         }
@@ -207,30 +208,6 @@ namespace FamilyFeud.MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
-       /* private string _firstTeamName;
-        public string FirstTeamName
-        {
-            get => _firstTeamName;
-            set
-            {
-                _firstTeamName = value;
-                ActiveGame.FirstTeam.Name = _firstTeamName;
-                NotifyPropertyChanged();
-            }
-        }*/
-
-        /*private string _secondTeamName;
-        public string SecondTeamName
-        {
-            get => _secondTeamName;
-            set
-            {
-                _secondTeamName = value;
-                ActiveGame.SecondTeam.Name = _secondTeamName;
-                NotifyPropertyChanged();
-            }
-        }*/
 
         private int _firstTeamScore;
         public int FirstTeamScore

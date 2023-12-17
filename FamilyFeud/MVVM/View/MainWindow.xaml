@@ -11,7 +11,7 @@
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
         d:DataContext="{d:DesignInstance Type=viewmodel:MainWindowViewModel}"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Background="Transparent">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*" ></ColumnDefinition>
@@ -25,9 +25,9 @@
                 <RowDefinition Height ="2*"></RowDefinition>
                 <RowDefinition Height ="10*"></RowDefinition>
             </Grid.RowDefinitions>
-            <ui:Button Icon="Settings16" Margin="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" x:Name="SettingsBtn"  Grid.Row="0" Content ="Settings"  Command ="{Binding SwitchViewCommand}" CommandParameter ="{Binding ElementName=SettingsBtn, Path = Content}"/>
-            <ui:Button Icon="Games16" Margin="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" x:Name="GameBtn" Grid.Row="1" Content ="Game"  Command ="{Binding SwitchViewCommand}" CommandParameter ="{Binding ElementName=GameBtn, Path = Content}"/>
-            <ui:Button Icon="Status12" Margin="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" x:Name="StatisticsBtn" Grid.Row="2" Content ="Statistics"  Command ="{Binding SwitchViewCommand}" CommandParameter ="{Binding ElementName=StatisticsBtn, Path = Content}"/>
+            <ui:Button Icon="Settings16" Margin="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" x:Name="SettingsBtn"  Grid.Row="0" Content ="Settings"  Command ="{Binding SwitchViewCommand}" CommandParameter ="{Binding ElementName=SettingsBtn, Path = Content}"/>
+            <ui:Button Icon="Games16"  Margin="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" x:Name="GameBtn" Grid.Row="1" Content ="Game"  Command ="{Binding SwitchViewCommand}" CommandParameter ="{Binding ElementName=GameBtn, Path = Content}"/>
+            <ui:Button Icon="Status12" Margin="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" x:Name="StatisticsBtn" Grid.Row="2" Content ="Statistics"  Command ="{Binding SwitchViewCommand}" CommandParameter ="{Binding ElementName=StatisticsBtn, Path = Content}"/>
         </Grid>
     </Grid>
 </ui:UiWindow>
