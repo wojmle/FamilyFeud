@@ -42,7 +42,7 @@ namespace FamilyFeud.MVVM.Service
             }
             catch
             {
-                int num = (int)MessageBox.Show(filePath + " couldn't be loaded. Check if file exists.", "ScaffPlan", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                int num = (int)MessageBox.Show(filePath + " couldn't be loaded. Check if file exists.", "FamilyFeud", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 return false;
             }
         }
@@ -67,7 +67,7 @@ namespace FamilyFeud.MVVM.Service
             data = (string)null;
             if (!this.Exists(filePath))
             {
-                int num = (int)MessageBox.Show(filePath + " couldn't be loaded. Check if file exists.", "ScaffPlan", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                int num = (int)MessageBox.Show(filePath + " couldn't be loaded. Check if file exists.", "FamilyFeud", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 return false;
             }
             try
@@ -90,7 +90,7 @@ namespace FamilyFeud.MVVM.Service
             data = (string[])null;
             if (!this.Exists(filePath))
             {
-                int num = (int)MessageBox.Show(filePath + " couldn't be loaded. Check if file exists.", "ScaffPlan", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                int num = (int)MessageBox.Show(filePath + " couldn't be loaded. Check if file exists.", "FamilyFeud", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 return false;
             }
             try
@@ -108,7 +108,7 @@ namespace FamilyFeud.MVVM.Service
         {
             if (!this.Exists(filePath))
             {
-                int num = (int)MessageBox.Show(filePath + " couldn't be loaded. Check if file exists.", "ScaffPlan", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                int num = (int)MessageBox.Show(filePath + " couldn't be loaded. Check if file exists.", "FamilyFeud", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 return false;
             }
             try
@@ -133,7 +133,7 @@ namespace FamilyFeud.MVVM.Service
         {
             if (!this.Exists(filePath))
             {
-                int num = (int)MessageBox.Show(filePath + " couldn't be loaded. Check if file exists.", "ScaffPlan", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                int num = (int)MessageBox.Show(filePath + " couldn't be loaded. Check if file exists.", "FamilyFeud", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 return false;
             }
             try

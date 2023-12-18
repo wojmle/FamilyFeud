@@ -70,6 +70,28 @@ namespace FamilyFeud.MVVM.Model
             }
         }
 
+        private int maxRounds;
+        public int MaxRounds
+        {
+            get => maxRounds;
+            set
+            {
+                maxRounds = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private int pointsToWinGame;
+        public int PointsToWinGame
+        {
+            get => pointsToWinGame;
+            set
+            {
+                pointsToWinGame = value;
+                NotifyPropertyChanged();
+            }
+        }
+
         private int wrongAnswers;
         public int WrongAnswers
         {
