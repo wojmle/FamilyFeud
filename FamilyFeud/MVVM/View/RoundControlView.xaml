@@ -39,7 +39,6 @@
             <Label Content="{Binding CurrentQuestion.QuestionString}"></Label>
             <ListBox ItemsSource="{Binding AnswersObjectCollection, UpdateSourceTrigger=PropertyChanged}" 
                      SelectedItem="{Binding CurrentAnswer, Mode=TwoWay}" 
-                     DisplayMemberPath="AnswerString"
                      Background="Transparent"
                      MinHeight="40">
                 <i:Interaction.Triggers>
@@ -56,7 +55,6 @@
                                    IsHitTestVisible="True"
                                    HorizontalAlignment="Stretch"
                                    Text="{Binding AnswerString}"
-
                                    Background="Transparent">
                         </TextBlock>
                     </DataTemplate>
