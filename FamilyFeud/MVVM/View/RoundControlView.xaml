@@ -26,11 +26,11 @@
 
         <Label Grid.Row ="0" Grid.Column ="0" Content="First team name:"/>
         <StackPanel Grid.Row ="1" Grid.Column ="0">
-            <TextBox x:Name ="firstTeam" Height="30" VerticalAlignment="Top" Text ="{Binding ActiveGame.FirstTeam.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <Label x:Name ="firstTeam" Height="30" VerticalAlignment="Top" Content ="{Binding ActiveGame.FirstTeam.Name, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
             <RadioButton HorizontalAlignment="Center" Content ="Answering now" GroupName="IsAnswering" IsChecked="{Binding IsFirstTeamAnswering, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></RadioButton>
         </StackPanel>
         <StackPanel Grid.Row ="1" Grid.Column ="2">
-            <TextBox Name="secondTeamName" Height="30" VerticalAlignment="Top" Text ="{Binding ActiveGame.SecondTeam.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <Label Name="secondTeamName" Height="30" VerticalAlignment="Top" Content ="{Binding ActiveGame.SecondTeam.Name, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
             <RadioButton HorizontalAlignment="Center" Content ="Answering now" GroupName="IsAnswering" IsChecked="{Binding IsSecondTeamAnswering, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></RadioButton>
         </StackPanel>
 

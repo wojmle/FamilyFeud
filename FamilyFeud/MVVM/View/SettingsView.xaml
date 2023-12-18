@@ -5,7 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FamilyFeud.MVVM.View"
              xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-             xmlns:viewModel="clr-namespace:FamilyFeud.MVVM.ViewModel"
+             xmlns:viewModel="clr-namespace:FamilyFeud.MVVM.ViewModel" 
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance Type=viewModel:MainWindowViewModel}"
              d:DesignHeight="450" d:DesignWidth="800">
@@ -22,22 +23,36 @@
                 <Label Padding="5" Content="GENERAL SETTINGS" FontWeight="Bold" FontSize="15" HorizontalContentAlignment="Center"/>
 
                 <Label Padding="5" Content="First team name:"/>
-                <TextBox Margin="5 5 5 0"/>
+                <TextBox Margin="5 5 5 0" Text ="{Binding ActiveGame.FirstTeam.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
                 <Label Padding="5" Content="Second team name:"/>
-                <TextBox Margin="5 5 5 0"/>
+                <TextBox Margin="5 5 5 0" Text ="{Binding ActiveGame.SecondTeam.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
                 <Label Padding="5" Content="Points to win"/>
-                <ui:NumberBox Minimum ="0" Value ="600"  Margin="5 5 5 0"/>
+                <ui:NumberBox Minimum ="0" Value ="{Binding ActiveGame.PointsToWinGame, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 5 0"/>
 
                 <Label Padding="5" Content="Max rounds number:"/>
-                <ui:NumberBox Minimum ="0" Value="6"  Margin="5 5 5 0"/>
+                <ui:NumberBox Minimum ="0" Value ="{Binding ActiveGame.MaxRounds, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Margin="5 5 5 0"/>
 
                 <Label Padding="5" Content="Question source"/>
-                <ComboBox Margin="5 5 5 0"/>
+                <ComboBox SelectedValue ="{Binding Path = GameType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}" Margin="5 5 5 0">
+                    <ComboBox.ItemsSource>
+                        <x:Array Type="system:String">
+                            <system:String>gamePL</system:String>
+                            <system:String>gameEN</system:String>
+                        </x:Array>
+                    </ComboBox.ItemsSource>
+                </ComboBox>
 
                 <Label Padding="5" Content="Language"/>
-                <ComboBox Margin="5 5 5 0" />
+                <ComboBox SelectedValue ="{Binding Path = Language, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}" Margin="5 5 5 0">
+                    <ComboBox.ItemsSource>
+                        <x:Array Type="system:String">
+                            <system:String>EN</system:String>
+                            <system:String>PL</system:String>
+                        </x:Array>
+                    </ComboBox.ItemsSource>
+                </ComboBox>
             </StackPanel>
         </Border>
 
@@ -46,20 +61,35 @@
             <Label Padding="5" Content="FINAL SETTINGS" FontWeight="Bold" FontSize="15" HorizontalContentAlignment="Center"/>
 
             <Label Padding="5" Content="One man army"/>
-            <ComboBox Margin="5 5 5 0"/>
-
+                <ComboBox SelectedValue ="{Binding Path = OneManArmy, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}" Margin="5 5 5 0">
+                    <ComboBox.ItemsSource>
+                        <x:Array Type="system:String">
+                            <system:String>Yes</system:String>
+                            <system:String>No</system:String>
+                        </x:Array>
+                    </ComboBox.ItemsSource>
+                </ComboBox>
+                
                 <Label Padding="5" Content="First person answer time"/>
-                <ui:NumberBox Minimum ="0" Value="15"  Margin="5 5 5 0"/>
+                <ui:NumberBox Minimum ="0" Value="{Binding Path = FirstPersonAnswerTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}"  Margin="5 5 5 0"/>
 
             <Label Padding="5" Content="Second person answer time"/>
-                <ui:NumberBox Minimum ="0" Value="20" Margin="5 5 5 0"/>
+                <ui:NumberBox Minimum ="0" Value="{Binding Path = SecondPersonAnswerTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}" Margin="5 5 5 0"/>
 
             <Label Padding="5" Content="Questions number:"/>
-                <ui:NumberBox Minimum ="0" Value="5" Margin="5 5 5 0"/>
+                <ui:NumberBox Minimum ="0" Value="{Binding Path = FinalQuestionsNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}" Margin="5 5 5 0"/>
 
             <Label Padding="5" Content="Speech recognition"/>
-            <ComboBox Margin="5 5 5 0"/>
-        </StackPanel>
+                <ComboBox SelectedValue ="{Binding Path = SpeechRecognition, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}" Margin="5 5 5 0">
+                    <ComboBox.ItemsSource>
+                        <x:Array Type="system:String">
+                            <system:String>Yes</system:String>
+                            <system:String>No</system:String>
+                        </x:Array>
+                    </ComboBox.ItemsSource>
+                </ComboBox>
+                
+            </StackPanel>
             </Border>
         <Border Grid.Column="2" CornerRadius="6" BorderBrush="Gray" BorderThickness="2" DockPanel.Dock="Top">
         <StackPanel Grid.Column="2" Margin="5 5 5 5">
@@ -67,15 +97,35 @@
             <Label Padding="5" Content="MISCELLANEOUS" FontWeight="Bold" FontSize="15" HorizontalContentAlignment="Center"/>
 
             <Label Padding="5" Content="Controller reader"/>
-            <ComboBox Margin="5 5 5 0"/>
-
-            <Label Padding="5" Content="Presenter joke"/>
-            <ComboBox Margin="5 5 5 0"/>
-
-            <Label Padding="5" Content="Presenter voice"/>
-            <ComboBox Margin="5 5 5 0"/>
-
-        </StackPanel>
+                <ComboBox SelectedValue ="{Binding Path = ControllerReader, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}" Margin="5 5 5 0">
+                    <ComboBox.ItemsSource>
+                        <x:Array Type="system:String">
+                            <system:String>Yes</system:String>
+                            <system:String>No</system:String>
+                        </x:Array>
+                    </ComboBox.ItemsSource>
+                </ComboBox>
+            
+                <Label Padding="5" Content="Presenter joke"/>
+                <ComboBox SelectedValue ="{Binding Path = PresenterJoke, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}" Margin="5 5 5 0">
+                    <ComboBox.ItemsSource>
+                        <x:Array Type="system:String">
+                            <system:String>Yes</system:String>
+                            <system:String>No</system:String>
+                        </x:Array>
+                    </ComboBox.ItemsSource>
+                </ComboBox>
+            
+                <Label Padding="5" Content="Presenter voice"/>
+                <ComboBox SelectedValue ="{Binding Path = OneManArmy, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}" Margin="5 5 5 0">
+                    <ComboBox.ItemsSource>
+                        <x:Array Type="system:String">
+                            <system:String>Michał</system:String>
+                            <system:String>Jarek</system:String>
+                        </x:Array>
+                    </ComboBox.ItemsSource>
+                </ComboBox>
+            </StackPanel>
             </Border>
     </Grid>
 </UserControl>
