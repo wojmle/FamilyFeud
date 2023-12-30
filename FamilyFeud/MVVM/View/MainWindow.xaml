@@ -25,9 +25,11 @@
                 <RowDefinition Height ="2*"></RowDefinition>
                 <RowDefinition Height ="10*"></RowDefinition>
             </Grid.RowDefinitions>
-            <ui:Button Icon="Settings16" Margin="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" x:Name="SettingsBtn"  Grid.Row="0" Content ="Settings"  Command ="{Binding SwitchViewCommand}" CommandParameter ="{Binding ElementName=SettingsBtn, Path = Content}"/>
-            <ui:Button Icon="Games16"  Margin="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" x:Name="GameBtn" Grid.Row="1" Content ="Game"  Command ="{Binding SwitchViewCommand}" CommandParameter ="{Binding ElementName=GameBtn, Path = Content}"/>
-            <ui:Button Icon="Status12" Margin="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" x:Name="StatisticsBtn" Grid.Row="2" Content ="Statistics"  Command ="{Binding SwitchViewCommand}" CommandParameter ="{Binding ElementName=StatisticsBtn, Path = Content}"/>
+            <ui:Button Grid.Row="0" Icon="Settings16" HorizontalContentAlignment="Left" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="SettingsBtn" MinWidth="120" Height="40" Content ="Settings"  Command ="{Binding SwitchViewCommand}" CommandParameter ="{Binding ElementName=SettingsBtn, Path = Content}"/>
+
+            <ui:Button Grid.Row="1" Icon="Games16"  HorizontalContentAlignment="Left" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="GameBtn" MinWidth="120" Height="40" Content ="Game"  Command ="{Binding SwitchViewCommand}" CommandParameter ="{Binding ElementName=GameBtn, Path = Content}"/>
+
+            <ui:Button Grid.Row="2" Icon="Status12"  HorizontalContentAlignment="Left" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="StatisticsBtn" MinWidth="120" Height="40" Content ="Statistics"  Command ="{Binding SwitchViewCommand}" CommandParameter ="{Binding ElementName=StatisticsBtn, Path = Content}"/>
         </Grid>
     </Grid>
 </ui:UiWindow>

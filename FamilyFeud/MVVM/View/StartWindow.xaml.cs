@@ -12,26 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using FamilyFeud.MVVM.Model;
-using FamilyFeud.MVVM.ViewModel;
-using Wpf.Ui.Controls;
 
 namespace FamilyFeud.MVVM.View
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for StartWindow.xaml
     /// </summary>
-    public partial class MainWindow : UiWindow
+    public partial class StartWindow : UserControl
     {
-        public MainWindow()
+        public StartWindow()
         {
-            var game = new Game("TEAM1", "TEAM2");
-            var viewModel = new MainWindowViewModel(game);
-            ChildWindow childWindow = new ChildWindow();
-            childWindow.DataContext = viewModel;
-            childWindow.Show();
             InitializeComponent();
-            DataContext = viewModel;
         }
     }
 }

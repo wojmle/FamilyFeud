@@ -17,6 +17,7 @@ Add timer for the first answer (3seconds, then hit wronganswer sound if not answ
 14. Controller reader - read click and assignn answering
 15. Add button to reset buttons
 16. Add blinking name for answering team
+17. Add tab with datagrid for questions resetting
 
 
 

@@ -61,7 +61,7 @@ namespace FamilyFeud.MVVM.Service
 
                 if (dataService.SaveObjectToFile(game, file) is false)
                 {
-                    var message = "Failed to save advanced options.";
+                    var message = "Failed to save game database.";
                     return false;
                 }
 
@@ -91,6 +91,23 @@ namespace FamilyFeud.MVVM.Service
             }
 
             return false;
+        }
+
+        public List<Question> UpdateDatabaseAfterGameEnd(List<Question> questionsDatabase, List<Question> gameQuestionsDatabase, string gameType)
+        {
+            for (int i = 0; i < gameQuestionsDatabase.Count; i++)
+            {
+                if (questionsDatabase.Any(x=>x.QuestionString == gameQuestionsDatabase[i].QuestionString && !gameQuestionsDatabase[i].IsReusable))
+                {   
+                    var index = questionsDatabase.FindIndex(x=>x.QuestionString == gameQuestionsDatabase[i].QuestionString);
+                    questionsDatabase[index].IsAvailable = false;
+                }
+            }
+
+            var path = gameType == "gamePL" ? PathPL : PathEN;
+            var jsonPath = Path.Combine(FolderPath, path + ".json");
+            dataService.SaveObjectToFile(questionsDatabase, jsonPath);
+            return questionsDatabase;
         }
 
         public List<Question> ReadExcel(string path) //temporary returning List<question>

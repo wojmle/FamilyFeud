@@ -22,19 +22,8 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-
-
-        <Label Grid.Row ="0" Grid.Column ="0" Content="First team name:"/>
-        <StackPanel Grid.Row ="1" Grid.Column ="0">
-            <Label x:Name ="firstTeam" Height="30" VerticalAlignment="Top" Content ="{Binding ActiveGame.FirstTeam.Name, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <RadioButton HorizontalAlignment="Center" Content ="Answering now" GroupName="IsAnswering" IsChecked="{Binding IsFirstTeamAnswering, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></RadioButton>
-        </StackPanel>
-        <StackPanel Grid.Row ="1" Grid.Column ="2">
-            <Label Name="secondTeamName" Height="30" VerticalAlignment="Top" Content ="{Binding ActiveGame.SecondTeam.Name, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <RadioButton HorizontalAlignment="Center" Content ="Answering now" GroupName="IsAnswering" IsChecked="{Binding IsSecondTeamAnswering, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></RadioButton>
-        </StackPanel>
-
-        <Label Grid.Row ="0" Grid.Column ="1"  Content="Questions list"/>
+        <RadioButton Grid.Row ="1" Grid.Column ="0" Margin="20 0 20 20" VerticalAlignment="Top" Style ="{StaticResource {x:Type ToggleButton}}" MinHeight="20" MinWidth="20" HorizontalAlignment="Center" Content ="{Binding ActiveGame.FirstTeam.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" GroupName="IsAnswering" IsChecked="{Binding IsFirstTeamAnswering, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <RadioButton Grid.Row ="1" Grid.Column ="2" VerticalAlignment="Top" Margin="20 0 20 20" Style ="{StaticResource {x:Type ToggleButton}}" HorizontalAlignment="Center" Content ="{Binding ActiveGame.SecondTeam.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" GroupName="IsAnswering" IsChecked="{Binding IsSecondTeamAnswering, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         <StackPanel Grid.Row="1" Grid.Column="1">
             <Label Content="{Binding CurrentQuestion.QuestionString}"></Label>
             <ListBox ItemsSource="{Binding AnswersObjectCollection, UpdateSourceTrigger=PropertyChanged}" 
@@ -50,8 +39,7 @@
                 </i:Interaction.Triggers>
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Style = "{StaticResource {x:Type TextBlock}}" 
-                                   VerticalAlignment="Stretch"
+                        <TextBlock VerticalAlignment="Stretch"
                                    IsHitTestVisible="True"
                                    HorizontalAlignment="Stretch"
                                    Text="{Binding AnswerString}"
@@ -60,30 +48,16 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-            <ui:Button VerticalAlignment="Bottom" x:Name="WrongAnswer" Content="Wrong Answer" Command="{Binding OnWrongAnswerClickCommand}"></ui:Button>
-        </StackPanel>
+            <ui:Button VerticalAlignment="Bottom" x:Name="WrongAnswer" Content="Wrong Answer" Command="{Binding OnWrongAnswerClickCommand}"/>
+            <ui:Button VerticalAlignment="Bottom" x:Name="NextRound" Content="Next round" Command="{Binding OnNextRoundClickCommand}"/>
+            <ui:Button VerticalAlignment="Bottom" x:Name="PrevRound" Content="Prev round" Command="{Binding OnPrevRoundClickCommand}"/>
+            <ui:Button VerticalAlignment="Bottom" x:Name="ResetWrongImages" Content="Reset wrong answers" Command="{Binding OnWrongResetClickCommand}"/>
+            <ui:Button VerticalAlignment="Bottom" x:Name="AssignPoints" Content="Assign points" Command="{Binding OnAssignPointsClickCommand}"/>
+            <ui:ToggleSwitch Content="1 vs 1" IsChecked="{Binding OneOnOne, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></ui:ToggleSwitch>
+            <ui:ToggleSwitch Content="IsReusable" IsChecked="{Binding ActiveGame.GameRounds[this].RoundQuestion.IsReusable, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <ui:Button VerticalAlignment="Bottom" x:Name="FinishGame" Content="Finish game" Command="{Binding OnFinishGameCommand}"/>
+            <ui:Button VerticalAlignment="Bottom" x:Name="ReplaceQuestion" Content="Replace question" Command="{Binding OnSkipQuestionClickCommand}"/>
 
-        <Label Grid.Row ="0" Grid.Column ="2" Content="Second team name:"/>
-        <StackPanel Grid.Row ="2" Grid.Column ="1">
-            <DockPanel HorizontalAlignment="Center">
-                <Button  VerticalAlignment="Center" Height ="30" Width="100" x:Name ="Start" Margin="5" Content="Start"></Button>
-                <Button  VerticalAlignment="Center" Height ="30" Width="100" x:Name ="Reset" Margin="5" Content="Reset"></Button>
-            </DockPanel>
-            <DockPanel  HorizontalAlignment="Center">
-                <Button  VerticalAlignment="Center" Height ="30" Width="100" x:Name ="ResetQuestions" Margin="5" Content="Reset Questions" Command="{Binding OnResetQuestionsClickCommand}"></Button>
-                <Button  VerticalAlignment="Center" Height ="30" Width="100" x:Name ="NoName" Margin="5" Content="Reset"></Button>
-            </DockPanel>
         </StackPanel>
-        <StackPanel Grid.Row ="2" Grid.Column ="0">
-            <ComboBox SelectedValue ="{Binding Path = GameType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}">
-                <ComboBox.ItemsSource>
-                    <x:Array Type="system:String">
-                        <system:String>gamePL</system:String>
-                        <system:String>gameEN</system:String>
-                    </x:Array>
-                </ComboBox.ItemsSource>
-            </ComboBox>
-        </StackPanel>
-
     </Grid>
 </UserControl>

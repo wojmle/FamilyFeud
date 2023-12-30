@@ -8,6 +8,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using FamilyFeud.MVVM.Model;
 using FamilyFeud.MVVM.View;
+using FamilyFeud.MVVM.Enums;
 using FamilyFeud.MVVM.ViewModel;
 using Microsoft.Office.Interop.Excel;
 using WMPLib;
@@ -22,29 +23,36 @@ namespace FamilyFeud.MVVM.ViewModel
         private GameService gameService;
         private List<Question> databaseEN = new List<Question>(); //temp to check functionality - everything should happen on service site
         private List<Question> databasePL = new List<Question>(); //temp to check functionality - everything should happen on service site
-        private const int roundCount = 10;
 
         public MainWindowViewModel(Game game)
         {
             gameService = new GameService();
             _playerClass = new WindowsMediaPlayerClass(); 
             SwitchViewCommand = new RelayCommand(SwitchView);
+            OnQuestionsNumberChangedCommand = new RelayCommand(OnQuestionsNumberChanged);
             OnWrongAnswerClickCommand = new RelayCommand(OnWrongAnswerClick);
             OnAnswerClickCommand = new RelayCommand(OnAnswerClick);
             OnResetQuestionsClickCommand = new RelayCommand(OnResetQuestionsClick);
+            OnNextRoundClickCommand = new RelayCommand(NextRound);
+            OnPrevRoundClickCommand = new RelayCommand(PrevRound);
+            OnWrongResetClickCommand = new RelayCommand(OnWrongResetClick);
+            OnAssignPointsClickCommand = new RelayCommand(OnAssignPointsClick);
+            OnFinishGameCommand = new RelayCommand(OnFinishGame);
+            OnSkipQuestionClickCommand = new RelayCommand(OnSkipQuestionClick);
             ActiveGame = game;
             CurrentView = new RoundControlView();
-            CurrentViewType = View.Game;
-            GameType = "gamePL";
+            CurrentViewType = ViewType.Game;
+            GameType = "gameEN";
             SetDefaultData();
-            SetList();
+            SetQuestions();
+            SetCurrentQuestion();
         }
 
-        private void SetList()
+        private void SetCurrentQuestion()
         {
             //ActiveGame.QuestionList[ActiveGame.CurrentRound - 1].Answers.ForEach(setAnswerObjectCollection());
-            AnswersObjectCollection = ActiveGame.QuestionList[ActiveGame.CurrentRound - 1].Answers;
-            CurrentQuestion = ActiveGame.QuestionList[ActiveGame.CurrentRound - 1];
+            AnswersObjectCollection = ActiveGame.GameRounds[ActiveGame.CurrentRound - 1].RoundQuestion.Answers;
+            CurrentQuestion = ActiveGame.GameRounds[ActiveGame.CurrentRound - 1].RoundQuestion;
         }
         
         private void SetDefaultData()
@@ -54,26 +62,29 @@ namespace FamilyFeud.MVVM.ViewModel
 
             databaseEN = gameService.GetQuestionsList(GameService.PathEN);
             databasePL = gameService.GetQuestionsList(GameService.PathPL);
-
-            //Setting first question
-            if (databaseEN.Count > 0 && GameType == "gameEN")
-            {
-                ActiveGame.QuestionList.Add(databaseEN.FirstOrDefault(x => x.IsAvailable && x.Answers.Count == gameService.GetNumberOfAnswers(ActiveGame.CurrentRound)));
-            }
-            else if (databaseEN.Count > 0 && GameType == "gamePL")
-            {
-                ActiveGame.QuestionList.Add(databasePL.FirstOrDefault(x => x.IsAvailable && x.Answers.Count == gameService.GetNumberOfAnswers(ActiveGame.CurrentRound)));
-            }
         }
 
-        /*private Action<Answer> setAnswerObjectCollection()
+        //move new Round() adding to the list to another place so properties of Round are not overwritten
+        private void SetQuestions()
         {
-            this.AnswersObjectCollection = new ObservableCollection<Answer>();
-            return f => this.answersObjectCollection.Add(new Answer
+            ActiveGame.GameRounds.Clear();
+            for (int i = 1; i <= ActiveGame.MaxRounds; i++)
             {
-                AnswerString = f.AnswerString, Points = f.Points
-            });
-        }*/
+                ActiveGame.GameRounds.Add(new Round());
+                if (databaseEN.Count > 0 && GameType == "gameEN")
+                {
+                    ActiveGame.GameRounds[i-1].RoundQuestion = (databaseEN.FirstOrDefault(x =>
+                        x.IsAvailable && x.Answers.Count == gameService.GetNumberOfAnswers(ActiveGame.CurrentRound) &&
+                        !ActiveGame.GameRounds.Select(y=>y.RoundQuestion).Contains(x)));
+                }
+                else if (databaseEN.Count > 0 && GameType == "gamePL")
+                {
+                    ActiveGame.GameRounds[i-1].RoundQuestion = (databasePL.FirstOrDefault(x =>
+                        x.IsAvailable && x.Answers.Count == gameService.GetNumberOfAnswers(ActiveGame.CurrentRound) &&
+                        !ActiveGame.GameRounds.Select(y => y.RoundQuestion).Contains(x)));
+                }
+            }
+        }
 
         private Game activeGame;
 
@@ -119,7 +130,17 @@ namespace FamilyFeud.MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-        
+
+        private bool _addPointsToSum = true;
+        public bool AddPointsToSum
+        {
+            get => _addPointsToSum;
+            set
+            {
+                _addPointsToSum = value;
+                NotifyPropertyChanged();
+            }
+        }
 
         private bool _isSymbolVisible1; 
         public bool IsSymbolVisible1
@@ -219,6 +240,7 @@ namespace FamilyFeud.MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
+
         private int _secondTeamScore;
         public int SecondTeamScore
         {
@@ -230,13 +252,13 @@ namespace FamilyFeud.MVVM.ViewModel
             }
         }
 
-        private int _pointsToWinRound = 500;
-        public int PointsToWinRound
+        private int _pointsToWinGame = 500;
+        public int PointsToWinGame
         {
-            get => _pointsToWinRound;
+            get => _pointsToWinGame;
             set
             {
-                _pointsToWinRound = value;
+                _pointsToWinGame = value;
                 NotifyPropertyChanged();
             }
         }
@@ -259,6 +281,39 @@ namespace FamilyFeud.MVVM.ViewModel
             set
             {
                 _pointsSum = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private int _firstPersonAnswerTime = 15;
+        public int FirstPersonAnswerTime
+        {
+            get => _firstPersonAnswerTime;
+            set
+            {
+                _firstPersonAnswerTime = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private int _secondPersonAnswerTime = 20;
+        public int SecondPersonAnswerTime
+        {
+            get => _secondPersonAnswerTime;
+            set
+            {
+                _secondPersonAnswerTime = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private int _finalQuestionsNumber = 5;
+        public int FinalQuestionsNumber
+        {
+            get => _finalQuestionsNumber;
+            set
+            {
+                _finalQuestionsNumber = value;
                 NotifyPropertyChanged();
             }
         }
@@ -297,7 +352,7 @@ namespace FamilyFeud.MVVM.ViewModel
             }
         }
 
-        private string gameType = "gamePL"; //bind to combobox/radiobutton
+        private string gameType; //bind to combobox/radiobutton
         public string GameType
         {
             get => gameType;
@@ -311,15 +366,98 @@ namespace FamilyFeud.MVVM.ViewModel
             }
         }
 
-        public enum View
+        private Language _gameLanguage = Language.Polski; //bind to combobox/radiobutton
+        public Language GameLanguage
         {
-            Settings,
-            Game,
-            Statistics,
+            get => _gameLanguage;
+            set
+            {
+                if (_gameLanguage != value)
+                {
+                    _gameLanguage = value;
+                    NotifyPropertyChanged();
+                }
+            }
         }
 
-        private View _currentViewType;
-        public View CurrentViewType
+        private YesOrNo _oneManArmy = YesOrNo.Yes; 
+        public YesOrNo OneManArmy
+        {
+            get => _oneManArmy;
+            set
+            {
+                if (_oneManArmy != value)
+                {
+                    _oneManArmy = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        private YesOrNo _speechRecognition = YesOrNo.No;
+        public YesOrNo SpeechRecognition
+        {
+            get => _speechRecognition;
+            set
+            {
+                if (_speechRecognition != value)
+                {
+                    _speechRecognition = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        private YesOrNo _controllerReader = YesOrNo.No;
+        public YesOrNo ControllerReader
+        {
+            get => _controllerReader;
+            set
+            {
+                if (_controllerReader != value)
+                {
+                    _controllerReader = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        private YesOrNo _presenterJoke = YesOrNo.No;
+        public YesOrNo PresenterJoke
+        {
+            get => _presenterJoke;
+            set
+            {
+                if (_presenterJoke != value)
+                {
+                    _presenterJoke = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        private Voice _presenterVoice = Voice.Michał;
+        public Voice PresenterVoice
+        {
+            get => _presenterVoice;
+            set
+            {
+                if (_presenterVoice != value)
+                {
+                    _presenterVoice = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        public enum YesOrNo
+        {
+            Yes,
+            No,
+        }
+
+        private ViewType _currentViewType;
+        public ViewType CurrentViewType
         {
             get => _currentViewType;
             set
@@ -346,90 +484,162 @@ namespace FamilyFeud.MVVM.ViewModel
             }
         }
 
+        public ICommand OnAssignPointsClickCommand { get; protected set; }
+        public ICommand OnWrongResetClickCommand { get; protected set; }
         public ICommand OnWrongAnswerClickCommand { get; protected set; }
         public ICommand OnAnswerClickCommand { get; protected set; }
         public ICommand OnResetQuestionsClickCommand { get; protected set; }
         public ICommand SwitchViewCommand { get; private set; }
+        public ICommand OnNextRoundClickCommand { get; private set; }
+        public ICommand OnPrevRoundClickCommand { get; private set; }
+        public ICommand OnQuestionsNumberChangedCommand { get; protected set; }
+        public ICommand OnFinishGameCommand { get; protected set; }
+        public ICommand OnSkipQuestionClickCommand { get; protected set; }
 
-        public ICommand StartGame { get; }
-        public ICommand ResetGame { get; }
+        private void NextRound(object obj)
+        {
+            if (activeGame.CurrentRound < activeGame.MaxRounds)
+            {
+                activeGame.CurrentRound++;
+                SetCurrentQuestion();
+                AddPointsToSum = true;
+            }
+        }
+
+        private void PrevRound(object obj)
+        {
+            if (activeGame.CurrentRound > 1)
+            {
+                activeGame.CurrentRound--;
+                SetCurrentQuestion();
+            }
+        }
+
         private void SwitchView(object obj)
         {
             // Implement logic to switch between views
             // For example, toggle between ViewA and ViewB
             if (obj is string viewType)
             {
-                if (viewType == View.Settings.ToString())
+                if (viewType == ViewType.Settings.ToString())
                 {
                     CurrentView = new SettingsView();
                 }
-                else if(viewType == View.Game.ToString())
+                else if(viewType == ViewType.Game.ToString())
                 {
                     CurrentView = new RoundControlView();
                 }
             }
         }
-        private void OnWrongAnswerClick(object obj)
+
+        private bool _oneOnOne = false;
+        public bool OneOnOne
+        {
+            get => _oneOnOne;
+            set
+            {
+                _oneOnOne = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private void OnAssignPointsClick(object obj)
         {
             if (IsFirstTeamAnswering)
             {
-                switch (ActiveGame.WrongAnswers)
+                FirstTeamScore += PointsToWin;
+                ActiveGame.GameRounds[ActiveGame.CurrentRound-1].FirstTeamPoints += PointsToWin;
+                AddPointsToSum = false;
+                PointsToWin = 0;
+            }
+            else if (IsSecondTeamAnswering)
+            {
+                SecondTeamScore += PointsToWin;
+                ActiveGame.GameRounds[ActiveGame.CurrentRound-1].SecondTeamPoints += PointsToWin;
+                AddPointsToSum = false;
+                PointsToWin = 0;
+            }
+        }
+
+
+        private void OnWrongResetClick(object obj)
+        {
+            ActiveGame.GameRounds[ActiveGame.CurrentRound-1].WrongAnswers = 0;
+            IsSymbolVisible1 = IsSymbolVisible11 = IsSymbolVisible12 = IsSymbolVisible13 =
+                IsSymbolVisible2 = IsSymbolVisible21 = IsSymbolVisible22 = IsSymbolVisible23 = false;
+        }
+
+        private void OnWrongAnswerClick(object obj)
+        {
+            if (OneOnOne && IsFirstTeamAnswering)
+            {
+                IsSymbolVisible1 = true;
+                PlayAnswerSound("WrongAnswer");
+            }
+            else if (OneOnOne && IsSecondTeamAnswering)
+            {
+                IsSymbolVisible2 = true;
+                PlayAnswerSound("WrongAnswer");
+            }
+            else if (IsFirstTeamAnswering)
+            {
+                switch (ActiveGame.GameRounds[ActiveGame.CurrentRound-1].WrongAnswers)
                 {
                     case 0:
-                        ActiveGame.AddWrongAnswer();
+                        ActiveGame.GameRounds[ActiveGame.CurrentRound-1].AddWrongAnswer();
                         IsSymbolVisible11 = true;
                         PlayAnswerSound("WrongAnswer");
                         break;
                     case 1:
-                        ActiveGame.AddWrongAnswer();
+                        ActiveGame.GameRounds[ActiveGame.CurrentRound-1].AddWrongAnswer();
                         IsSymbolVisible12 = true;
                         PlayAnswerSound("WrongAnswer");
                         break;
                     case 2:
-                        ActiveGame.AddWrongAnswer();
+                        ActiveGame.GameRounds[ActiveGame.CurrentRound-1].AddWrongAnswer();
                         IsSymbolVisible13 = true;
                         PlayAnswerSound("WrongAnswer");
                         break;
                     case 3:
-                        ActiveGame.AddWrongAnswer();
+                        ActiveGame.GameRounds[ActiveGame.CurrentRound-1].AddWrongAnswer();
                         IsSymbolVisible2 = true;
                         PlayAnswerSound("WrongAnswer");
                         break;
                     default:
                         IsSymbolVisible11 = IsSymbolVisible12 =
                             IsSymbolVisible13 = IsSymbolVisible2 = false;
-                        ActiveGame.ResetWrongAnswers();
+                        ActiveGame.GameRounds[ActiveGame.CurrentRound-1].AddWrongAnswer();
                         break;
                 }
             }
             else if (IsSecondTeamAnswering)
             {
-                switch (ActiveGame.WrongAnswers)
+                switch (ActiveGame.GameRounds[ActiveGame.CurrentRound-1].WrongAnswers)
                 {
                     case 0:
-                        ActiveGame.AddWrongAnswer();
+                        ActiveGame.GameRounds[ActiveGame.CurrentRound-1].AddWrongAnswer();
                         IsSymbolVisible21 = true;
                         PlayAnswerSound("WrongAnswer");
                         break;
                     case 1:
-                        ActiveGame.AddWrongAnswer();
+                        ActiveGame.GameRounds[ActiveGame.CurrentRound-1].AddWrongAnswer();
                         IsSymbolVisible22 = true;
                         PlayAnswerSound("WrongAnswer");
                         break;
                     case 2:
-                        ActiveGame.AddWrongAnswer();
+                        ActiveGame.GameRounds[ActiveGame.CurrentRound-1].AddWrongAnswer();
                         IsSymbolVisible23 = true;
                         PlayAnswerSound("WrongAnswer");
                         break;
                     case 3:
-                        ActiveGame.AddWrongAnswer();
+                        ActiveGame.GameRounds[ActiveGame.CurrentRound-1].AddWrongAnswer();
                         IsSymbolVisible1 = true;
                         PlayAnswerSound("WrongAnswer");
                         break;
                     default:
                         IsSymbolVisible21 = IsSymbolVisible22 =
                             IsSymbolVisible23 = IsSymbolVisible1 = false;
-                        ActiveGame.ResetWrongAnswers();
+                        ActiveGame.GameRounds[ActiveGame.CurrentRound-1].ResetWrongAnswers();
                         break;
                 }
             }
@@ -449,8 +659,11 @@ namespace FamilyFeud.MVVM.ViewModel
                         {
                             answerObject.IsVisible = CurrentAnswer.IsVisible = true;
                             AnswersObjectCollection[index] = answerObject;
-                            PointsToWin += answerObject.Points;
-                            PlayAnswerSound("CorrectAnswer");
+                            if (AddPointsToSum)
+                            {
+                                PointsToWin += answerObject.Points;
+                                PlayAnswerSound("CorrectAnswer");
+                            }
                             return;
                             // if team1 currently answering assign points to temporary container (consider creating two separate lists for each team and separate buttons)
 
@@ -459,7 +672,10 @@ namespace FamilyFeud.MVVM.ViewModel
                         {
                             answerObject.IsVisible = false;
                             AnswersObjectCollection[index] = answerObject;
-                            PointsToWin -= answerObject.Points;
+                            if (AddPointsToSum)
+                            {
+                                PointsToWin -= answerObject.Points;
+                            }
                             return;
                             // remove points from temporary container
                         }
@@ -485,6 +701,56 @@ namespace FamilyFeud.MVVM.ViewModel
             {
                 databasePL = gameService.GetQuestionsList(GameService.PathPL);
             }
+        }
+
+        private void OnFinishGame(object obj)
+        {
+            var database = GameType == "gamePL" ? databasePL : databaseEN;
+            var questionsToRemove = ActiveGame.GameRounds.Where(x=>!x.RoundQuestion.IsReusable).Select(x => x.RoundQuestion).ToList();
+            if (database == databasePL)
+            {
+                databasePL = gameService.UpdateDatabaseAfterGameEnd(database, questionsToRemove, GameType);
+            }
+            else if (database == databaseEN)
+            {
+                databaseEN = gameService.UpdateDatabaseAfterGameEnd(database, questionsToRemove, GameType);
+            }
+        }
+
+        private void OnQuestionsNumberChanged(object obj)
+        {
+            if (obj is int questionsNumber)
+            {
+                ActiveGame.MaxRounds = questionsNumber;
+                ActiveGame.CurrentRound = 1;
+                OnWrongResetClick(this);
+                SetQuestions();
+                SetCurrentQuestion();
+            }
+        }
+
+        //need to save to file, consider whether IsReusable is required
+        private void OnSkipQuestionClick(object obj)
+        {
+            if (gameType == "gamePL")
+            {
+                var index = databasePL.FindIndex(x => x.QuestionString == CurrentQuestion.QuestionString);
+                databasePL[index].IsAvailable = false;
+                databasePL[index].IsReusable = false;
+                ActiveGame.GameRounds[ActiveGame.CurrentRound-1].RoundQuestion = databasePL.FirstOrDefault(x =>
+                    x.IsAvailable && ActiveGame.GameRounds.Select(y => y.RoundQuestion)
+                        .All(y => y.QuestionString != x.QuestionString));
+            }
+            if (gameType == "gameEN")
+            {
+                var index = databaseEN.FindIndex(x => x.QuestionString == CurrentQuestion.QuestionString);
+                databaseEN[index].IsAvailable = false;
+                databaseEN[index].IsReusable = false;
+                ActiveGame.GameRounds[ActiveGame.CurrentRound -1].RoundQuestion = databaseEN.FirstOrDefault(x =>
+                    x.IsAvailable && ActiveGame.GameRounds.Select(y => y.RoundQuestion)
+                        .All(y => y.QuestionString != x.QuestionString));
+            }
+            SetCurrentQuestion();
         }
     }
 }

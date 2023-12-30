@@ -7,9 +7,33 @@
              xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
              xmlns:viewModel="clr-namespace:FamilyFeud.MVVM.ViewModel" 
              xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:converters="clr-namespace:FamilyFeud.MVVM.Converters"
+             xmlns:enums="clr-namespace:FamilyFeud.MVVM.Enums"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance Type=viewModel:MainWindowViewModel}"
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ObjectDataProvider x:Key="languageEnums"
+                            MethodName="GetValues" ObjectType="{x:Type system:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="enums:Language"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider x:Key="viewTypeEnums"
+                            MethodName="GetValues" ObjectType="{x:Type system:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="enums:ViewType"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider x:Key="voiceEnums"
+                            MethodName="GetValues" ObjectType="{x:Type system:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="enums:Voice"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <converters:EnumToString x:Key="EnumToString" />
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
@@ -19,7 +43,7 @@
         </Grid.ColumnDefinitions>
 
         <Border Grid.Column="0" CornerRadius="6" BorderBrush="Gray" BorderThickness="2" DockPanel.Dock="Top">
-            <StackPanel Grid.Column="0" Margin="5 5 5 5">
+            <StackPanel Margin="5 5 5 5">
                 <Label Padding="5" Content="GENERAL SETTINGS" FontWeight="Bold" FontSize="15" HorizontalContentAlignment="Center"/>
 
                 <Label Padding="5" Content="First team name:"/>
@@ -32,10 +56,18 @@
                 <ui:NumberBox Minimum ="0" Value ="{Binding ActiveGame.PointsToWinGame, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 5 0"/>
 
                 <Label Padding="5" Content="Max rounds number:"/>
-                <ui:NumberBox Minimum ="0" Value ="{Binding ActiveGame.MaxRounds, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Margin="5 5 5 0"/>
+                <ui:NumberBox Minimum ="0" Value ="{Binding ActiveGame.MaxRounds, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Margin="5 5 5 0">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="ValueChanged">
+                            <i:InvokeCommandAction
+                                Command="{Binding RelativeSource={RelativeSource AncestorType=ui:NumberBox}, Path=DataContext.OnQuestionsNumberChangedCommand}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=ui:NumberBox}, Path=DataContext.ActiveGame.MaxRounds}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </ui:NumberBox>
 
-                <Label Padding="5" Content="Question source"/>
-                <ComboBox SelectedValue ="{Binding Path = GameType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}" Margin="5 5 5 0">
+                    <Label Padding="5" Content="Question source"/>
+                <ComboBox SelectedValue ="{Binding Path = GameType, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}" Margin="5 5 5 0">
                     <ComboBox.ItemsSource>
                         <x:Array Type="system:String">
                             <system:String>gamePL</system:String>
@@ -45,14 +77,7 @@
                 </ComboBox>
 
                 <Label Padding="5" Content="Language"/>
-                <ComboBox SelectedValue ="{Binding Path = Language, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}" Margin="5 5 5 0">
-                    <ComboBox.ItemsSource>
-                        <x:Array Type="system:String">
-                            <system:String>EN</system:String>
-                            <system:String>PL</system:String>
-                        </x:Array>
-                    </ComboBox.ItemsSource>
-                </ComboBox>
+                <ComboBox ItemsSource="{Binding Source={StaticResource languageEnums}}" SelectedValue ="{Binding Path = GameLanguage, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True, Converter = {StaticResource EnumToString}}" Margin="5 5 5 0"/>
             </StackPanel>
         </Border>
 
@@ -61,7 +86,7 @@
             <Label Padding="5" Content="FINAL SETTINGS" FontWeight="Bold" FontSize="15" HorizontalContentAlignment="Center"/>
 
             <Label Padding="5" Content="One man army"/>
-                <ComboBox SelectedValue ="{Binding Path = OneManArmy, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}" Margin="5 5 5 0">
+                <ComboBox SelectedValue ="{Binding Path = OneManArmy, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True, Converter = {StaticResource EnumToString}}" Margin="5 5 5 0">
                     <ComboBox.ItemsSource>
                         <x:Array Type="system:String">
                             <system:String>Yes</system:String>
@@ -71,16 +96,17 @@
                 </ComboBox>
                 
                 <Label Padding="5" Content="First person answer time"/>
-                <ui:NumberBox Minimum ="0" Value="{Binding Path = FirstPersonAnswerTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}"  Margin="5 5 5 0"/>
+                <ui:NumberBox Minimum ="0" Value="{Binding Path = FirstPersonAnswerTime, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}"  Margin="5 5 5 0"/>
 
             <Label Padding="5" Content="Second person answer time"/>
-                <ui:NumberBox Minimum ="0" Value="{Binding Path = SecondPersonAnswerTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}" Margin="5 5 5 0"/>
+                <ui:NumberBox Minimum ="0" Value="{Binding Path = SecondPersonAnswerTime, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}" Margin="5 5 5 0"/>
 
             <Label Padding="5" Content="Questions number:"/>
-                <ui:NumberBox Minimum ="0" Value="{Binding Path = FinalQuestionsNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}" Margin="5 5 5 0"/>
+                <ui:NumberBox Minimum ="0" Value="{Binding Path = FinalQuestionsNumber, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}" Margin="5 5 5 0">
+</ui:NumberBox>
 
             <Label Padding="5" Content="Speech recognition"/>
-                <ComboBox SelectedValue ="{Binding Path = SpeechRecognition, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}" Margin="5 5 5 0">
+                <ComboBox SelectedValue ="{Binding Path = SpeechRecognition, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True, Converter = {StaticResource EnumToString}}" Margin="5 5 5 0">
                     <ComboBox.ItemsSource>
                         <x:Array Type="system:String">
                             <system:String>Yes</system:String>
@@ -97,7 +123,7 @@
             <Label Padding="5" Content="MISCELLANEOUS" FontWeight="Bold" FontSize="15" HorizontalContentAlignment="Center"/>
 
             <Label Padding="5" Content="Controller reader"/>
-                <ComboBox SelectedValue ="{Binding Path = ControllerReader, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}" Margin="5 5 5 0">
+                <ComboBox SelectedValue ="{Binding Path = ControllerReader, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True, Converter = {StaticResource EnumToString}}" Margin="5 5 5 0">
                     <ComboBox.ItemsSource>
                         <x:Array Type="system:String">
                             <system:String>Yes</system:String>
@@ -107,7 +133,7 @@
                 </ComboBox>
             
                 <Label Padding="5" Content="Presenter joke"/>
-                <ComboBox SelectedValue ="{Binding Path = PresenterJoke, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}" Margin="5 5 5 0">
+                <ComboBox SelectedValue ="{Binding Path = PresenterJoke, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True, Converter = {StaticResource EnumToString}}" Margin="5 5 5 0">
                     <ComboBox.ItemsSource>
                         <x:Array Type="system:String">
                             <system:String>Yes</system:String>
@@ -117,15 +143,15 @@
                 </ComboBox>
             
                 <Label Padding="5" Content="Presenter voice"/>
-                <ComboBox SelectedValue ="{Binding Path = OneManArmy, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}" Margin="5 5 5 0">
-                    <ComboBox.ItemsSource>
-                        <x:Array Type="system:String">
-                            <system:String>Michał</system:String>
-                            <system:String>Jarek</system:String>
-                        </x:Array>
-                    </ComboBox.ItemsSource>
-                </ComboBox>
+                <ComboBox ItemsSource="{Binding Source={StaticResource voiceEnums}}" SelectedValue ="{Binding Path = PresenterVoice, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True, Converter = {StaticResource EnumToString}}" Margin="5 5 5 0"/>
             </StackPanel>
             </Border>
+        <Border Grid.Column="3" CornerRadius="6" BorderBrush="Gray" BorderThickness="2" DockPanel.Dock="Top">
+            <StackPanel Margin="5 5 5 5">
+                <Label Padding="5" Content="MISCELLANEOUS" FontWeight="Bold" FontSize="15" HorizontalContentAlignment="Center"/>
+
+                <ui:Button Content ="Reset questions"  VerticalAlignment="Bottom" HorizontalAlignment="Stretch" MinHeight="30" Command="{Binding OnResetQuestionsClickCommand}" Margin="5 5 5 0"/>
+            </StackPanel>
+        </Border>
     </Grid>
 </UserControl>

@@ -21,9 +21,20 @@ namespace FamilyFeud.MVVM.Model
         {
             FirstTeam = new Team{ Name = firstTeam, Points = 0, Lives = 3};
             SecondTeam = new Team { Name = secondTeam, Points = 0, Lives = 3 };
-            QuestionList = new ObservableCollection<Question>();
             CurrentRound = 1;
-            SetQuestion();
+            MaxRounds = 5;
+            GameRounds = new ObservableCollection<Round>();
+        }
+
+        private ObservableCollection<Round> gameRounds;
+        public ObservableCollection<Round> GameRounds
+        {
+            get { return gameRounds;}
+            set
+            {
+                gameRounds = value;
+                NotifyPropertyChanged();
+            }
         }
 
         private Team firstTeam;
@@ -48,16 +59,16 @@ namespace FamilyFeud.MVVM.Model
             }
         }
 
-        private ObservableCollection<Question> questionList;
-        public ObservableCollection<Question> QuestionList
-        {
-            get { return questionList; }
-            set
-            {
-                questionList = value;
-                NotifyPropertyChanged();
-            }
-        }
+        //private ObservableCollection<Question> questionList;
+        //public ObservableCollection<Question> QuestionList
+        //{
+        //    get { return questionList; }
+        //    set
+        //    {
+        //        questionList = value;
+        //        NotifyPropertyChanged();
+        //    }
+        //}
 
         private int currentRound;
         public int CurrentRound
@@ -70,18 +81,18 @@ namespace FamilyFeud.MVVM.Model
             }
         }
 
-        private int maxRounds;
+        private int _maxRounds = 5;
         public int MaxRounds
         {
-            get => maxRounds;
+            get => _maxRounds;
             set
             {
-                maxRounds = value;
+                _maxRounds = value;
                 NotifyPropertyChanged();
             }
         }
 
-        private int pointsToWinGame;
+        private int pointsToWinGame = 600;
         public int PointsToWinGame
         {
             get => pointsToWinGame;
@@ -124,22 +135,6 @@ namespace FamilyFeud.MVVM.Model
                 gameHistoryPath = value;
                 NotifyPropertyChanged();
             }
-        }
-
-        public void AddWrongAnswer()
-        {
-            WrongAnswers++;
-        }
-
-        public void ResetWrongAnswers()
-        {
-            WrongAnswers = 0;
-        }
-
-
-        public void SetQuestion()
-        {
-            QuestionList.Add(new Question(CurrentRound));
         }
     }
 }

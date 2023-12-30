@@ -103,9 +103,15 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="MVVM\Converters\BoolToColor.cs" />
+    <Compile Include="MVVM\Enums\Language.cs" />
+    <Compile Include="MVVM\Enums\Voice.cs" />
+    <Compile Include="MVVM\Enums\ViewType.cs" />
     <Compile Include="MVVM\Converters\BoolToPoints.cs" />
     <Compile Include="MVVM\Converters\BoolToAnswer.cs" />
+    <Compile Include="MVVM\Converters\EnumToString.cs" />
     <Compile Include="MVVM\Interfaces\IDataStorage.cs" />
+    <Compile Include="MVVM\Model\Round.cs" />
     <Compile Include="MVVM\Model\Team.cs" />
     <Compile Include="MVVM\Service\DataService.cs" />
     <Compile Include="MVVM\View\ChildWindow.xaml.cs">
@@ -120,6 +126,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MVVM\View\SettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\StartWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -138,6 +148,9 @@
     </Compile>
     <Compile Include="MVVM\View\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\StartWindow.xaml.cs">
+      <DependentUpon>StartWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
