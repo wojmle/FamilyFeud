@@ -12,7 +12,7 @@
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance Type=viewModel:MainWindowViewModel}"
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="520" d:DesignWidth="800">
     <UserControl.Resources>
         <ObjectDataProvider x:Key="languageEnums"
                             MethodName="GetValues" ObjectType="{x:Type system:Enum}">
@@ -67,7 +67,7 @@
                 </ui:NumberBox>
 
                     <Label Padding="5" Content="Question source"/>
-                <ComboBox SelectedValue ="{Binding Path = GameType, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}" Margin="5 5 5 0">
+                <ComboBox SelectedValue ="{Binding Path = GameType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}" Margin="5 5 5 0">
                     <ComboBox.ItemsSource>
                         <x:Array Type="system:String">
                             <system:String>gamePL</system:String>
@@ -78,6 +78,9 @@
 
                 <Label Padding="5" Content="Language"/>
                 <ComboBox ItemsSource="{Binding Source={StaticResource languageEnums}}" SelectedValue ="{Binding Path = GameLanguage, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True, Converter = {StaticResource EnumToString}}" Margin="5 5 5 0"/>
+                <Label Padding="5" Content="Answer time"/>
+                <ui:NumberBox Minimum ="0" Value ="{Binding MaxAnswerTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Margin="5 5 5 0">
+                </ui:NumberBox>
             </StackPanel>
         </Border>
 

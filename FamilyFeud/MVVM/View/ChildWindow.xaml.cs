@@ -40,8 +40,6 @@ namespace FamilyFeud.MVVM.View
             {
                 this.WindowState = WindowState.Normal;
             }
-            
-                
         }
     }
 }

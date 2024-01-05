@@ -92,6 +92,18 @@ namespace FamilyFeud.MVVM.Model
             }
         }
 
+        private bool isQuestionWon = false;
+
+        public bool IsQuestionWon
+        {
+            get => isQuestionWon;
+            set
+            {
+                isQuestionWon = value;
+                NotifyPropertyChanged();
+            }
+        }
+
         public void AddWrongAnswer()
         {
             WrongAnswers++;

@@ -44,9 +44,9 @@
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="10" />
+            <RowDefinition Height="20" />
             <RowDefinition Height="1*" />
-            <RowDefinition Height="10" />
+            <RowDefinition Height="20" />
             <RowDefinition Height="1*" />
             <RowDefinition Height="10" />
             <RowDefinition Height="10*" />
@@ -55,7 +55,7 @@
             <RowDefinition Height="30" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="20" />
             <ColumnDefinition Width="4*" />
             <ColumnDefinition Width="10" />
             <ColumnDefinition Width="1*" />
@@ -65,7 +65,7 @@
             <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="10" />
             <ColumnDefinition Width="4*" />
-            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="20" />
         </Grid.ColumnDefinitions>
         <Viewbox Grid.Column="1" Grid.Row="3" Margin="0" Stretch="Uniform" HorizontalAlignment="Stretch"
                  VerticalAlignment="Stretch">
@@ -163,18 +163,28 @@
         <!--<ListBox Grid.Column="3" Grid.Row="5" Background="Black" BorderThickness="0" FontStretch="Condensed" Foreground="#FFB8BD63" FontSize="50" HorizontalContentAlignment="Left" HorizontalAlignment="Center" VerticalAlignment="Center" ItemsSource="{Binding AnswersObjectCollection}" DisplayMemberPath="Points"/>
         <ListBox Grid.Column="5" Grid.Row="5" Background="Black" BorderThickness="0" FontStretch="Condensed" Foreground="#FFB8BD63" FontSize="50" HorizontalContentAlignment="Left" HorizontalAlignment="Center" VerticalAlignment="Center" ItemsSource="{Binding AnswersObjectCollection}" DisplayMemberPath="AnswerString"/>-->
         <Viewbox Grid.Column="5" Grid.Row="7" Stretch="Uniform" HorizontalAlignment="Right" VerticalAlignment="Stretch">
-            <TextBlock Text="{Binding PointsSum}" FontSize="24" />
+            <TextBlock Text="{Binding PointsSum, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="24" />
         </Viewbox>
-        <Viewbox Grid.Column="1" Grid.Row="5" Grid.RowSpan="3">
-            <StackPanel>
-                <Image x:Name="FirstTeamFalse1" Source="/MVVM/Images/FalseSymbol.png" Margin="0 100 0 100"
-                       Visibility="{Binding IsSymbolVisible11, Converter={StaticResource BoolToVisibility}}" />
-                <Image x:Name="FirstTeamFalse2" Source="/MVVM/Images/FalseSymbol.png" Margin="0 100 0 100"
-                       Visibility="{Binding IsSymbolVisible12, Converter={StaticResource BoolToVisibility}}" />
-                <Image x:Name="FirstTeamFalse3" Source="/MVVM/Images/FalseSymbol.png" Margin="0 100 0 100"
-                       Visibility="{Binding IsSymbolVisible13, Converter={StaticResource BoolToVisibility}}" />
-            </StackPanel>
-        </Viewbox>
+        
+            <Grid Grid.Column="1" Grid.Row="5" Grid.RowSpan="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Viewbox Grid.Row ="0">
+                    <Image x:Name="FirstTeamFalse1" Source="/MVVM/Images/FalseSymbol.png" Margin="0 100 0 100"
+                           Visibility="{Binding IsSymbolVisible11, Converter={StaticResource BoolToVisibility}}" />
+            </Viewbox>
+            <Viewbox Grid.Row ="1">
+                    <Image x:Name="FirstTeamFalse2" Source="/MVVM/Images/FalseSymbol.png" Margin="0 100 0 100"
+                           Visibility="{Binding IsSymbolVisible12, Converter={StaticResource BoolToVisibility}}" />
+            </Viewbox>
+            <Viewbox Grid.Row ="2">
+                    <Image x:Name="FirstTeamFalse3" Source="/MVVM/Images/FalseSymbol.png" Margin="0 100 0 100"
+                           Visibility="{Binding IsSymbolVisible13, Converter={StaticResource BoolToVisibility}}" />
+            </Viewbox>
+            </Grid>
         <Viewbox Grid.Column="1" Grid.Row="5" Grid.RowSpan="3" Stretch="Uniform" HorizontalAlignment="Stretch"
                  VerticalAlignment="Stretch">
             <StackPanel>
@@ -182,16 +192,25 @@
                        Visibility="{Binding IsSymbolVisible1, Converter={StaticResource BoolToVisibility}}" />
             </StackPanel>
         </Viewbox>
-        <Viewbox Grid.Column="9" Grid.Row="5" Grid.RowSpan="3">
-            <StackPanel>
+        <Grid Grid.Column="9" Grid.Row="5" Grid.RowSpan="3">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Viewbox Grid.Row ="0">
                 <Image x:Name="SecondTeamFalse1" Source="/MVVM/Images/FalseSymbol.png" Margin="0 100 0 100"
                        Visibility="{Binding IsSymbolVisible21, Converter={StaticResource BoolToVisibility}}" />
+            </Viewbox>
+            <Viewbox Grid.Row ="1">
                 <Image x:Name="SecondTeamFalse2" Source="/MVVM/Images/FalseSymbol.png" Margin="0 100 0 100"
                        Visibility="{Binding IsSymbolVisible22, Converter={StaticResource BoolToVisibility}}" />
+            </Viewbox>
+            <Viewbox Grid.Row ="2">
                 <Image x:Name="SecondTeamFalse3" Source="/MVVM/Images/FalseSymbol.png" Margin="0 100 0 100"
                        Visibility="{Binding IsSymbolVisible23, Converter={StaticResource BoolToVisibility}}" />
-            </StackPanel>
-        </Viewbox>
+            </Viewbox>
+        </Grid>
         <Viewbox Grid.Column="9" Grid.Row="5" Grid.RowSpan="3" Stretch="Uniform" HorizontalAlignment="Stretch"
                  VerticalAlignment="Stretch">
             <StackPanel>

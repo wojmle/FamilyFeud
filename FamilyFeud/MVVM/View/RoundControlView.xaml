@@ -10,6 +10,16 @@
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         d:DataContext="{d:DesignInstance Type=viewmodel:MainWindowViewModel}"
         mc:Ignorable="d">
+    <UserControl.InputBindings>
+        <KeyBinding 
+            Key="NumPad1" 
+            Command="{Binding OnAnswerRequestClickCommand, Mode=OneWay}" 
+            CommandParameter="{Binding ActiveGame.FirstTeam}" />
+        <KeyBinding 
+            Key="NumPad3" 
+            Command="{Binding OnAnswerRequestClickCommand, Mode=OneWay}" 
+            CommandParameter="{Binding ActiveGame.SecondTeam}" />
+    </UserControl.InputBindings>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"></RowDefinition>
@@ -57,6 +67,7 @@
             <ui:ToggleSwitch Content="IsReusable" IsChecked="{Binding ActiveGame.GameRounds[this].RoundQuestion.IsReusable, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <ui:Button VerticalAlignment="Bottom" x:Name="FinishGame" Content="Finish game" Command="{Binding OnFinishGameCommand}"/>
             <ui:Button VerticalAlignment="Bottom" x:Name="ReplaceQuestion" Content="Replace question" Command="{Binding OnSkipQuestionClickCommand}"/>
+            <Label Content="{Binding CountdownSeconds, Mode=TwoWay}"></Label>
 
         </StackPanel>
     </Grid>

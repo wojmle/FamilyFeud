@@ -11,7 +11,7 @@
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
         d:DataContext="{d:DesignInstance Type=viewmodel:MainWindowViewModel}"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Background="Transparent">
+        Title="MainWindow" Height="520" Width="800" Background="Transparent">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*" ></ColumnDefinition>

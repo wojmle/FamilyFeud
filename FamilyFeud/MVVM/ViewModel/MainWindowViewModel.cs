@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Threading;
 using FamilyFeud.MVVM.Model;
 using FamilyFeud.MVVM.View;
 using FamilyFeud.MVVM.Enums;
@@ -23,9 +25,12 @@ namespace FamilyFeud.MVVM.ViewModel
         private GameService gameService;
         private List<Question> databaseEN = new List<Question>(); //temp to check functionality - everything should happen on service site
         private List<Question> databasePL = new List<Question>(); //temp to check functionality - everything should happen on service site
+        private DispatcherTimer timer;
 
         public MainWindowViewModel(Game game)
         {
+            CountdownSeconds = 5;
+            SetTimer();
             gameService = new GameService();
             _playerClass = new WindowsMediaPlayerClass(); 
             SwitchViewCommand = new RelayCommand(SwitchView);
@@ -39,13 +44,35 @@ namespace FamilyFeud.MVVM.ViewModel
             OnAssignPointsClickCommand = new RelayCommand(OnAssignPointsClick);
             OnFinishGameCommand = new RelayCommand(OnFinishGame);
             OnSkipQuestionClickCommand = new RelayCommand(OnSkipQuestionClick);
+            OnAnswerRequestClickCommand = new RelayCommand(OnAnswerRequestClick);
             ActiveGame = game;
             CurrentView = new RoundControlView();
             CurrentViewType = ViewType.Game;
-            GameType = "gameEN";
             SetDefaultData();
             SetQuestions();
             SetCurrentQuestion();
+        }
+
+        private void SetTimer()
+        {
+            timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += Timer_Tick;
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            if (CountdownSeconds > 0)
+            {
+                CountdownSeconds--;
+            }
+            else
+            {
+                timer.Stop();
+                OnWrongAnswerClick(sender);
+
+                // Optionally handle countdown completion here
+            }
         }
 
         private void SetCurrentQuestion()
@@ -280,7 +307,49 @@ namespace FamilyFeud.MVVM.ViewModel
             get => _pointsSum;
             set
             {
-                _pointsSum = value;
+                if (CurrentQuestion.Answers.Count == 3)
+                {
+                    PointsMultiplier = 2;
+                }
+                _pointsSum = PointsToWin * PointsMultiplier;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private int _pointsMultiplier = 1;
+        public int PointsMultiplier
+        {
+            get => _pointsMultiplier;
+            set
+            {
+                _pointsMultiplier = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private int _countdownSeconds;
+
+        public int CountdownSeconds
+        {
+            get => _countdownSeconds; 
+            set
+            {
+                if (_countdownSeconds != value)
+                {
+                    _countdownSeconds = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        private int _maxAnswerTime = 5;
+        public int MaxAnswerTime
+        {
+            get => _maxAnswerTime;
+            set
+            {
+                _maxAnswerTime = value;
+                CountdownSeconds = _maxAnswerTime;
                 NotifyPropertyChanged();
             }
         }
@@ -352,7 +421,7 @@ namespace FamilyFeud.MVVM.ViewModel
             }
         }
 
-        private string gameType; //bind to combobox/radiobutton
+        private string gameType = "gameEN"; //bind to combobox/radiobutton
         public string GameType
         {
             get => gameType;
@@ -495,11 +564,13 @@ namespace FamilyFeud.MVVM.ViewModel
         public ICommand OnQuestionsNumberChangedCommand { get; protected set; }
         public ICommand OnFinishGameCommand { get; protected set; }
         public ICommand OnSkipQuestionClickCommand { get; protected set; }
+        public ICommand OnAnswerRequestClickCommand { get; protected set; }
 
         private void NextRound(object obj)
         {
             if (activeGame.CurrentRound < activeGame.MaxRounds)
             {
+                OneOnOne = true;
                 activeGame.CurrentRound++;
                 SetCurrentQuestion();
                 AddPointsToSum = true;
@@ -532,7 +603,7 @@ namespace FamilyFeud.MVVM.ViewModel
             }
         }
 
-        private bool _oneOnOne = false;
+        private bool _oneOnOne = true;
         public bool OneOnOne
         {
             get => _oneOnOne;
@@ -547,17 +618,17 @@ namespace FamilyFeud.MVVM.ViewModel
         {
             if (IsFirstTeamAnswering)
             {
-                FirstTeamScore += PointsToWin;
+                FirstTeamScore += PointsSum;
                 ActiveGame.GameRounds[ActiveGame.CurrentRound-1].FirstTeamPoints += PointsToWin;
                 AddPointsToSum = false;
-                PointsToWin = 0;
+                PointsToWin = PointsSum = 0;
             }
             else if (IsSecondTeamAnswering)
             {
                 SecondTeamScore += PointsToWin;
                 ActiveGame.GameRounds[ActiveGame.CurrentRound-1].SecondTeamPoints += PointsToWin;
                 AddPointsToSum = false;
-                PointsToWin = 0;
+                PointsToWin = PointsSum = 0;
             }
         }
 
@@ -569,8 +640,31 @@ namespace FamilyFeud.MVVM.ViewModel
                 IsSymbolVisible2 = IsSymbolVisible21 = IsSymbolVisible22 = IsSymbolVisible23 = false;
         }
 
+        private void ResetTimer()
+        {
+            timer.Stop();
+            CountdownSeconds = MaxAnswerTime;
+        }
+
+        /*
+        private bool IsOneOnOneOver()
+        {
+            if (ActiveGame.GameRounds[ActiveGame.CurrentRound - 1].RoundQuestion.Answers.Count(x => x.IsVisible) > 1)
+            {
+                return false;
+            }
+            if (ActiveGame.GameRounds[ActiveGame.CurrentRound - 1].RoundQuestion.Answers.Count(x => x.IsVisible) < 2)
+            {
+                if (ActiveGame.GameRounds[ActiveGame.CurrentRound - 1].RoundQuestion.Answers.Count(x => x.IsVisible) == 1 && ActiveGame.GameRounds[ActiveGame.CurrentRound - 1].WrongAnswers == 1)
+                {
+                    OneOnOne = true;
+                }
+            }
+        }*/
+
         private void OnWrongAnswerClick(object obj)
         {
+            ResetTimer();
             if (OneOnOne && IsFirstTeamAnswering)
             {
                 IsSymbolVisible1 = true;
@@ -596,19 +690,21 @@ namespace FamilyFeud.MVVM.ViewModel
                         PlayAnswerSound("WrongAnswer");
                         break;
                     case 2:
+                        IsSecondTeamAnswering = true;
                         ActiveGame.GameRounds[ActiveGame.CurrentRound-1].AddWrongAnswer();
                         IsSymbolVisible13 = true;
                         PlayAnswerSound("WrongAnswer");
                         break;
                     case 3:
+                        IsSecondTeamAnswering = true;
                         ActiveGame.GameRounds[ActiveGame.CurrentRound-1].AddWrongAnswer();
-                        IsSymbolVisible2 = true;
+                        IsSymbolVisible1 = true;
                         PlayAnswerSound("WrongAnswer");
                         break;
                     default:
                         IsSymbolVisible11 = IsSymbolVisible12 =
                             IsSymbolVisible13 = IsSymbolVisible2 = false;
-                        ActiveGame.GameRounds[ActiveGame.CurrentRound-1].AddWrongAnswer();
+                        ActiveGame.GameRounds[ActiveGame.CurrentRound-1].ResetWrongAnswers();
                         break;
                 }
             }
@@ -627,13 +723,15 @@ namespace FamilyFeud.MVVM.ViewModel
                         PlayAnswerSound("WrongAnswer");
                         break;
                     case 2:
+                        IsFirstTeamAnswering = true;
                         ActiveGame.GameRounds[ActiveGame.CurrentRound-1].AddWrongAnswer();
                         IsSymbolVisible23 = true;
                         PlayAnswerSound("WrongAnswer");
                         break;
                     case 3:
+                        IsFirstTeamAnswering = true;
                         ActiveGame.GameRounds[ActiveGame.CurrentRound-1].AddWrongAnswer();
-                        IsSymbolVisible1 = true;
+                        IsSymbolVisible2 = true;
                         PlayAnswerSound("WrongAnswer");
                         break;
                     default:
@@ -647,6 +745,7 @@ namespace FamilyFeud.MVVM.ViewModel
 
         private void OnAnswerClick(object obj)
         {
+            ResetTimer();
             if (obj != null && obj is Answer answer)
             {
                 foreach (var answerObject in AnswersObjectCollection)
@@ -662,11 +761,19 @@ namespace FamilyFeud.MVVM.ViewModel
                             if (AddPointsToSum)
                             {
                                 PointsToWin += answerObject.Points;
+                                PointsMultiplier = CurrentQuestion.Answers.Count == 3 ? 2 : 1;
+                                PointsSum += answerObject.Points * PointsMultiplier;
+                                if (IsFirstTeamAnswering)
+                                {
+                                    ActiveGame.GameRounds[ActiveGame.CurrentRound - 1].FirstTeamPoints += answerObject.Points * PointsMultiplier;
+                                }
+                                if (IsSecondTeamAnswering)
+                                {
+                                    ActiveGame.GameRounds[ActiveGame.CurrentRound - 1].SecondTeamPoints += answerObject.Points * PointsMultiplier;
+                                }
                                 PlayAnswerSound("CorrectAnswer");
                             }
                             return;
-                            // if team1 currently answering assign points to temporary container (consider creating two separate lists for each team and separate buttons)
-
                         }
                         else if (answer.IsVisible)
                         {
@@ -675,12 +782,35 @@ namespace FamilyFeud.MVVM.ViewModel
                             if (AddPointsToSum)
                             {
                                 PointsToWin -= answerObject.Points;
+                                PointsMultiplier = CurrentQuestion.Answers.Count == 3 ? 2 : 1;
+                                PointsSum -= answerObject.Points * PointsMultiplier;
+                                if (IsFirstTeamAnswering)
+                                {
+                                    ActiveGame.GameRounds[ActiveGame.CurrentRound - 1].FirstTeamPoints -= answerObject.Points * PointsMultiplier;
+                                }
+                                if (IsSecondTeamAnswering)
+                                {
+                                    ActiveGame.GameRounds[ActiveGame.CurrentRound - 1].SecondTeamPoints -= answerObject.Points * PointsMultiplier;
+                                }
                             }
                             return;
                             // remove points from temporary container
                         }
                     }
                 }
+            }
+        }
+
+        private void AssignTemporaryPoints(int points)
+        {
+            if (IsFirstTeamAnswering && AnswersObjectCollection.Count(x => x.IsVisible) == 1)
+            {
+                // add points to temporary container of first team
+            }
+
+            if (IsSecondTeamAnswering && AnswersObjectCollection.Count(x => x.IsVisible) == 1)
+            {
+                // add points to temporary container of second team
             }
         }
 
@@ -722,10 +852,26 @@ namespace FamilyFeud.MVVM.ViewModel
             if (obj is int questionsNumber)
             {
                 ActiveGame.MaxRounds = questionsNumber;
-                ActiveGame.CurrentRound = 1;
+                ActiveGame.CurrentRound = ActiveGame.MaxRounds < ActiveGame.CurrentRound ? 1 : ActiveGame.CurrentRound;
                 OnWrongResetClick(this);
                 SetQuestions();
                 SetCurrentQuestion();
+            }
+        }
+
+        private void OnAnswerRequestClick(object obj)
+        {
+            timer.Start();
+            if (obj is Team team)
+            {
+               if(team == ActiveGame.FirstTeam)
+               {
+                   IsFirstTeamAnswering = true;
+               }
+               if (team == ActiveGame.SecondTeam)
+               {
+                   IsSecondTeamAnswering = true;
+               }
             }
         }
 
